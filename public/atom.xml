@@ -4,7 +4,7 @@
   <title><![CDATA[Mike's Blog]]></title>
   <link href="http://michaelevans.org/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2012-05-01T18:28:11-04:00</updated>
+  <updated>2012-06-03T13:22:47-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Mike Evans]]></name>
@@ -12,5 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Everyone should learn to program]]></title>
+    <link href="http://michaelevans.org/blog/2012/06/03/everyone-should-learn-to-program/"/>
+    <updated>2012-06-03T13:09:00-04:00</updated>
+    <id>http://michaelevans.org/blog/2012/06/03/everyone-should-learn-to-program</id>
+    <content type="html"><![CDATA[<p>I was reading a post the other day which was written as a response to Jeff Atwood&#8217;s seemly controversial <a href="http://www.codinghorror.com/blog/2012/05/please-dont-learn-to-code.html">blog entry</a>, entitled &#8220;Please don&#8217;t learn to code&#8221;. The part that struck me the most is quoted here:</p>
+
+<blockquote><p>We learn new things because our perception of the world is shaped by our mental catalogues of what is possible and what it useful. We constantly filtering out perceptual noise on the criterion that it doesn&#8217;t help us achieve some goal or end. Just think of when you learn a new word. You suddenly hear it everywhere. Not because everyone else just learned it too, but because you had been filtering it out. It didn&#8217;t help you get around because you didn&#8217;t know how to use it.</p><p>If you don&#8217;t know how to program, you filter out all parts of the world that involve programming. You miss the loops and divide-and-conquers of everyday life. You cannot recognize programming problems without the understanding that outlines these problems against the noise of useless or random information.</p></blockquote>
+
+
+<p>The <a href="https://gist.github.com/0f61db65bbd2d2cb681a">whole thing</a> is worth the read, so if you have a few minutes, I highly suggest it.</p>
+]]></content>
+  </entry>
   
 </feed>
