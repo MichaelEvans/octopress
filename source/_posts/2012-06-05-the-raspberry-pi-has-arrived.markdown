@@ -14,7 +14,7 @@ I have to say, despite looking at pictures, and seeing information about the Pi 
 
 {% img left /images/2012/06/05/box.jpg 200 100 Pi Box %}
 
-I decided to go with the [Debian](http://www.debian.org/) image, not only because I'm familiar with it, but also because that is the suggested distro in the documentation. I'm considering switching to Arch after I fiddle around with it a little bit more.  After quickly running to pick up an SD card, I hastily plugged in the Pi to my home network, and plugged in the power. A few seconds later, and I was up and running. I logged in and tried the default setup of LXDE (pictured below), and I have to say, it's a little sluggish. I tried out some of the included apps, like [Midori](http://en.wikipedia.org/wiki/Midori_(web_browser)) (the default browser), and a few of the included development tools. 
+I decided to go with the [Debian](http://www.debian.org/) image, not only because I'm familiar with it, but also because that is the suggested distro in the documentation. I'm considering switching to Arch after I fiddle around with it a little bit more.  After quickly running to pick up an SD card, I hastily plugged in the Pi to my home network, and plugged in the power. A few seconds later, and I was up and running. I logged in and tried the default setup of LXDE (pictured below), and I have to say, it's a little sluggish. I tried out some of the included apps, like [Midori](http://en.wikipedia.org/wiki/Midori_(web_browser\)) (the default browser), and a few of the included development tools. 
 
 {% img right /images/2012/06/05/it_lives.jpg 400 200 Pi Box %}
 

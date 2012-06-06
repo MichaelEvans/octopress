@@ -4,7 +4,7 @@
   <title><![CDATA[Mike's Blog]]></title>
   <link href="http://michaelevans.org/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2012-06-05T21:19:22-04:00</updated>
+  <updated>2012-06-05T21:36:54-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Mike Evans]]></name>
@@ -26,7 +26,7 @@
 
 <p><img class="left" src="http://michaelevans.org/images/2012/06/05/box.jpg" width="200" height="100" title="Pi Box" ></p>
 
-<p>I decided to go with the <a href="http://www.debian.org/">Debian</a> image, not only because I&#8217;m familiar with it, but also because that is the suggested distro in the documentation. I&#8217;m considering switching to Arch after I fiddle around with it a little bit more.  After quickly running to pick up an SD card, I hastily plugged in the Pi to my home network, and plugged in the power. A few seconds later, and I was up and running. I logged in and tried the default setup of LXDE (pictured below), and I have to say, it&#8217;s a little sluggish. I tried out some of the included apps, like <a href="http://en.wikipedia.org/wiki/Midori_(web_browser">Midori</a>) (the default browser), and a few of the included development tools.</p>
+<p>I decided to go with the <a href="http://www.debian.org/">Debian</a> image, not only because I&#8217;m familiar with it, but also because that is the suggested distro in the documentation. I&#8217;m considering switching to Arch after I fiddle around with it a little bit more.  After quickly running to pick up an SD card, I hastily plugged in the Pi to my home network, and plugged in the power. A few seconds later, and I was up and running. I logged in and tried the default setup of LXDE (pictured below), and I have to say, it&#8217;s a little sluggish. I tried out some of the included apps, like <a href="http://en.wikipedia.org/wiki/Midori_(web_browser)">Midori</a> (the default browser), and a few of the included development tools.</p>
 
 <p><img class="right" src="http://michaelevans.org/images/2012/06/05/it_lives.jpg" width="400" height="200" title="Pi Box" ></p>
 
