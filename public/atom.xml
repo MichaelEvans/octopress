@@ -4,7 +4,7 @@
   <title><![CDATA[Mike's Blog]]></title>
   <link href="http://michaelevans.org/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2012-06-05T21:36:54-04:00</updated>
+  <updated>2012-06-07T19:33:29-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Mike Evans]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My WWDC 2012 Predictions]]></title>
+    <link href="http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/"/>
+    <updated>2012-06-07T18:02:00-04:00</updated>
+    <id>http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions</id>
+    <content type="html"><![CDATA[<p>Since essentially all other tech blogs are writing about their predictions for Apple&#8217;s Worldwide Developer Conference which is being held next week, I&#8217;ve decided to throw my guesses into the ring, so we can go over them next week, and see how I did. I&#8217;ll try to touch on all the big rumors that are going around, but if I miss one, feel free to mention it in the comments.</p>
+
+<h2>Things that I think are likely/definite:</h2>
+
+<h3>New Macs</h3>
+
+<p>As any techy will tell you, Intel has shipped some new generation CPU&#8217;s recently (referred to as Ivy Bridge), which would be natural fits for the aging Macbook Pros, as well as the Macbook Airs, iMacs, and even the Mini/Pro. This would also confirm another rumor that&#8217;s going around regarding USB 3.0, since the Ivy Bridge CPUs ship with USB 3.0 support. It&#8217;s also believeable that there will be a new Mac Pro too.</p>
+
+<!-- more -->
+
+
+<p></p>
+
+<h3>Mountain Lion</h3>
+
+<p>Since WWDC really is a developer conference, I think it&#8217;s pretty likely that Apple will be setting a release date for it&#8217;s newest operating system release. There&#8217;s not too much else to say about this one, since Apple has already had a small annoucement for it, and there&#8217;s also a good bit of information on their <a href="http://www.apple.com/macosx/mountain-lion/">website</a>. There&#8217;s rumors about &#8220;iCloud Tabs&#8221;, essentially browser tab sync between iOS and OS X, which also seems feasable, since Google has already done this with Chrome.</p>
+
+<h3>iOS 6 Unveiling</h3>
+
+<p>Again, this is a developer conference, and Apple has no better time to demo all their fancy new APIs and features than now. Apple has used WWDC as a time to show off previous versions of iOS, it only seems logical we&#8217;ll get a taste of the new bits next week.</p>
+
+<h3>Retina Displays</h3>
+
+<p>Probably could have grouped this with the new Macs, but I figured the displays deserved their own section. Just as with the iPad, the interface will look the same, but the screen will be far crisper. I think this is huge, not just for Mac users, but to pressure other manufacturers to finally up the resolution on their own notebooks. Using a 15&#8221; notebook with a 1366x768 or 1280x800 resolution is a joke. If you don&#8217;t know or aren&#8217;t sure of the difference the retina displays make, go look at an iPhone 3GS, and then a 4 or 4S. You&#8217;ll wonder how we lived like that.</p>
+
+<h3>New Maps for iOS</h3>
+
+<p>I&#8217;m really surprised it took them this long. As far as I know, no other iPhone app that shipped with 1.0 has had as little work since 2007 as Maps. The signs for an upgrade have been all over. First Apple dropped Google Maps in iPhoto for iOS, and then leaked screenshots made their way onto the internet. Anyway, I hope they knock it out of the park. I&#8217;ve been a long time Google Maps user, and having turn by turn directions and a first class maps app was one of my favorite Android features. After Google&#8217;s update for Google Maps on Wednesday, Apple certainly has their work cut out for them.</p>
+
+<h2>Things that I think are possible</h2>
+
+<h3>Siri Update</h3>
+
+<p>Something that would make me want to use Siri! I have owned an iPhone 4S since shortly after launch, and I have never felt the need to talk to her. Opening up Siri to at least <em>some</em> third parties could go a long way. Yeah, they might even let iPad users in on the &#8220;fun&#8221;.</p>
+
+<h3>Apple TV Update</h3>
+
+<p>Well, the Apple TV rumor is that there will be some sort of App Store for the ATV. I&#8217;m not sold on it. Yeah, it would probably sell Apple TVs like hotcakes, but even as the owner of a Google TV, I really don&#8217;t see the draw to having too many apps on my TV. I guess I could be convinced otherwise with some well-polished software, but I just don&#8217;t see it happening right now.</p>
+
+<h3>Facebook Integration</h3>
+
+<p>Meh. Might happen, might not. Don&#8217;t really feel too strongly either way.</p>
+
+<!--##Things I think are unlikely-->
+
+
+<h2>Things that won&#8217;t be happening</h2>
+
+<h3>iPhone 5</h3>
+
+<p>Let&#8217;s get this one out of the way right now. It ain&#8217;t happening. My bet is that it will ship in the fall, along with the release of iOS 6.</p>
+
+<h3>Apple&#8217;s own TV</h3>
+
+<p>Yeah, right.</p>
+
+<h3>iPad Mini/iPad 7</h3>
+
+<p>Hahahahaha.</p>
+
+<p>Oh you weren&#8217;t kidding? Nope.</p>
+
+<p>Well, that&#8217;s all I have for now. If I&#8217;m missing something, or you have different opinions, feel free to leave a comment! Unfortunately I won&#8217;t be attending WWDC this year, but I <em>will</em> be attending Google IO later this month. So if people find this article interesting, I&#8217;ll do another one before that, and I&#8217;ll also do some live blogging from the conference.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Raspberry Pi Has Arrived!]]></title>
