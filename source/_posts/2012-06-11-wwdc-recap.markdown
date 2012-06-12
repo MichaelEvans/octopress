@@ -31,7 +31,7 @@ Yawn. Android users have had the same basic experience for maybe two years now.
 Almost there. They added some more third party support, but it's not yet at that API level where I think it will really shine. Maybe in iOS 7? 
 
 ###Apple TV Update
-Nothing, got that one.
+Nothing, called that one.
 
 ###Facebook Integration
 Still don't care.
