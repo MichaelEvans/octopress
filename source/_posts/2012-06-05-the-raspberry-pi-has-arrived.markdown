@@ -3,7 +3,7 @@ layout: post
 title: "The Raspberry Pi Has Arrived!"
 date: 2012-06-05 20:08
 comments: true
-categories: 
+categories: Review
 ---
 
 As the title suggests, I just received my [Raspberry Pi](www.raspberrypi.org) (Model B) in the mail. For those who don't know about the Raspberry Pi, it's a small little computer with 256MB of RAM, a 700MHz CPU and a GPU capable of 1080p output over HDMI. Connectivity is provided via 2 USB 2.0 ports, and a RJ45 10/100 Ethernet port. There's HDMI and RCA video, and a 3.5mm jack for audio. Lastly, there's an SD slot on the bottom for storage, and the device is powered by a microUSB port, the same one as most smartphones. 
