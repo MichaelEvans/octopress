@@ -6,7 +6,7 @@ comments: true
 categories: Apple
 ---
 
-If you remember from last week, I made some predictions about what Apple would reveal today at WWDC. Let's recap what actually happened, and we can see the hits and misses.
+If you remember from [last week](http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/), I made some predictions about what Apple would reveal today at WWDC. Let's recap what actually happened, and we can see the hits and misses.
 
 ###New Macs
 
@@ -19,6 +19,8 @@ Got a release *month* (July). There was iCloud Tabs, and a few other iOS feature
 ###iOS 6
 
 I was a bit disappointed. Nothing I saw made me feel like I needed to have the newest update, since most of the new features are already present in the competitor's latest offering, Ice Cream Sandwich. Can't wait to see how Google strikes back in two weeks.
+
+<!-- more --> 
 
 ###Retina Displays 
 
