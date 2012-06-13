@@ -6,7 +6,7 @@ comments: true
 categories: Apple
 ---
 
-If you remember from [last week](http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/), I made some predictions about what Apple would reveal today at WWDC. Let's recap what actually happened, and we can see the hits and misses.
+If you remember from [last week](blog/2012/06/07/my-wwdc-2012-predictions/), I made some predictions about what Apple would reveal today at WWDC. Let's recap what actually happened, and we can see the hits and misses.
 
 ###New Macs
 
