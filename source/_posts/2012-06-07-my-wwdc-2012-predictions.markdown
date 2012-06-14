@@ -4,6 +4,8 @@ title: "My WWDC 2012 Predictions"
 date: 2012-06-07 18:02
 comments: true
 categories: Apple
+description: "My personal predictions for what Apple will reveal at WWDC 2012"
+keywords: "apple, WWDC, rumors, Apple WWDC, WWDC 2012, apple rumors, macbook rumors, retina display"
 ---
 
 Since essentially all other tech blogs are writing about their predictions for Apple's Worldwide Developer Conference which is being held next week, I've decided to throw my guesses into the ring, so we can go over them next week, and see how I did. I'll try to touch on all the big rumors that are going around, but if I miss one, feel free to mention it in the comments.

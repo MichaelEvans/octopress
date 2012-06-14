@@ -4,6 +4,8 @@ title: "WWDC Recap"
 date: 2012-06-11 21:55
 comments: true
 categories: Apple
+description: "The results of my predictions from what Apple unveiled at WWDC 2012"
+keywords: "apple, WWDC, rumors, Apple WWDC, WWDC 2012, apple rumors, macbook rumors, retina display"
 ---
 
 If you remember from [last week](blog/2012/06/07/my-wwdc-2012-predictions/), I made some predictions about what Apple would reveal today at WWDC. Let's recap what actually happened, and we can see the hits and misses.
