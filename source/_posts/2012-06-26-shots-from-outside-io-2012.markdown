@@ -3,7 +3,9 @@ layout: post
 title: "Shots from outside Google IO 2012"
 date: 2012-06-26 09:42
 comments: true
-categories: 
+categories: Google
+description: "My early photos from outside Google IO 2012. Looks like a Nexus device!"
+keywords: "google, google IO, Nexus, Google Wallet, Moscone, Google IO 2012"
 ---
 
 I'm in San Francisco for [Google IO 2012](https://developers.google.com/events/io/), and while Nate and I were wandering the city, we passed by the Moscone Center and I snapped a couple of photos.
