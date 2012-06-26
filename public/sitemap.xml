@@ -2,32 +2,36 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://michaelevans.org/blog/2012/06/03/everyone-should-learn-to-program/</loc>
-        <lastmod>2012-06-03T13:22:46-04:00</lastmod>
+        <lastmod>2012-06-03T10:22:46-07:00</lastmod>
     </url>
     <url>
         <loc>http://michaelevans.org/blog/2012/06/05/the-raspberry-pi-has-arrived/</loc>
-        <lastmod>2012-06-13T21:26:54-04:00</lastmod>
+        <lastmod>2012-06-13T18:26:54-07:00</lastmod>
     </url>
     <url>
         <loc>http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/</loc>
-        <lastmod>2012-06-13T21:28:16-04:00</lastmod>
+        <lastmod>2012-06-13T18:28:16-07:00</lastmod>
     </url>
     <url>
         <loc>http://michaelevans.org/blog/2012/06/11/wwdc-recap/</loc>
-        <lastmod>2012-06-21T20:59:17-04:00</lastmod>
+        <lastmod>2012-06-21T17:59:17-07:00</lastmod>
     </url>
     <url>
         <loc>
             http://michaelevans.org/blog/2012/06/19/microsoft-surface-has-microsoft-nailed-it/
         </loc>
-        <lastmod>2012-06-19T21:16:29-04:00</lastmod>
+        <lastmod>2012-06-19T18:16:29-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012/</loc>
+        <lastmod>2012-06-26T09:53:35-07:00</lastmod>
     </url>
     <url>
         <loc>http://michaelevans.org/blog/archives/</loc>
-        <lastmod>2012-06-21T20:59:17-04:00</lastmod>
+        <lastmod>2012-06-26T09:53:35-07:00</lastmod>
     </url>
     <url>
         <loc>http://michaelevans.org/</loc>
-        <lastmod>2012-06-21T20:59:17-04:00</lastmod>
+        <lastmod>2012-06-26T09:53:35-07:00</lastmod>
     </url>
 </urlset>

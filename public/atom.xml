@@ -4,7 +4,7 @@
   <title><![CDATA[Gadget Habit]]></title>
   <link href="http://michaelevans.org/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2012-06-21T20:59:18-04:00</updated>
+  <updated>2012-06-26T09:53:35-07:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Mike Evans]]></name>
@@ -14,9 +14,28 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Shots from outside Google IO 2012]]></title>
+    <link href="http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012/"/>
+    <updated>2012-06-26T09:42:00-07:00</updated>
+    <id>http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012</id>
+    <content type="html"><![CDATA[<p>I&#8217;m in San Francisco for <a href="https://developers.google.com/events/io/">Google IO 2012</a>, and while Nate and I were wandering the city, we passed by the Moscone Center and I snapped a couple of photos.</p>
+
+<p><img src="http://michaelevans.org/images/2012/06/26/window.JPG" width="700" height="200" title="Giant Google Banner" ></p>
+
+<p>My guess is that there will be a Nexus tablet (see the Nexus banner on the third floor), with NFC and Google Wallet, and then attendees will get to test the tap-to-pay out at the Google Wallet sponsored Google Store.</p>
+
+<p><img src="http://michaelevans.org/images/2012/06/26/nexus.JPG" width="700" height="200" title="Nexus Banner" ></p>
+
+<p><img src="http://michaelevans.org/images/2012/06/26/wallet.JPG" width="700" height="200" title="Google Store" ></p>
+
+<p>We&#8217;ll certainly find out tomorrow though!</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Microsoft Surface: Has Microsoft nailed it?]]></title>
     <link href="http://michaelevans.org/blog/2012/06/19/microsoft-surface-has-microsoft-nailed-it/"/>
-    <updated>2012-06-19T19:44:00-04:00</updated>
+    <updated>2012-06-19T19:44:00-07:00</updated>
     <id>http://michaelevans.org/blog/2012/06/19/microsoft-surface-has-microsoft-nailed-it</id>
     <content type="html"><![CDATA[<p>Last night Microsoft unveiled Surface, its entry into the already crowded tablet arena. The name, you might be thinking, sounds awfully familiar. That&#8217;s cause <a href="http://en.wikipedia.org/wiki/Microsoft_PixelSense">it is</a>. Anyway, the hardware of this reincarnation is <em>not</em> a table, it&#8217;s actually quite sleek.</p>
 
@@ -45,7 +64,7 @@
   <entry>
     <title type="html"><![CDATA[WWDC Recap]]></title>
     <link href="http://michaelevans.org/blog/2012/06/11/wwdc-recap/"/>
-    <updated>2012-06-11T21:55:00-04:00</updated>
+    <updated>2012-06-11T21:55:00-07:00</updated>
     <id>http://michaelevans.org/blog/2012/06/11/wwdc-recap</id>
     <content type="html"><![CDATA[<p>If you remember from <a href="http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/">last week</a>, I made some predictions about what Apple would reveal today at WWDC. Let&#8217;s recap what actually happened, and we can see the hits and misses.</p>
 
@@ -95,7 +114,7 @@
   <entry>
     <title type="html"><![CDATA[My WWDC 2012 Predictions]]></title>
     <link href="http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/"/>
-    <updated>2012-06-07T18:02:00-04:00</updated>
+    <updated>2012-06-07T18:02:00-07:00</updated>
     <id>http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions</id>
     <content type="html"><![CDATA[<p>Since essentially all other tech blogs are writing about their predictions for Apple&#8217;s Worldwide Developer Conference which is being held next week, I&#8217;ve decided to throw my guesses into the ring, so we can go over them next week, and see how I did. I&#8217;ll try to touch on all the big rumors that are going around, but if I miss one, feel free to mention it in the comments.</p>
 
@@ -166,7 +185,7 @@
   <entry>
     <title type="html"><![CDATA[The Raspberry Pi Has Arrived!]]></title>
     <link href="http://michaelevans.org/blog/2012/06/05/the-raspberry-pi-has-arrived/"/>
-    <updated>2012-06-05T20:08:00-04:00</updated>
+    <updated>2012-06-05T20:08:00-07:00</updated>
     <id>http://michaelevans.org/blog/2012/06/05/the-raspberry-pi-has-arrived</id>
     <content type="html"><![CDATA[<p>As the title suggests, I just received my <a href="http://www.raspberrypi.org">Raspberry Pi</a> (Model B) in the mail. For those who don&#8217;t know about the Raspberry Pi, it&#8217;s a small little computer with 256MB of RAM, a 700MHz CPU and a GPU capable of 1080p output over HDMI. Connectivity is provided via 2 USB 2.0 ports, and a RJ45 10/100 Ethernet port. There&#8217;s HDMI and RCA video, and a 3.5mm jack for audio. Lastly, there&#8217;s an SD slot on the bottom for storage, and the device is powered by a microUSB port, the same one as most smartphones.</p>
 
@@ -195,7 +214,7 @@
   <entry>
     <title type="html"><![CDATA[Everyone should learn to program]]></title>
     <link href="http://michaelevans.org/blog/2012/06/03/everyone-should-learn-to-program/"/>
-    <updated>2012-06-03T13:09:00-04:00</updated>
+    <updated>2012-06-03T13:09:00-07:00</updated>
     <id>http://michaelevans.org/blog/2012/06/03/everyone-should-learn-to-program</id>
     <content type="html"><![CDATA[<p>I was reading a post the other day which was written as a response to Jeff Atwood&#8217;s seemly controversial <a href="http://www.codinghorror.com/blog/2012/05/please-dont-learn-to-code.html">blog entry</a>, entitled &#8220;Please don&#8217;t learn to code&#8221;. The part that struck me the most is quoted here:</p>
 
