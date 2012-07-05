@@ -22,7 +22,7 @@ The best way to review the Nexus however, is by breaking it down into the two ma
 
 ##Software
 
-The core of the Nexus 7 is Android 4.1, codenamed "Jelly Bean". Jelly Bean was not a revolutionary update like its predessesor, Ice Cream Sandwich, but an evolutionary one. It includs three main changes, as well as some small ones. The main changes were "Project Butter", Google Search, and Google Now.
+The core of the Nexus 7 is Android 4.1, codenamed "Jelly Bean". Jelly Bean was not a revolutionary update like its predessesor, Ice Cream Sandwich, but an evolutionary one. It includes three main changes, as well as some small ones. The main changes were "Project Butter", Google Search, and Google Now.
 
 ####Project Butter
 [Project Butter](http://www.youtube.com/watch?v=VuC0i4xTyrI#t=6m15s) has probably made the most significant impact for me on the overall feel of Android. Prior to IO, my main complaint with Android was how occasionally laggy it was. However, in Jelly Bean, Google has smoothed out the experience with faster response to touch, animations, and even has the CPU ramp up faster as a response to touch events. Speaking of touch events, Google has apparently devised a way to predict where your fingers will be, and allows the system to respond more quickly as a result. The sum of these changes results in a much smoother feel to the entire operating system.
