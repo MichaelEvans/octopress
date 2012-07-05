@@ -61,3 +61,4 @@ The Nexus 7 is a great deal for a tablet that costs just under $200. It has a gr
 And for the first time, I'm actually excited about using a tablet.
 
 Oh yeah, if you were wondering: I did preorder Project Glass.
+
