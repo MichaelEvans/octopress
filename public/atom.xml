@@ -4,7 +4,7 @@
   <title><![CDATA[Gadget Habit]]></title>
   <link href="http://michaelevans.org/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2012-10-30T21:24:38-04:00</updated>
+  <updated>2012-12-20T19:48:18-05:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Mike Evans]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[VMware 'Easy Install' stuck on Ubuntu 12.04]]></title>
+    <link href="http://michaelevans.org/blog/2012/12/20/vmware-easy-install-stuck-on-ubuntu-12-dot-04/"/>
+    <updated>2012-12-20T19:34:00-05:00</updated>
+    <id>http://michaelevans.org/blog/2012/12/20/vmware-easy-install-stuck-on-ubuntu-12-dot-04</id>
+    <content type="html"><![CDATA[<p>I was trying to install Ubuntu 12.04 in VMware Player on my PC and ran into some trouble during the &#8220;Easy Install&#8221; process. The installation basically hung at the console after the installation was successful, with a message telling me that the VMware Tools were being installed, and that I could login and use the system while they were installing. Maybe 10 minutes later, there was no progress, so I restarted the VM.</p>
+
+<p>I decided to log in and start X manually, so I could at least mess around with it in the meanwhile. Without being able to resize the window/use the shared clipboard, I decided to try to install the tools manually. No dice here, since VMware won&#8217;t let you install the tools while the Easy Install process is still running. Here&#8217;s what you can do to fix it:</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mv /etc/issue.backup /etc/issue
+</span><span class='line'>sudo mv /etc/rc.local.backup /etc/rc.local
+</span><span class='line'>sudo mv /opt/vmware-tools-installer/lightdm.conf /etc/init
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then follow these few steps to stop the easy install process:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Power off the virtual machine.
+</span><span class='line'>Go to VM > Settings
+</span><span class='line'>Select Floppy.
+</span><span class='line'>Select 'Use physical drive', and set the dropdown to 'Auto Detect'.
+</span><span class='line'>Power on the virtual machine and install VMware Tools.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hope this helps!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Nexus Q Review]]></title>
