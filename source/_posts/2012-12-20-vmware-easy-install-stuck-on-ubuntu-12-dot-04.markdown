@@ -5,7 +5,7 @@ date: 2012-12-20 19:34
 comments: true
 categories: [Linux, VMware, Ubuntu 12.04]
 description: "VMware Tools fix for Ubuntu 12.04"
-keywords: "VMware Player, VMware Tools, Ubuntu 12.04"
+keywords: "VMware Player, VMware Tools, Ubuntu 12.04, Linux"
 ---
 
 I was trying to install Ubuntu 12.04 in VMware Player on my PC and ran into some trouble during the "Easy Install" process. The installation basically hung at the console after the installation was successful, with a message telling me that the VMware Tools were being installed, and that I could login and use the system while they were installing. Maybe 10 minutes later, there was no progress, so I restarted the VM. 

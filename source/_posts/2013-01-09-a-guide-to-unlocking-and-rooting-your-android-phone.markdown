@@ -5,7 +5,7 @@ date: 2013-01-09 10:45
 comments: true
 categories: [Android, One V, Modding]
 description: "A guide to unlocking and rooting an HTC One V"
-keywords: "Android, rooting, unlocking, HTC One V, One V"
+keywords: "Android, rooting, unlocking, HTC One V, One V, Tutorial"
 ---
 
 Something that is very popular in the Android world these days is rooting and installing custom ROMs on your phone. A problem that I've found however, is that information regarding the process, and the terminology involved can be quite confusing for someone getting started, and as a result might discourage them. I decided to write up a series of blog posts discussing various parts of this process, so that it might help someone who wants to get involved, but doesn't know how. The phone that I'll be using for these tutorials is an [HTC One V](http://amzn.to/VAQwcM), which can be used on Virgin Mobile. It's a fairly modern phone, comes with a 1GHz single-core CPU, 512MB RAM, and a nice 3.7 inch LCD. This process will almost identical for other HTC phones, and very similar for many other Android devices. 
