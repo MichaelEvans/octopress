@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Google | Gadget Habit]]></title>
-  <link href="http://michaelevans.org/blog/categories/google/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Glass | Gadget Habit]]></title>
+  <link href="http://michaelevans.org/blog/categories/glass/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
   <updated>2013-02-20T23:12:22-05:00</updated>
   <id>http://michaelevans.org/</id>
@@ -30,25 +30,6 @@
 <p><img class="center" src="/images/2013/02/20/glass.jpg" width="400" height="400" title="Project Glass" ></p>
 
 <p>And the best part is the prize for the winners - a free Glass Explorer device (when they are available, of course).</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Shots from outside Google IO 2012]]></title>
-    <link href="http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012/"/>
-    <updated>2012-06-26T09:42:00-04:00</updated>
-    <id>http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012</id>
-    <content type="html"><![CDATA[<p>I'm in San Francisco for <a href="https://developers.google.com/events/io/">Google IO 2012</a>, and while Nate and I were wandering the city, we passed by the Moscone Center and I snapped a couple of photos.</p>
-
-<p><img src="/images/2012/06/26/window.JPG" width="700" height="200" title="Giant Google Banner" ></p>
-
-<p>My guess is that there will be a Nexus tablet (see the Nexus banner on the third floor), with NFC and Google Wallet, and then attendees will get to test the tap-to-pay out at the Google Wallet sponsored Google Store.</p>
-
-<p><img src="/images/2012/06/26/nexus.JPG" width="700" height="200" title="Nexus Banner" ></p>
-
-<p><img src="/images/2012/06/26/wallet.JPG" width="700" height="200" title="Google Store" ></p>
-
-<p>We'll certainly find out tomorrow though!</p>
 ]]></content>
   </entry>
   
