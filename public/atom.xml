@@ -4,7 +4,7 @@
   <title><![CDATA[Gadget Habit]]></title>
   <link href="http://michaelevans.org/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-02-20T23:12:22-05:00</updated>
+  <updated>2013-03-03T11:57:23-05:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -12,6 +12,98 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Guide to Google Authorship]]></title>
+    <link href="http://michaelevans.org/blog/2013/02/25/guide-to-google-authorship/"/>
+    <updated>2013-02-25T21:22:00-05:00</updated>
+    <id>http://michaelevans.org/blog/2013/02/25/guide-to-google-authorship</id>
+    <content type="html"><![CDATA[<p>Today I noticed something interesting about my blog: I&#8217;m now a verified author! What does that mean, you might ask? When one of the pages of my blog shows up in a Google search, it will look a little something like this:</p>
+
+<p><img class="center" src="http://michaelevans.org/images/2013/02/25/authorship.png" width="600" height="400" title="Google Authorship" ></p>
+
+<!-- more -->
+
+
+<p>Why might you want Google Authorship?</p>
+
+<ul>
+<li>It helps distinguish your content from other search results.</li>
+<li>You might get more followers on Google+.</li>
+</ul>
+
+
+<p>Would you like to get Authorship on Google? It&#8217;s actually extremely easy. Just follow the following steps:</p>
+
+<ol>
+<li>You need a Google+ profile with a profile picture of yourself.</li>
+<li>On the profile editor of Google+, there is a &#8220;Contributor to&#8221; section; add your website here.</li>
+<li>Add a link like this: <code>&lt;a href="[your profile URL]?rel=author"&gt;Google&lt;/a&gt;</code> somewhere on your website.</li>
+<li>You&#8217;re done! You can validate what your site would look like as a search result with a tool found <a href="http://www.google.com/webmasters/tools/richsnippets">here</a>.</li>
+</ol>
+
+
+<p>Keep in mind that Google doesn&#8217;t <em>guarantee</em> to show author information in Google Web Search or Google News results.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sony unveils the PlayStation 4]]></title>
+    <link href="http://michaelevans.org/blog/2013/02/20/sony-unveils-the-playstation-4/"/>
+    <updated>2013-02-20T22:21:00-05:00</updated>
+    <id>http://michaelevans.org/blog/2013/02/20/sony-unveils-the-playstation-4</id>
+    <content type="html"><![CDATA[<p>Last week Sony confirmed the launch of the PlayStation 4 for 2013. They held a two hour announcement where they showed off some of the hardware, had developers speak about games that are in the pipeline, and touched on release info. There&#8217;s definitely things that I liked, as well as a handful that I didn&#8217;t. Here are some of the takeaways:</p>
+
+<!-- more -->
+
+
+<h2>Things to be excited about:</h2>
+
+<ul>
+<li><p>Immediate local play of digital titles while they download</p>
+
+<p>  I think it&#8217;s very cool to be able to play the digital downloads while they download. I&#8217;ve often hoped for something like this, especially since the size of these games has gotten so large over the last few years.</p></li>
+<li><p>Video replay/stream of your screen</p>
+
+<p>  This is a very popular feature already for games like Call of Duty. There will be an explosion of PS4 videos on YouTube as soon as this is released.</p></li>
+<li><p>Instant system hibernation</p>
+
+<p>  I like the idea of being able to put my console to sleep in a game and pick up where I left off.</p></li>
+<li><p>Allowing remote friends to assume control over your currently playing game</p>
+
+<p>  &#8220;Pass the controller&#8221; sort of feeling over the internet. Not a bad idea.</p></li>
+<li><p>The new system uses a DualShock 4 controller with a touchpad, share button, lightbar and headphone jack</p>
+
+<p>  It&#8217;s time for an update here. It will be interesting to see what developers do with the touchpad portion of the controller though.</p></li>
+<li><p>Silent preloading of games you may be interested in</p>
+
+<p>  Like I said before, file sizes are getting really large. It&#8217;s actually a very smart idea to preload some games I might be interested in, so I can quickly try them out.</p></li>
+</ul>
+
+
+<h2>Things to be wary about:</h2>
+
+<ul>
+<li><p>Seemingly high bandwidth requirements</p>
+
+<p>  Most of the things they showed off require lots of bandwidth. (Possibly a dealbreaker, depending on your internet provider)</p></li>
+<li><p>No backwards compatibility with PS3 games?!</p>
+
+<p>  Are you kidding me? This seems like a no brainer.</p></li>
+<li><p>Game demos were renders</p>
+
+<p>  I&#8217;d have liked to see actual gameplay. We have no idea what games will look like yet. (Similarly disappointing is that the PS4 will output 4K video, but not 4K resolution for games.)</p></li>
+<li><p>No price, no release date AND didn&#8217;t actually see the console</p></li>
+</ul>
+
+
+<p>After that, now I&#8217;m curious to see what Microsoft has to offer. I guess we&#8217;ll see how the Xbox (720?) compares at E3 this summer!</p>
+
+<hr />
+
+<p>Anything I missed? Something you&#8217;re excited about? Leave a comment!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Google's Project Glass]]></title>
@@ -356,7 +448,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <p>All in all, I&#8217;m still impressed with what I saw yesterday. The form factor is good, and the potential is there. And when Microsoft takes the hardware and software into their own hands, the usually do a <a href="http://www.xbox.com/en-US/">good</a> <a href="http://www.xbox.com/en-US/Kinect">job</a>. Hopefully when it comes out in the fall, Microsoft won&#8217;t let us down.</p>
 
-<iframe width="640" height="510" src="http://www.youtube.com/embed/dpzu3HM2CIo " frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="510" src="http://www.youtube.com/embed/dpzu3HM2CIo " frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>
 
 
 <p></p>
