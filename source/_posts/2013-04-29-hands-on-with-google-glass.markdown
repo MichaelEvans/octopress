@@ -44,7 +44,7 @@ Since I've only had the device for a few days, I'll need to post a review after 
 
 A few days after I returned with Glass, I was interviewed by The Fold, a flagship video series by The Washington Post! You can check out the video here:
 
-{% youtube https://www.youtube.com/watch?v=iBrbVaY99kA %}
+{% youtube iBrbVaY99kA %}
 
 Got any questions you'd like answered? Drop me a line below in the comments, on [Twitter](https://twitter.com/m_evans10) or on [Google Plus](https://plus.google.com/114052868601022948953/posts)! 
 
