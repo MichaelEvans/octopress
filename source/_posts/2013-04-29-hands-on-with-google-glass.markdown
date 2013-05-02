@@ -15,11 +15,11 @@ Last Wednesday I took the trip up to NYC, to the top floor of Chelsea Market to 
 
 <!-- more -->
 
-The pickup experience was very exciting, it included an informative one-on-one experience with a Glass Guide, who helped walk me through the device (which I had gotten some previous experience [a few months back]()) and fit it to my face. The top floor of Chelsea Market allowed me to break in the camera of the device with a nice view of lower Manhattan.
+The pickup experience was very exciting, it included an informative one-on-one experience with a Glass Guide, who helped walk me through the device (which I had gotten some previous experience [a few months back](http://michaelevans.org/blog/2013/02/20/googles-project-glass/)) and fit it to my face. The top floor of Chelsea Market allowed me to break in the camera of the device with a nice view of lower Manhattan.
 
 I was able to try on all five colors that were available, but I ended up choosing charcoal (also known as black.) Other options included Cotton, Shale, Tangerine, and Sky (white, grey, orange and light blue, respectively.) 
 
-Configuring Glass was a snap, I opted to use the [MyGlass app]() for Android, although users without the app, can use a web based utility to set up their device. After my scheduled pickup apoinment, another Explorer and myself walked up towards Times Square, and were greeted with several people giving us a look for wearing at our new eyeware. 
+Configuring Glass was a snap, I opted to use the [MyGlass app](https://play.google.com/store/apps/details?id=com.google.glass.companion) for Android, although users without the app, can use a web based utility to set up their device. After my scheduled pickup apoinment, another Explorer and myself walked up towards Times Square, and were greeted with several people giving us a look for wearing at our new eyeware. 
 
 So far people have either thought they look ridiculous, which might be the nature of the device, or the fact that I've been wearing them overtop of my prescription glasses. This hasn't stopped anyone, however, from asking me to try them on and get a demo of the features. 
 
