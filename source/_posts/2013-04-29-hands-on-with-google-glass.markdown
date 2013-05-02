@@ -33,7 +33,7 @@ Included in the box is Glass (obviously), a micro USB cable and a AC adapter for
 
 {% img center /images/2013/04/29/IMG_1237.jpg 350 350 Nice simple box %}
 
-{% img center /images/2013/04/29/IMG_1233.jpg 350 350 Sweet Shades %}
+{% img center /images/2013/04/29/IMG_1231.jpg 350 350 Sweet Shades %}
 
 ###Thoughts so far
 Since I've only had the device for a few days, I'll need to post a review after I've used it for a little longer. So far I've enjoyed the hands-free navigation for wandering around DC, as well as taking some snapshots. I've always thought it was a little awkward to reply to text messages and emails using your voice (which is why I never really did it on my phone), but maybe I'll warm up to it with Glass. The battery life has been pretty decent, even with the heavy usage of showing it off to excited friends. 
