@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Running Crouton on a Chromebook Pixel"
-date: 2013-05-23 21:22
+date: 2013-06-11 21:22
 comments: true
 categories: [Google, Chromebook, Ubuntu, Linux, Guides]
 description: "Running Crouton on a Chromebook Pixel"

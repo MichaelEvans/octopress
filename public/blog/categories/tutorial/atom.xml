@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tutorial | Gadget Habit]]></title>
   <link href="http://michaelevans.org/blog/categories/tutorial/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-05-02T11:53:42-04:00</updated>
+  <updated>2013-06-11T23:54:54-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Getting Mavericks' Compressed Memory Feature in Ubuntu]]></title>
+    <link href="http://michaelevans.org/blog/2013/06/12/getting-mavericks-compressed-memory-feature-in-ubuntu/"/>
+    <updated>2013-06-12T00:16:00-04:00</updated>
+    <id>http://michaelevans.org/blog/2013/06/12/getting-mavericks-compressed-memory-feature-in-ubuntu</id>
+    <content type="html"><![CDATA[<p>On Monday, Apple announced a new update for it's desktop operating system, which will be named OS X Mavericks. As part of the annoucement, they touched on a few performance related features, including a new power saving API, which was called App Nap, as well as a memory compression feature, which would allow compress the memory of programs that are not currently active.</p>
+
+<p>According to <a href="http://arstechnica.com/apple/2013/06/how-os-x-mavericks-works-its-power-saving-magic/">Ars Technica</a>, Apple is using a technique called Timer Coalescing to create App Nap. Apps that are not active will have their processes set to a lower priority, and therefore use less CPU/disk/etc, and thereby save power. This feature has been around on Linux for a long time, and apparently has been part of Windows as well.</p>
+
+<p>I had not heard, however, of this compressed memory technique, although apparently it had been done many years ago by a program called "RamDoubler". After some quick Googling, it seems that this is available via a kernel module called "zram".</p>
+
+<!-- more -->
+
+
+<p>Wanna try it out? If you're running Precise or newer (12.04 or later), you're in luck. Just apt-get zram with</p>
+
+<p><code>
+sudo apt-get install zram-config
+</code></p>
+
+<p>and you're all set.</p>
+
+<p>To see the effects of zram, just run <code>free -m</code> and you'll notice an increase in memory/swap space. I haven't thoroughly tested to see the performance gains, but it's interesting to see that some of the new OS X features are already available elsewhere.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Clickable Links in Android ListViews]]></title>
