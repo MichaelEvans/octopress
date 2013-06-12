@@ -22,7 +22,7 @@ This is pretty standard stuff, if you're reading this, it's likely you already k
 2. Hit up your terminal and use the following command to convert that image `hdiutil convert -format UDRW -o ~/path/to/target.img ~/path/to/ubuntu.iso`
 3. More terminal goodness: `diskutil list` to find which disk is your flash drive
 4. `diskutil unmountDisk /dev/diskN` where N is the disk number you found in step 3.
-5. `sudo dd if=/path/to/converted.iso of=/dev/diskN bs=1m` to copy that image over to the flash drive.
+5. `sudo dd if=/path/to/converted.img of=/dev/diskN bs=1m` to copy that image over to the flash drive.
 6. `diskutil eject /dev/diskN` to EJECT!
 
 
@@ -37,7 +37,7 @@ Now we're ready to install Ubuntu on the SD card (SD card must be at least 8 Gig
 5. Copy the 'efi' directory onto the root of the 50MB partition created in step 2.
 6. Get back to that trusty terminal `cd /Volumes/partition1/efi/refit` (where 'partition1' is the name of that same parition) followed by `./enable.sh`
 7. Reboot your machine, and press and hold the option key to select a boot device. You should see ones for your main HD, the SD card, and the Live CD image. Select the Live CD image, and let's get installing.
-8. During installation, you'll want to select the advanced partitionint setup. Select the /dev/sdb3 device (Should match the size of the SD card) for formatting and give them the mount point "/". Device for boot loader installation must be also /dev/sdb3 (not /dev/sdb!). Ubuntu is going to give you a warning about no swap partition. That's alright, you don't need it.
+8. During installation, you'll want to select the advanced partitioning setup. Select the /dev/sdb3 device (Should match the size of the SD card) for formatting and give them the mount point "/". Device for boot loader installation must be also /dev/sdb3 (not /dev/sdb!). Ubuntu is going to give you a warning about no swap partition. That's alright, you don't need it.
 9. This is going to take a while. Seriously, it's not gonna be fast. Go get a coffee.
 10. Reboot when the install is complete, and hold option again to select that SD card. *Ta-da*!
 
