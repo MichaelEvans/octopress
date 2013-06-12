@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Gadget Habit]]></title>
   <link href="http://michaelevans.org/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-06-11T23:54:54-04:00</updated>
+  <updated>2013-06-12T00:01:13-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -20,145 +20,83 @@
     <id>http://michaelevans.org/blog/2013/03/29/clickable-links-in-android-listviews</id>
     <content type="html"><![CDATA[<p>As part of my newest app (<a href="https://play.google.com/store/apps/details?id=com.evans.hackernews">Hacker News for Android</a>), I needed to add the ability to click on links in a ListView, and have them open in the browser, while maintaining the ability for the user to click on the ListView row itself, and have the row listen to the click.</p>
 
-<p>If you try using <code>Linkify</code> and <code>LinkMovementMethod</code>, which you'd use on normal links in a TextView, you'll find that you can no longer use the ListView properly.</p>
+<p>If you try using <code>Linkify</code> and <code>LinkMovementMethod</code>, which you&rsquo;d use on normal links in a TextView, you&rsquo;ll find that you can no longer use the ListView properly.</p>
 
 <!-- more -->
 
 
-<p>The solution I'm using is slightly modified from this answer on StackOverflow <a href="http://stackoverflow.com/a/7327332/458603">here</a>.</p>
+<p>The solution I&rsquo;m using is slightly modified from this answer on StackOverflow <a href="http://stackoverflow.com/a/7327332/458603">here</a>.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>[LinkifiedTextView.java] [] </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.text.Layout</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.text.Selection</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.text.Spannable</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.text.Spanned</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.text.style.ClickableSpan</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.util.AttributeSet</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.view.MotionEvent</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkifiedTextView</span> <span class="kd">extends</span> <span class="n">TextView</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kd">public</span> <span class="n">LinkifiedTextView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nd">@Override</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onTouchEvent</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">TextView</span> <span class="n">widget</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="k">this</span><span class="o">;</span>
-</span><span class='line'>    <span class="n">Object</span> <span class="n">text</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
-</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">text</span> <span class="k">instanceof</span> <span class="n">Spanned</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">Spannable</span> <span class="n">buffer</span> <span class="o">=</span> <span class="o">(</span><span class="n">Spannable</span><span class="o">)</span> <span class="n">text</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">action</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="na">getAction</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">action</span> <span class="o">==</span> <span class="n">MotionEvent</span><span class="o">.</span><span class="na">ACTION_UP</span>
-</span><span class='line'>                <span class="o">||</span> <span class="n">action</span> <span class="o">==</span> <span class="n">MotionEvent</span><span class="o">.</span><span class="na">ACTION_DOWN</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">event</span><span class="o">.</span><span class="na">getX</span><span class="o">();</span>
-</span><span class='line'>            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">event</span><span class="o">.</span><span class="na">getY</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">x</span> <span class="o">-=</span> <span class="n">widget</span><span class="o">.</span><span class="na">getTotalPaddingLeft</span><span class="o">();</span>
-</span><span class='line'>            <span class="n">y</span> <span class="o">-=</span> <span class="n">widget</span><span class="o">.</span><span class="na">getTotalPaddingTop</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">x</span> <span class="o">+=</span> <span class="n">widget</span><span class="o">.</span><span class="na">getScrollX</span><span class="o">();</span>
-</span><span class='line'>            <span class="n">y</span> <span class="o">+=</span> <span class="n">widget</span><span class="o">.</span><span class="na">getScrollY</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">Layout</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="na">getLayout</span><span class="o">();</span>
-</span><span class='line'>            <span class="kt">int</span> <span class="n">line</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="na">getLineForVertical</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
-</span><span class='line'>            <span class="kt">int</span> <span class="n">off</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="na">getOffsetForHorizontal</span><span class="o">(</span><span class="n">line</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">ClickableSpan</span><span class="o">[]</span> <span class="n">link</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="na">getSpans</span><span class="o">(</span><span class="n">off</span><span class="o">,</span> <span class="n">off</span><span class="o">,</span>
-</span><span class='line'>                    <span class="n">ClickableSpan</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">link</span><span class="o">.</span><span class="na">length</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                <span class="k">if</span> <span class="o">(</span><span class="n">action</span> <span class="o">==</span> <span class="n">MotionEvent</span><span class="o">.</span><span class="na">ACTION_UP</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                    <span class="n">link</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">onClick</span><span class="o">(</span><span class="n">widget</span><span class="o">);</span>
-</span><span class='line'>                <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">action</span> <span class="o">==</span> <span class="n">MotionEvent</span><span class="o">.</span><span class="na">ACTION_DOWN</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                    <span class="n">Selection</span><span class="o">.</span><span class="na">setSelection</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span>
-</span><span class='line'>                            <span class="n">buffer</span><span class="o">.</span><span class="na">getSpanStart</span><span class="o">(</span><span class="n">link</span><span class="o">[</span><span class="mi">0</span><span class="o">]),</span>
-</span><span class='line'>                            <span class="n">buffer</span><span class="o">.</span><span class="na">getSpanEnd</span><span class="o">(</span><span class="n">link</span><span class="o">[</span><span class="mi">0</span><span class="o">]));</span>
-</span><span class='line'>                <span class="o">}</span>
-</span><span class='line'>                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock [LinkifiedTextView.java] [lang:java] %}
+import android.content.Context;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.Spanned;
+import android.text.style.ClickableSpan;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.TextView;</p>
 
-<p>Just drop this in as a replacement for your normal TextView, and you'll have the clicks on links in your text intercepted. Hope this helps a fellow developer!</p>
+<p>public class LinkifiedTextView extends TextView {</p>
+
+<pre><code>public LinkifiedTextView(Context context, AttributeSet attrs) {
+    super(context, attrs);
+}
+
+@Override
+public boolean onTouchEvent(MotionEvent event) {
+    TextView widget = (TextView) this;
+    Object text = widget.getText();
+    if (text instanceof Spanned) {
+        Spannable buffer = (Spannable) text;
+
+        int action = event.getAction();
+
+        if (action == MotionEvent.ACTION_UP
+                || action == MotionEvent.ACTION_DOWN) {
+            int x = (int) event.getX();
+            int y = (int) event.getY();
+
+            x -= widget.getTotalPaddingLeft();
+            y -= widget.getTotalPaddingTop();
+
+            x += widget.getScrollX();
+            y += widget.getScrollY();
+
+            Layout layout = widget.getLayout();
+            int line = layout.getLineForVertical(y);
+            int off = layout.getOffsetForHorizontal(line, x);
+
+            ClickableSpan[] link = buffer.getSpans(off, off,
+                    ClickableSpan.class);
+
+            if (link.length != 0) {
+                if (action == MotionEvent.ACTION_UP) {
+                    link[0].onClick(widget);
+                } else if (action == MotionEvent.ACTION_DOWN) {
+                    Selection.setSelection(buffer,
+                            buffer.getSpanStart(link[0]),
+                            buffer.getSpanEnd(link[0]));
+                }
+                return true;
+            }
+        }
+
+    }
+
+    return false;
+}
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
+
+<p>Just drop this in as a replacement for your normal TextView, and you&rsquo;ll have the clicks on links in your text intercepted. Hope this helps a fellow developer!</p>
 
 <hr />
 
-<p>Like this post? Any other Android tips you'd like to hear about? Let me know on <a href="https://twitter.com/m_evans10">Twitter</a> or <a href="https://plus.google.com/114052868601022948953/posts">Google Plus</a>, or leave a comment.</p>
+<p>Like this post? Any other Android tips you&rsquo;d like to hear about? Let me know on <a href="https://twitter.com/m_evans10">Twitter</a> or <a href="https://plus.google.com/114052868601022948953/posts">Google Plus</a>, or leave a comment.</p>
 ]]></content>
   </entry>
   
@@ -167,7 +105,7 @@
     <link href="http://michaelevans.org/blog/2013/01/09/a-guide-to-unlocking-and-rooting-your-android-phone/"/>
     <updated>2013-01-09T10:45:00-05:00</updated>
     <id>http://michaelevans.org/blog/2013/01/09/a-guide-to-unlocking-and-rooting-your-android-phone</id>
-    <content type="html"><![CDATA[<p>Something that is very popular in the Android world these days is rooting and installing custom ROMs on your phone. A problem that I've found however, is that information regarding the process, and the terminology involved can be quite confusing for someone getting started, and as a result might discourage them. I decided to write up a series of blog posts discussing various parts of this process, so that it might help someone who wants to get involved, but doesn't know how. The phone that I'll be using for these tutorials is an <a href="http://amzn.to/VAQwcM">HTC One V</a>, which can be used on Virgin Mobile. It's a fairly modern phone, comes with a 1GHz single-core CPU, 512MB RAM, and a nice 3.7 inch LCD. This process will almost identical for other HTC phones, and very similar for many other Android devices.</p>
+    <content type="html"><![CDATA[<p>Something that is very popular in the Android world these days is rooting and installing custom ROMs on your phone. A problem that I&rsquo;ve found however, is that information regarding the process, and the terminology involved can be quite confusing for someone getting started, and as a result might discourage them. I decided to write up a series of blog posts discussing various parts of this process, so that it might help someone who wants to get involved, but doesn&rsquo;t know how. The phone that I&rsquo;ll be using for these tutorials is an <a href="http://amzn.to/VAQwcM">HTC One V</a>, which can be used on Virgin Mobile. It&rsquo;s a fairly modern phone, comes with a 1GHz single-core CPU, 512MB RAM, and a nice 3.7 inch LCD. This process will almost identical for other HTC phones, and very similar for many other Android devices.</p>
 
 <p>Disclaimer: This may void your warranty, I take no responsibility, etc.</p>
 
@@ -176,25 +114,25 @@
 
 <h2>Part One: Unlocking your One V</h2>
 
-<p>The first part of the process is called "Rooting" your device. Rooting basically means obtaining admin access on your device, which allows you to do all sorts of fun things down the line. In order to root your device however, there are a few steps you'll have to take. The first thing you'll need to do is unlock the bootloader. The bootloader is the software that loads the operating system of your phone. Normally this is locked to only start the software that ships on the device, but we are going to unlock it so that we may install custom software.</p>
+<p>The first part of the process is called &ldquo;Rooting&rdquo; your device. Rooting basically means obtaining admin access on your device, which allows you to do all sorts of fun things down the line. In order to root your device however, there are a few steps you&rsquo;ll have to take. The first thing you&rsquo;ll need to do is unlock the bootloader. The bootloader is the software that loads the operating system of your phone. Normally this is locked to only start the software that ships on the device, but we are going to unlock it so that we may install custom software.</p>
 
 <ol>
 <li>Go to <a href="http://www.htcdev.com/">HTC Dev</a> and create yourself an account.</li>
 <li>Download <a href="https://www.box.com/s/kuouqnnsjke4byd2u38n">these</a> Fastboot Files</li>
 <li>Make a new folder on your C: or home directory called fastboot.</li>
 <li>Extract the zip downloaded in step 2 to the new folder</li>
-<li>Go <a href="http://www.htcdev.com/bootloader/">here</a> and select "All Other Supported Models" and then "Begin Unlock bootloader"</li>
+<li>Go <a href="http://www.htcdev.com/bootloader/">here</a> and select &ldquo;All Other Supported Models&rdquo; and then &ldquo;Begin Unlock bootloader&rdquo;</li>
 <li>Check both checkboxes, and then proceed.</li>
 <li>Power off your phone by holding the power button down for 5-7 seconds (the three keys will flash a few times then it will power off)</li>
-<li>Hold the volume down button and power the device on, the device will boot to a white screen called "HBOOT"</li>
-<li>Select "Fastboot" with volume up or down then press the power button once (you'll be in fastboot mode)</li>
+<li>Hold the volume down button and power the device on, the device will boot to a white screen called &ldquo;HBOOT&rdquo;</li>
+<li>Select &ldquo;Fastboot&rdquo; with volume up or down then press the power button once (you&rsquo;ll be in fastboot mode)</li>
 <li>Plug your phone into your computer and open a Command Prompt.</li>
 <li>cd to your folder where we put fastboot files (i.e c:\fastboot)</li>
 <li>type this into your command prompt: <code>fastboot oem get_identifier_token</code></li>
 <li>Select &amp; copy the text as per step 9 on the HTC Dev website</li>
 <li>Paste your identifier token into the box at the bottom and submit
-You will then receive an email from HTCDev with a link to the second    part of the instructions and your "Unlock_code.bin" file attached.</li>
-<li>Download the "Unlock_code.bin" attachment from the email and save it to     the same folder that we extracted fastboot files.</li>
+You will then receive an email from HTCDev with a link to the second    part of the instructions and your &ldquo;Unlock_code.bin&rdquo; file attached.</li>
+<li>Download the &ldquo;Unlock_code.bin&rdquo; attachment from the email and save it to     the same folder that we extracted fastboot files.</li>
 <li>Type this into your command prompt window: <code>fastboot flash unlocktoken Unlock_code.bin</code></li>
 <li>The display will change on your phone, and ask you to confirm the unlock. press volume up to accept and power to confirm.</li>
 </ol>
@@ -216,11 +154,11 @@ You will then receive an email from HTCDev with a link to the second    part of 
 </ol>
 
 
-<p><strong>Excellent!</strong> You now have root access on your phone. When you start up Android, you'll see a new application in your launcher. It's called SuperSU, and will ask you to allow/deny applications root access if they request it. This is useful for installing things like tethering applications, or modifying system files.</p>
+<p><strong>Excellent!</strong> You now have root access on your phone. When you start up Android, you&rsquo;ll see a new application in your launcher. It&rsquo;s called SuperSU, and will ask you to allow/deny applications root access if they request it. This is useful for installing things like tethering applications, or modifying system files.</p>
 
 <h2>Part Three: Installing Custom Recovery</h2>
 
-<p>The last thing we are going to do as part of this guide is install a custom recovery. A recovery is a mode of the phone that allows you to backup/restore your device, or modify device files, like installing new software. This will be important if you'd like to backup your device before wiping it to install custom software. In order to install ClockworkMod Recovery (which is probably the most popular recovery you'll find):</p>
+<p>The last thing we are going to do as part of this guide is install a custom recovery. A recovery is a mode of the phone that allows you to backup/restore your device, or modify device files, like installing new software. This will be important if you&rsquo;d like to backup your device before wiping it to install custom software. In order to install ClockworkMod Recovery (which is probably the most popular recovery you&rsquo;ll find):</p>
 
 <ol>
 <li>Download ClockworkMod Recovery <a href="https://www.box.com/s/vj181v9mmi5tghm1za4b">here</a>.</li>
@@ -229,28 +167,28 @@ You will then receive an email from HTCDev with a link to the second    part of 
 <li>Select Fastboot with volume up or down then press power once</li>
 <li>Connect your phone to PC</li>
 <li>Type the following in to your command prompt: <code>adb flash recovery cwmrecovery.img</code></li>
-<li>Restart your phone, and hold the volume down button. This time, select "recovery" and hit the power button.</li>
+<li>Restart your phone, and hold the volume down button. This time, select &ldquo;recovery&rdquo; and hit the power button.</li>
 </ol>
 
 
-<p>You're now in recovery mode! While we're here, let's make a backup.</p>
+<p>You&rsquo;re now in recovery mode! While we&rsquo;re here, let&rsquo;s make a backup.</p>
 
 <ol>
-<li>Scroll through the list of options 2 times using volume up or volume down. (Without doing this, you won't be able to select an option)</li>
-<li>Use the power button to select "Backup and restore"</li>
-<li>Select "Backup"</li>
+<li>Scroll through the list of options 2 times using volume up or volume down. (Without doing this, you won&rsquo;t be able to select an option)</li>
+<li>Use the power button to select &ldquo;Backup and restore&rdquo;</li>
+<li>Select &ldquo;Backup&rdquo;</li>
 <li>The backup process is now running. It will be a few minutes to complete.</li>
-<li>Once complete, let's make sure the backup is successful.</li>
-<li>Once again, select "Backup and restore"</li>
-<li>Choose "Restore". You will see your backup files, e.g: 2013-01-12.10.13.04</li>
-<li>Pick "Go Back"</li>
-<li>Select "Reboot system"</li>
+<li>Once complete, let&rsquo;s make sure the backup is successful.</li>
+<li>Once again, select &ldquo;Backup and restore&rdquo;</li>
+<li>Choose &ldquo;Restore&rdquo;. You will see your backup files, e.g: 2013-01-12.10.13.04</li>
+<li>Pick &ldquo;Go Back&rdquo;</li>
+<li>Select &ldquo;Reboot system&rdquo;</li>
 </ol>
 
 
-<p>It's probably best to copy that backup folder off your SD card and onto your computer in the event something happens to your SD card.</p>
+<p>It&rsquo;s probably best to copy that backup folder off your SD card and onto your computer in the event something happens to your SD card.</p>
 
-<p><strong>Awesome</strong>! You're now all set to do all sorts of things, like installing custom roms. Be sure to check back for the next part of this series, where we will go over that.</p>
+<p><strong>Awesome</strong>! You&rsquo;re now all set to do all sorts of things, like installing custom roms. Be sure to check back for the next part of this series, where we will go over that.</p>
 ]]></content>
   </entry>
   
@@ -261,7 +199,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <id>http://michaelevans.org/blog/2012/09/07/nexus-q-review</id>
     <content type="html"><![CDATA[<p>It’s a <em>what</em>? Ever since I returned from Google I/O, this is what people have been saying when they see the newest addition to my TV setup, the Nexus Q. It’s hard to blame them though, since it just looks so different, for a home theatre device. unlike those bland, black boxes that most living rooms are filled with, the Nexus Q is a heavy (about two pounds) sphere, which is lit by a ring of 32 LEDs. The top side of the Q spins freely to function as a volume knob, and can be tapped to mute.</p>
 
-<p><img src="/images/2012/09/07/q.jpeg" width="400" height="400" title="Nexus Q" ></p>
+<p>{% img /images/2012/09/07/q.jpeg 400 400 Nexus Q %}</p>
 
 <p>On the back of the Q, things are less clean. There’s both micro HDMI and optical audio out, ethernet and a micro USB port for “encouraged hacking”. There’s also a set of banana connectors to allow you to hook up speakers to the built in 25-watt amplifier.</p>
 
@@ -269,11 +207,11 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <p>Since the Q doesn’t have it’s own UI, let’s take a look at the <a href="https://play.google.com/store/apps/details?id=com.google.android.setupwarlock">Nexus Q app for Android</a>.</p>
 
-<p><img src="/images/2012/09/07/qapp.jpeg" width="400" height="400" title="Nexus Q App" ></p>
+<p>{% img /images/2012/09/07/qapp.jpeg 400 400 Nexus Q App %}</p>
 
-<p>You don't really use the app for anything after setting up the Q initially, all the media is controlled through the Play Music, Play Movies and Youtube apps. All you need to do is hit the little triangle that will appear when you're on the same network as a Q.</p>
+<p>You don&rsquo;t really use the app for anything after setting up the Q initially, all the media is controlled through the Play Music, Play Movies and Youtube apps. All you need to do is hit the little triangle that will appear when you&rsquo;re on the same network as a Q.</p>
 
-<p><img src="/images/2012/09/07/music.png" width="400" height="400" title="Play Music with Q" ></p>
+<p>{% img /images/2012/09/07/music.png 400 400 Play Music with Q %}</p>
 
 <p>My biggest complaint about the Q is the way you set it up to involve your friends. First you need to enable guest mode from the Q app, and then manually invite all the people you want to have access, which actually sends them an <strong>email</strong> to download the app. This seems like such a convoluted process, and I doubt people will actually care to do this. Not only that, but I see no way of revoking someone’s ability to use the Q after you’ve invited them. We all know that one person who takes their music privileges a little too far, but it seems that the only recourse in that event is to turn guest mode off all together.</p>
 
@@ -286,24 +224,24 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <link href="http://michaelevans.org/blog/2012/07/03/nexus-7-review/"/>
     <updated>2012-07-03T13:39:00-04:00</updated>
     <id>http://michaelevans.org/blog/2012/07/03/nexus-7-review</id>
-    <content type="html"><![CDATA[<p>So by now you've probably heard about the Nexus 7. We heard it was coming <a href="/blog/2012/06/26/shots-from-outside-io-2012/">last week</a>, and now after using it for a few days, here's my review.</p>
+    <content type="html"><![CDATA[<p>So by now you&rsquo;ve probably heard about the Nexus 7. We heard it was coming <a href="/blog/2012/06/26/shots-from-outside-io-2012/">last week</a>, and now after using it for a few days, here&rsquo;s my review.</p>
 
-<p><img src="/images/2012/07/03/nexus.jpg" width="400" height="200" title="Nexus 7" ></p>
+<p>{% img /images/2012/07/03/nexus.jpg 400 200 Nexus 7 %}</p>
 
 <!-- more -->
 
 
 <p></p>
 
-<p>As a backstory, you should know that prior to recieving the Nexus 7 at Google IO, I already owned a Motorola Xoom, a Samsung Galaxy 10.1 (from IO 2011), and an HP Touchpad. Surprising as it might seem for someone with all these gadgets, I actually don't really <em>get</em> tablets. I have a laptop, and a smartphone, and there just really isn't a whole lot of use for a tablet that I've found. I've tried them all, including the iPad, and I just haven't found a way to fit it into the collection of things I use on a daily basis.</p>
+<p>As a backstory, you should know that prior to recieving the Nexus 7 at Google IO, I already owned a Motorola Xoom, a Samsung Galaxy 10.1 (from IO 2011), and an HP Touchpad. Surprising as it might seem for someone with all these gadgets, I actually don&rsquo;t really <em>get</em> tablets. I have a laptop, and a smartphone, and there just really isn&rsquo;t a whole lot of use for a tablet that I&rsquo;ve found. I&rsquo;ve tried them all, including the iPad, and I just haven&rsquo;t found a way to fit it into the collection of things I use on a daily basis.</p>
 
-<p>But, I don't give up trying so easily. Nor has Google it seems, because slowly but surely, Google has finally put together a combination of software and hardware that is an absolute pleasure to use. Not only that, but at $200, it's a steal compared to <a href="http://www.apple.com/ipad/">other popular options</a>.</p>
+<p>But, I don&rsquo;t give up trying so easily. Nor has Google it seems, because slowly but surely, Google has finally put together a combination of software and hardware that is an absolute pleasure to use. Not only that, but at $200, it&rsquo;s a steal compared to <a href="http://www.apple.com/ipad/">other popular options</a>.</p>
 
-<p>The best way to review the Nexus however, is by breaking it down into the two main components that it's comprised of: software and hardware.</p>
+<p>The best way to review the Nexus however, is by breaking it down into the two main components that it&rsquo;s comprised of: software and hardware.</p>
 
 <h2>Software</h2>
 
-<p>The core of the Nexus 7 is Android 4.1, codenamed "Jelly Bean". Jelly Bean was not a revolutionary update like its predessesor, Ice Cream Sandwich, but an evolutionary one. It includes three main changes, as well as some small ones. The main changes were "Project Butter", Google Search, and Google Now.</p>
+<p>The core of the Nexus 7 is Android 4.1, codenamed &ldquo;Jelly Bean&rdquo;. Jelly Bean was not a revolutionary update like its predessesor, Ice Cream Sandwich, but an evolutionary one. It includes three main changes, as well as some small ones. The main changes were &ldquo;Project Butter&rdquo;, Google Search, and Google Now.</p>
 
 <h4>Project Butter</h4>
 
@@ -311,39 +249,39 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <h4>Google Search</h4>
 
-<p>Google's new voice search is their strike back against Siri. Powered by Google's Knowledge Graph, it can do a lot more than Apple's offering.</p>
+<p>Google&rsquo;s new voice search is their strike back against Siri. Powered by Google&rsquo;s Knowledge Graph, it can do a lot more than Apple&rsquo;s offering.</p>
 
-<p><img class="left" src="/images/2012/07/03/voice.jpg" width="375" height="200" title="Voice Search Demo" ></p>
+<p>{% img left /images/2012/07/03/voice.jpg 375 200 Voice Search Demo %}</p>
 
-<p>The speech-to-text seems to be significantly more accurate than Apple's, as well as much quicker. I imagine this is because Google has moved the speech-to-text engine onto the device, as this is another feature of the new keyboard (more on that below).</p>
+<p>The speech-to-text seems to be significantly more accurate than Apple&rsquo;s, as well as much quicker. I imagine this is because Google has moved the speech-to-text engine onto the device, as this is another feature of the new keyboard (more on that below).</p>
 
-<p>Instead of just listing off a whole bunch of things that I've tried, here's a video from <a href="http://www.youtube.com/watch?v=fHkhp6BwnGo">JLishere</a>, who has compiled 41 queries against knoweledge graph. He demonstrates the wide variety of what Knowledge Graph allows the device to respond to, like local queries, transit directions, and what seems to just be tidbits from Wikipedia.</p>
+<p>Instead of just listing off a whole bunch of things that I&rsquo;ve tried, here&rsquo;s a video from <a href="http://www.youtube.com/watch?v=fHkhp6BwnGo">JLishere</a>, who has compiled 41 queries against knoweledge graph. He demonstrates the wide variety of what Knowledge Graph allows the device to respond to, like local queries, transit directions, and what seems to just be tidbits from Wikipedia.</p>
 
-<p>What's most interesting to me, however, is the preview of the possibile ability to access core hardware functions, like turning on and off Wifi or Bluetooth. Another interesting feature is how this new voice search seems to fit in well with another new platform feature: Google Now.</p>
+<p>What&rsquo;s most interesting to me, however, is the preview of the possibile ability to access core hardware functions, like turning on and off Wifi or Bluetooth. Another interesting feature is how this new voice search seems to fit in well with another new platform feature: Google Now.</p>
 
 <h4>Google Now</h4>
 
-<p>Google Now is a new card based system introduced in the new version of Android. It tells you about the weather, traffic information, sports scores, and other tidbits of information you're likely to look up during your day. It's quite convenient to have information about an upcoming flight available without having to keep checking it, or traffic information regarding my daily commute delivered right to my handset or tablet. Right now the number of available 'cards' is limited, but as the number of uses expands, the functionality will continue to grow.</p>
+<p>Google Now is a new card based system introduced in the new version of Android. It tells you about the weather, traffic information, sports scores, and other tidbits of information you&rsquo;re likely to look up during your day. It&rsquo;s quite convenient to have information about an upcoming flight available without having to keep checking it, or traffic information regarding my daily commute delivered right to my handset or tablet. Right now the number of available &lsquo;cards&rsquo; is limited, but as the number of uses expands, the functionality will continue to grow.</p>
 
 <h4>Other features</h4>
 
-<p>In addition to the fancy speech-to-text features, as well as the speed improvements, Google has added rich notifications that allow you to perform actions without opening the app. You can control the music player, or reply to a SMS message, all from the notification tray. Another addition is a new keyboard, which does text prediction. If you've ever used Swiftkey, you'll feel right at home with the new stock keyboard. Also included is the offline speech-to-text engine, which allows for speedy transcription, if you're into that.</p>
+<p>In addition to the fancy speech-to-text features, as well as the speed improvements, Google has added rich notifications that allow you to perform actions without opening the app. You can control the music player, or reply to a SMS message, all from the notification tray. Another addition is a new keyboard, which does text prediction. If you&rsquo;ve ever used Swiftkey, you&rsquo;ll feel right at home with the new stock keyboard. Also included is the offline speech-to-text engine, which allows for speedy transcription, if you&rsquo;re into that.</p>
 
-<p>Other changes include some fancy new camera and gallery improvements, and now Chrome is the standard browser. Combined with tab sync from other machines, this is the best mobile browsing experience I've had so far.</p>
+<p>Other changes include some fancy new camera and gallery improvements, and now Chrome is the standard browser. Combined with tab sync from other machines, this is the best mobile browsing experience I&rsquo;ve had so far.</p>
 
 <h2>Hardware</h2>
 
 <p>At 340 grams (compared to the Kindle Fire’s 413 grams), the Nexus 7 feels extremely light. It measures 10.45mm thick, which is just shy of the thickness of the Kindle Fire. The front of the tablet is an IPS 7-inch 1280 x 800 display, which is powered by an NVIDIA Tegra 3 quad-core processor, with 12 GPU cores, and 1GB of RAM. As for storage, it comes in 8GB ($199) and 16GB ($249) capacities.</p>
 
-<p><img class="right" src="/images/2012/07/03/chrome.jpg" width="375" height="200" title="Chrome" ></p>
+<p>{% img right /images/2012/07/03/chrome.jpg 375 200 Chrome %}</p>
 
-<p>In addition to that serious computing power, the Nexus 7 has plenty of sensors and radios. Under the hood, there's Bluetooth and NFC, not to mention GPS, an accelerometer, a digital compass and a gyroscope. All this is paired with a battery that managed to last me around eight hours. Based on other reviews I've seen, the battery seems to last between seven and nine hours, depending on usage.</p>
+<p>In addition to that serious computing power, the Nexus 7 has plenty of sensors and radios. Under the hood, there&rsquo;s Bluetooth and NFC, not to mention GPS, an accelerometer, a digital compass and a gyroscope. All this is paired with a battery that managed to last me around eight hours. Based on other reviews I&rsquo;ve seen, the battery seems to last between seven and nine hours, depending on usage.</p>
 
-<p>This all sounds fantastic, but there's a few things that could have been added/improved as well. First, since there's a lack of a rear camera, no camera app has been included. This is most certainly not a deal breaker, but it's worth noting, if you're into self portraits. There's also no HDMI/MHL output, nor a MicroSD slot. The only other gripe that I have is that the speakers are fairly inadiquite, so you'll be reaching for your headphones.</p>
+<p>This all sounds fantastic, but there&rsquo;s a few things that could have been added/improved as well. First, since there&rsquo;s a lack of a rear camera, no camera app has been included. This is most certainly not a deal breaker, but it&rsquo;s worth noting, if you&rsquo;re into self portraits. There&rsquo;s also no HDMI/MHL output, nor a MicroSD slot. The only other gripe that I have is that the speakers are fairly inadiquite, so you&rsquo;ll be reaching for your headphones.</p>
 
 <p>The Nexus 7 is a great deal for a tablet that costs just under $200. It has a great display, smooth performance and all the bells and whistles of Jelly Bean. In my opinion, this is the best Android tablet available.</p>
 
-<p>And for the first time, I'm actually excited about using a tablet.</p>
+<p>And for the first time, I&rsquo;m actually excited about using a tablet.</p>
 
 <p>Oh yeah, if you were wondering: I did preorder Project Glass.</p>
 ]]></content>

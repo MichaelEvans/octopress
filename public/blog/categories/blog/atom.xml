@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blog | Gadget Habit]]></title>
   <link href="http://michaelevans.org/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-06-11T23:54:54-04:00</updated>
+  <updated>2013-06-12T00:01:13-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -18,9 +18,9 @@
     <link href="http://michaelevans.org/blog/2013/02/25/guide-to-google-authorship/"/>
     <updated>2013-02-25T21:22:00-05:00</updated>
     <id>http://michaelevans.org/blog/2013/02/25/guide-to-google-authorship</id>
-    <content type="html"><![CDATA[<p>Today I noticed something interesting about my blog: I'm now a verified author! What does that mean, you might ask? When one of the pages of my blog shows up in a Google search, it will look a little something like this:</p>
+    <content type="html"><![CDATA[<p>Today I noticed something interesting about my blog: I&rsquo;m now a verified author! What does that mean, you might ask? When one of the pages of my blog shows up in a Google search, it will look a little something like this:</p>
 
-<p><img class="center" src="/images/2013/02/25/authorship.png" width="600" height="400" title="Google Authorship" ></p>
+<p>{% img center /images/2013/02/25/authorship.png 600 400 Google Authorship %}</p>
 
 <!-- more -->
 
@@ -33,17 +33,17 @@
 </ul>
 
 
-<p>Would you like to get Authorship on Google? It's actually extremely easy. Just follow the following steps:</p>
+<p>Would you like to get Authorship on Google? It&rsquo;s actually extremely easy. Just follow the following steps:</p>
 
 <ol>
 <li>You need a Google+ profile with a profile picture of yourself.</li>
-<li>On the profile editor of Google+, there is a "Contributor to" section; add your website here.</li>
+<li>On the profile editor of Google+, there is a &ldquo;Contributor to&rdquo; section; add your website here.</li>
 <li>Add a link like this: <code>&lt;a href="[your profile URL]?rel=author"&gt;Google&lt;/a&gt;</code> somewhere on your website.</li>
-<li>You're done! You can validate what your site would look like as a search result with a tool found <a href="http://www.google.com/webmasters/tools/richsnippets">here</a>.</li>
+<li>You&rsquo;re done! You can validate what your site would look like as a search result with a tool found <a href="http://www.google.com/webmasters/tools/richsnippets">here</a>.</li>
 </ol>
 
 
-<p>Keep in mind that Google doesn't <em>guarantee</em> to show author information in Google Web Search or Google News results.</p>
+<p>Keep in mind that Google doesn&rsquo;t <em>guarantee</em> to show author information in Google Web Search or Google News results.</p>
 ]]></content>
   </entry>
   
