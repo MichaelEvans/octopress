@@ -93,11 +93,17 @@
         <lastmod>2013-08-14T22:06:59-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://michaelevans.org/blog/2013/08/14/tutorial-building-an-android-to-do-list-app-using-parse/
+        </loc>
+        <lastmod>2013-08-14T23:53:28-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://michaelevans.org/blog/archives/</loc>
-        <lastmod>2013-08-14T22:07:33-04:00</lastmod>
+        <lastmod>2013-08-14T23:53:28-04:00</lastmod>
     </url>
     <url>
         <loc>http://michaelevans.org/</loc>
-        <lastmod>2013-08-14T22:07:33-04:00</lastmod>
+        <lastmod>2013-08-14T23:53:28-04:00</lastmod>
     </url>
 </urlset>
