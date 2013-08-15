@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Code | Gadget Habit]]></title>
   <link href="http://michaelevans.org/blog/categories/code/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-06-12T00:01:13-04:00</updated>
+  <updated>2013-08-14T22:07:40-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -27,7 +27,7 @@
 
 <p>The solution I&rsquo;m using is slightly modified from this answer on StackOverflow <a href="http://stackoverflow.com/a/7327332/458603">here</a>.</p>
 
-<p>{% codeblock [LinkifiedTextView.java] [lang:java] %}
+<p>``` java LinkifiedTextView.java
 import android.content.Context;
 import android.text.Layout;
 import android.text.Selection;
@@ -90,7 +90,7 @@ public boolean onTouchEvent(MotionEvent event) {
 </code></pre>
 
 <p>}
-{% endcodeblock %}</p>
+```</p>
 
 <p>Just drop this in as a replacement for your normal TextView, and you&rsquo;ll have the clicks on links in your text intercepted. Hope this helps a fellow developer!</p>
 

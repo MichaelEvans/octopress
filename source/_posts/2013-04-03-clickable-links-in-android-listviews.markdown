@@ -16,7 +16,7 @@ If you try using `Linkify` and `LinkMovementMethod`, which you'd use on normal l
 
 The solution I'm using is slightly modified from this answer on StackOverflow [here](http://stackoverflow.com/a/7327332/458603).
 
-{% codeblock [LinkifiedTextView.java] [lang:java] %}
+``` java LinkifiedTextView.java
 import android.content.Context;
 import android.text.Layout;
 import android.text.Selection;
@@ -76,7 +76,7 @@ public class LinkifiedTextView extends TextView {
 		return false;
 	}
 }
-{% endcodeblock %}
+```
 
 Just drop this in as a replacement for your normal TextView, and you'll have the clicks on links in your text intercepted. Hope this helps a fellow developer!
 

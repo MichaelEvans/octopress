@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Guides | Gadget Habit]]></title>
   <link href="http://michaelevans.org/blog/categories/guides/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-06-12T00:01:13-04:00</updated>
+  <updated>2013-08-14T22:07:40-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -79,7 +79,7 @@
 <li>Hit up your terminal and use the following command to convert that image <code>hdiutil convert -format UDRW -o ~/path/to/target.img ~/path/to/ubuntu.iso</code></li>
 <li>More terminal goodness: <code>diskutil list</code> to find which disk is your flash drive</li>
 <li><code>diskutil unmountDisk /dev/diskN</code> where N is the disk number you found in step 3.</li>
-<li><code>sudo dd if=/path/to/converted.iso of=/dev/diskN bs=1m</code> to copy that image over to the flash drive.</li>
+<li><code>sudo dd if=/path/to/converted.img of=/dev/diskN bs=1m</code> to copy that image over to the flash drive.</li>
 <li><code>diskutil eject /dev/diskN</code> to EJECT!</li>
 </ol>
 
@@ -96,7 +96,7 @@
 <li>Copy the &lsquo;efi&rsquo; directory onto the root of the 50MB partition created in step 2.</li>
 <li>Get back to that trusty terminal <code>cd /Volumes/partition1/efi/refit</code> (where &lsquo;partition1&rsquo; is the name of that same parition) followed by <code>./enable.sh</code></li>
 <li>Reboot your machine, and press and hold the option key to select a boot device. You should see ones for your main HD, the SD card, and the Live CD image. Select the Live CD image, and let&rsquo;s get installing.</li>
-<li>During installation, you&rsquo;ll want to select the advanced partitionint setup. Select the /dev/sdb3 device (Should match the size of the SD card) for formatting and give them the mount point &ldquo;/&rdquo;. Device for boot loader installation must be also /dev/sdb3 (not /dev/sdb!). Ubuntu is going to give you a warning about no swap partition. That&rsquo;s alright, you don&rsquo;t need it.</li>
+<li>During installation, you&rsquo;ll want to select the advanced partitioning setup. Select the /dev/sdb3 device (Should match the size of the SD card) for formatting and give them the mount point &ldquo;/&rdquo;. Device for boot loader installation must be also /dev/sdb3 (not /dev/sdb!). Ubuntu is going to give you a warning about no swap partition. That&rsquo;s alright, you don&rsquo;t need it.</li>
 <li>This is going to take a while. Seriously, it&rsquo;s not gonna be fast. Go get a coffee.</li>
 <li>Reboot when the install is complete, and hold option again to select that SD card. <em>Ta-da</em>!</li>
 </ol>

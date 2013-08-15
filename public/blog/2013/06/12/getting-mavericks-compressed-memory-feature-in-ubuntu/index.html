@@ -104,24 +104,24 @@
   </header>
 
 
-<div class="entry-content"><p>On Monday, Apple announced a new update for it&#8217;s desktop operating system, which will be named OS X Mavericks. As part of the annoucement, they touched on a few performance related features, including a new power saving API, which was called App Nap, as well as a memory compression feature, which would allow compress the memory of programs that are not currently active.</p>
+<div class="entry-content"><p>On Monday, Apple announced a new update for it&rsquo;s desktop operating system, which will be named OS X Mavericks. As part of the annoucement, they touched on a few performance related features, including a new power saving API, which was called App Nap, as well as a memory compression feature, which would allow compress the memory of programs that are not currently active.</p>
 
 <p>According to <a href="http://arstechnica.com/apple/2013/06/how-os-x-mavericks-works-its-power-saving-magic/">Ars Technica</a>, Apple is using a technique called Timer Coalescing to create App Nap. Apps that are not active will have their processes set to a lower priority, and therefore use less CPU/disk/etc, and thereby save power. This feature has been around on Linux for a long time, and apparently has been part of Windows as well.</p>
 
-<p>I had not heard, however, of this compressed memory technique, although apparently it had been done many years ago by a program called &#8220;RamDoubler&#8221;. After some quick Googling, it seems that this is available via a kernel module called &#8220;zram&#8221;.</p>
+<p>I had not heard, however, of this compressed memory technique, although apparently it had been done many years ago by a program called &ldquo;RamDoubler&rdquo;. After some quick Googling, it seems that this is available via a kernel module called &ldquo;zram&rdquo;.</p>
 
 <!-- more -->
 
 
-<p>Wanna try it out? If you&#8217;re running Precise or newer (12.04 or later), you&#8217;re in luck. Just apt-get zram with</p>
+<p>Wanna try it out? If you&rsquo;re running Precise or newer (12.04 or later), you&rsquo;re in luck. Just apt-get zram with</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install zram-config</span></code></pre></td></tr></table></div></figure>
 
 
-<p>and you&#8217;re all set.</p>
+<p>and you&rsquo;re all set.</p>
 
-<p>To see the effects of zram, just run <code>free -m</code> and you&#8217;ll notice an increase in memory/swap space. I haven&#8217;t thoroughly tested to see the performance gains, but it&#8217;s interesting to see that some of the new OS X features are already available elsewhere.</p>
+<p>To see the effects of zram, just run <code>free -m</code> and you&rsquo;ll notice an increase in memory/swap space. I haven&rsquo;t thoroughly tested to see the performance gains, but it&rsquo;s interesting to see that some of the new OS X features are already available elsewhere.</p>
 </div>
 
 

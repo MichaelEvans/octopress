@@ -4,7 +4,7 @@
   <title><![CDATA[Gadget Habit]]></title>
   <link href="http://michaelevans.org/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-06-11T23:54:54-04:00</updated>
+  <updated>2013-08-14T22:07:40-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -18,24 +18,24 @@
     <link href="http://michaelevans.org/blog/2013/06/12/getting-mavericks-compressed-memory-feature-in-ubuntu/"/>
     <updated>2013-06-12T00:16:00-04:00</updated>
     <id>http://michaelevans.org/blog/2013/06/12/getting-mavericks-compressed-memory-feature-in-ubuntu</id>
-    <content type="html"><![CDATA[<p>On Monday, Apple announced a new update for it&#8217;s desktop operating system, which will be named OS X Mavericks. As part of the annoucement, they touched on a few performance related features, including a new power saving API, which was called App Nap, as well as a memory compression feature, which would allow compress the memory of programs that are not currently active.</p>
+    <content type="html"><![CDATA[<p>On Monday, Apple announced a new update for it&rsquo;s desktop operating system, which will be named OS X Mavericks. As part of the annoucement, they touched on a few performance related features, including a new power saving API, which was called App Nap, as well as a memory compression feature, which would allow compress the memory of programs that are not currently active.</p>
 
 <p>According to <a href="http://arstechnica.com/apple/2013/06/how-os-x-mavericks-works-its-power-saving-magic/">Ars Technica</a>, Apple is using a technique called Timer Coalescing to create App Nap. Apps that are not active will have their processes set to a lower priority, and therefore use less CPU/disk/etc, and thereby save power. This feature has been around on Linux for a long time, and apparently has been part of Windows as well.</p>
 
-<p>I had not heard, however, of this compressed memory technique, although apparently it had been done many years ago by a program called &#8220;RamDoubler&#8221;. After some quick Googling, it seems that this is available via a kernel module called &#8220;zram&#8221;.</p>
+<p>I had not heard, however, of this compressed memory technique, although apparently it had been done many years ago by a program called &ldquo;RamDoubler&rdquo;. After some quick Googling, it seems that this is available via a kernel module called &ldquo;zram&rdquo;.</p>
 
 <!-- more -->
 
 
-<p>Wanna try it out? If you&#8217;re running Precise or newer (12.04 or later), you&#8217;re in luck. Just apt-get zram with</p>
+<p>Wanna try it out? If you&rsquo;re running Precise or newer (12.04 or later), you&rsquo;re in luck. Just apt-get zram with</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install zram-config</span></code></pre></td></tr></table></div></figure>
 
 
-<p>and you&#8217;re all set.</p>
+<p>and you&rsquo;re all set.</p>
 
-<p>To see the effects of zram, just run <code>free -m</code> and you&#8217;ll notice an increase in memory/swap space. I haven&#8217;t thoroughly tested to see the performance gains, but it&#8217;s interesting to see that some of the new OS X features are already available elsewhere.</p>
+<p>To see the effects of zram, just run <code>free -m</code> and you&rsquo;ll notice an increase in memory/swap space. I haven&rsquo;t thoroughly tested to see the performance gains, but it&rsquo;s interesting to see that some of the new OS X features are already available elsewhere.</p>
 ]]></content>
   </entry>
   
@@ -44,9 +44,9 @@
     <link href="http://michaelevans.org/blog/2013/06/11/running-crouton-on-a-chromebook-pixel/"/>
     <updated>2013-06-11T21:22:00-04:00</updated>
     <id>http://michaelevans.org/blog/2013/06/11/running-crouton-on-a-chromebook-pixel</id>
-    <content type="html"><![CDATA[<p>So a few weeks back at Google IO, Google handed out an awesome laptop to attendees, the <a href="https://play.google.com/store/devices/details?id=chromebook_pixel_wifi">Chromebook Pixel</a>. For those who aren&#8217;t familiar with it, the Pixel is a laptop running Google&#8217;s ChromeOS, with the highest resolution screen available on a laptop (2560x1700). Unfortunately for me (and owners of the other Chromebooks), there&#8217;s a few things you can&#8217;t do in Chrome, like writing software in the new Android Studio!</p>
+    <content type="html"><![CDATA[<p>So a few weeks back at Google IO, Google handed out an awesome laptop to attendees, the <a href="https://play.google.com/store/devices/details?id=chromebook_pixel_wifi">Chromebook Pixel</a>. For those who aren&rsquo;t familiar with it, the Pixel is a laptop running Google&rsquo;s ChromeOS, with the highest resolution screen available on a laptop (2560x1700). Unfortunately for me (and owners of the other Chromebooks), there&rsquo;s a few things you can&rsquo;t do in Chrome, like writing software in the new Android Studio!</p>
 
-<p>In order to work around this limitation in ChromeOS, a developer at Google named David Schneider developed a set of scripts called <a href="https://github.com/dnschneid/crouton">crouton</a>. Crouton allows you to run Ubuntu inside a your ChromeOS system, so that you can easily swap back and forth between the operating systems. This is not limited to the Pixel, so if you&#8217;re using another model Chromebook, even dating back to the CR-48, this guide should work for you.</p>
+<p>In order to work around this limitation in ChromeOS, a developer at Google named David Schneider developed a set of scripts called <a href="https://github.com/dnschneid/crouton">crouton</a>. Crouton allows you to run Ubuntu inside a your ChromeOS system, so that you can easily swap back and forth between the operating systems. This is not limited to the Pixel, so if you&rsquo;re using another model Chromebook, even dating back to the CR-48, this guide should work for you.</p>
 
 <!-- more -->
 
@@ -91,7 +91,7 @@
     <id>http://michaelevans.org/blog/2013/04/29/hands-on-with-google-glass</id>
     <content type="html"><![CDATA[<h3>The Pickup</h3>
 
-<p>Last Wednesday I took the trip up to NYC, to the top floor of Chelsea Market to pick up a device that many have waited anxiously for. A device unlike anything else we&#8217;ve seen before: Google&#8217;s Glass. This is the Explorer Edition of the device, which is targeted towards developers, who attended Google&#8217;s IO conference last year. I was fortunate to be invited to pick up my device on the first day of New York&#8217;s pickups, which followed several pickup days in Mountain View the previous week.</p>
+<p>Last Wednesday I took the trip up to NYC, to the top floor of Chelsea Market to pick up a device that many have waited anxiously for. A device unlike anything else we&rsquo;ve seen before: Google&rsquo;s Glass. This is the Explorer Edition of the device, which is targeted towards developers, who attended Google&rsquo;s IO conference last year. I was fortunate to be invited to pick up my device on the first day of New York&rsquo;s pickups, which followed several pickup days in Mountain View the previous week.</p>
 
 <p><img class="center" src="http://michaelevans.org/images/2013/04/29/s_9e3e2acb-a746-4606-a034-1df2c8e2a3cc-0.jpeg" width="500" height="500" title="The View #throughglass" ></p>
 
@@ -104,11 +104,11 @@
 
 <p>Configuring Glass was a snap, I opted to use the <a href="https://play.google.com/store/apps/details?id=com.google.glass.companion">MyGlass app</a> for Android, although users without the app, can use a web based utility to set up their device. After my scheduled pickup apoinment, another Explorer and myself walked up towards Times Square, and were greeted with several people giving us a look for wearing at our new eyeware.</p>
 
-<p>So far people have either thought they look ridiculous, which might be the nature of the device, or the fact that I&#8217;ve been wearing them overtop of my prescription glasses. This hasn&#8217;t stopped anyone, however, from asking me to try them on and get a demo of the features.</p>
+<p>So far people have either thought they look ridiculous, which might be the nature of the device, or the fact that I&rsquo;ve been wearing them overtop of my prescription glasses. This hasn&rsquo;t stopped anyone, however, from asking me to try them on and get a demo of the features.</p>
 
-<h3>What&#8217;s in the box?</h3>
+<h3>What&rsquo;s in the box?</h3>
 
-<p>Included in the box is Glass (obviously), a micro USB cable and a AC adapter for it, a microfiber bag for storing Glass when it&#8217;s not in use, and two visor attachments, one polarized for sun, and the other clear.</p>
+<p>Included in the box is Glass (obviously), a micro USB cable and a AC adapter for it, a microfiber bag for storing Glass when it&rsquo;s not in use, and two visor attachments, one polarized for sun, and the other clear.</p>
 
 <p><img class="center" src="http://michaelevans.org/images/2013/04/29/IMG_1235.jpg" width="350" height="350" title="Bag o' goodies" ></p>
 
@@ -120,18 +120,18 @@
 
 <h3>Thoughts so far</h3>
 
-<p>Since I&#8217;ve only had the device for a few days, I&#8217;ll need to post a review after I&#8217;ve used it for a little longer. So far I&#8217;ve enjoyed the hands-free navigation for wandering around DC, as well as taking some snapshots. I&#8217;ve always thought it was a little awkward to reply to text messages and emails using your voice (which is why I never really did it on my phone), but maybe I&#8217;ll warm up to it with Glass. The battery life has been pretty decent, even with the heavy usage of showing it off to excited friends.</p>
+<p>Since I&rsquo;ve only had the device for a few days, I&rsquo;ll need to post a review after I&rsquo;ve used it for a little longer. So far I&rsquo;ve enjoyed the hands-free navigation for wandering around DC, as well as taking some snapshots. I&rsquo;ve always thought it was a little awkward to reply to text messages and emails using your voice (which is why I never really did it on my phone), but maybe I&rsquo;ll warm up to it with Glass. The battery life has been pretty decent, even with the heavy usage of showing it off to excited friends.</p>
 
 <p><img class="center" src="http://michaelevans.org/images/2013/04/29/20130426_122245_854.jpg" width="400" height="400" title="#throughglass" ></p>
 
-<h3>But wait&#8230;there&#8217;s more!</h3>
+<h3>But wait&hellip;there&rsquo;s more!</h3>
 
 <p>A few days after I returned with Glass, I was interviewed by The Fold, a flagship video series by The Washington Post! You can check out the video here:</p>
 
 <iframe width="640" height="510" src="http://www.youtube.com/embed/iBrbVaY99kA " frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>
 
 
-<p>Got any questions you&#8217;d like answered? Drop me a line below in the comments, on <a href="https://twitter.com/m_evans10">Twitter</a> or on <a href="https://plus.google.com/114052868601022948953/posts">Google Plus</a>!</p>
+<p>Got any questions you&rsquo;d like answered? Drop me a line below in the comments, on <a href="https://twitter.com/m_evans10">Twitter</a> or on <a href="https://plus.google.com/114052868601022948953/posts">Google Plus</a>!</p>
 
 <p><img class="center" src="http://michaelevans.org/images/2013/04/29/IMG_1246.jpg" width="350" height="350" title="Selfie." ></p>
 
@@ -146,15 +146,14 @@
     <id>http://michaelevans.org/blog/2013/03/29/clickable-links-in-android-listviews</id>
     <content type="html"><![CDATA[<p>As part of my newest app (<a href="https://play.google.com/store/apps/details?id=com.evans.hackernews">Hacker News for Android</a>), I needed to add the ability to click on links in a ListView, and have them open in the browser, while maintaining the ability for the user to click on the ListView row itself, and have the row listen to the click.</p>
 
-<p>If you try using <code>Linkify</code> and <code>LinkMovementMethod</code>, which you&#8217;d use on normal links in a TextView, you&#8217;ll find that you can no longer use the ListView properly.</p>
+<p>If you try using <code>Linkify</code> and <code>LinkMovementMethod</code>, which you&rsquo;d use on normal links in a TextView, you&rsquo;ll find that you can no longer use the ListView properly.</p>
 
 <!-- more -->
 
 
-<p>The solution I&#8217;m using is slightly modified from this answer on StackOverflow <a href="http://stackoverflow.com/a/7327332/458603">here</a>.</p>
+<p>The solution I&rsquo;m using is slightly modified from this answer on StackOverflow <a href="http://stackoverflow.com/a/7327332/458603">here</a>.</p>
 
-<figure class='code'><figcaption><span>[LinkifiedTextView.java] [] </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>LinkifiedTextView.java</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -275,11 +274,11 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Just drop this in as a replacement for your normal TextView, and you&#8217;ll have the clicks on links in your text intercepted. Hope this helps a fellow developer!</p>
+<p>Just drop this in as a replacement for your normal TextView, and you&rsquo;ll have the clicks on links in your text intercepted. Hope this helps a fellow developer!</p>
 
 <hr />
 
-<p>Like this post? Any other Android tips you&#8217;d like to hear about? Let me know on <a href="https://twitter.com/m_evans10">Twitter</a> or <a href="https://plus.google.com/114052868601022948953/posts">Google Plus</a>, or leave a comment.</p>
+<p>Like this post? Any other Android tips you&rsquo;d like to hear about? Let me know on <a href="https://twitter.com/m_evans10">Twitter</a> or <a href="https://plus.google.com/114052868601022948953/posts">Google Plus</a>, or leave a comment.</p>
 ]]></content>
   </entry>
   
@@ -292,7 +291,7 @@
 
 <p><img class="center" src="http://michaelevans.org/images/2013/03/28/googlemessenger.png" width="500" height="500" title="Google Plus Messenger" ></p>
 
-<p>If you look closely, it looks like the Google+ Messenger icon on the bottom right corner of the dock. Is this finally the integration of G+ Messenger and the web that we&#8217;ve been waiting for since G+ Messenger was introduced? Maybe we&#8217;ll find out in a few short weeks during <a href="http://michaelevans.org/blog/2013/03/14/google-io-2013-and-google-reader/">Google IO</a> this year!</p>
+<p>If you look closely, it looks like the Google+ Messenger icon on the bottom right corner of the dock. Is this finally the integration of G+ Messenger and the web that we&rsquo;ve been waiting for since G+ Messenger was introduced? Maybe we&rsquo;ll find out in a few short weeks during <a href="http://michaelevans.org/blog/2013/03/14/google-io-2013-and-google-reader/">Google IO</a> this year!</p>
 ]]></content>
   </entry>
   
@@ -301,11 +300,11 @@
     <link href="http://michaelevans.org/blog/2013/03/14/google-io-2013-and-google-reader/"/>
     <updated>2013-03-14T23:52:00-04:00</updated>
     <id>http://michaelevans.org/blog/2013/03/14/google-io-2013-and-google-reader</id>
-    <content type="html"><![CDATA[<p>Yesterday was a bittersweet day for me in the world of Google. On the bright side, I was one of the lucky few to acquire a ticket to Google IO 2013. This will be my third Google IO, and I cannot be more excited to attend this year. The first year I went brought about the introduction to Android 3.1 (Honeycomb), which began the improvments for Android&#8217;s Holo Theme, as well as layouts for tablets. Last year was even more groundbreaking, with the unveiling of a <a href="http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012/">few</a> new <a href="http://michaelevans.org/blog/2012/09/07/nexus-q-review/">Nexus</a> <a href="http://michaelevans.org/blog/2012/07/03/nexus-7-review/">devices</a>, Android 4.1 (Jelly Bean), as well as <a href="http://michaelevans.org/blog/2013/02/20/googles-project-glass/">Project Glass</a>. I can&#8217;t even imagine what they will have in store for us this year.</p>
+    <content type="html"><![CDATA[<p>Yesterday was a bittersweet day for me in the world of Google. On the bright side, I was one of the lucky few to acquire a ticket to Google IO 2013. This will be my third Google IO, and I cannot be more excited to attend this year. The first year I went brought about the introduction to Android 3.1 (Honeycomb), which began the improvments for Android&rsquo;s Holo Theme, as well as layouts for tablets. Last year was even more groundbreaking, with the unveiling of a <a href="http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012/">few</a> new <a href="http://michaelevans.org/blog/2012/09/07/nexus-q-review/">Nexus</a> <a href="http://michaelevans.org/blog/2012/07/03/nexus-7-review/">devices</a>, Android 4.1 (Jelly Bean), as well as <a href="http://michaelevans.org/blog/2013/02/20/googles-project-glass/">Project Glass</a>. I can&rsquo;t even imagine what they will have in store for us this year.</p>
 
-<p>Here comes the bad news though: <a href="http://googleblog.blogspot.com/2013/03/a-second-spring-of-cleaning.html">Google Reader is being shut down</a>. If you don&#8217;t know, Google Reader is an RSS reader for the web, a hub for all your subscriptions online. This pending shutdown has caused quite a stir, leading to many users scrambling to <a href="http://www.newsblur.com/">new</a> <a href="http://www.feedly.com/">RSS</a> readers, or <a href="http://blog.digg.com/post/45355701332/were-building-a-reader">building new ones</a>. (There was even a <a href="http://mashable.com/2013/03/14/white-house-google-reader/">petition on whitehouse.org</a> for the government to intervene…)</p>
+<p>Here comes the bad news though: <a href="http://googleblog.blogspot.com/2013/03/a-second-spring-of-cleaning.html">Google Reader is being shut down</a>. If you don&rsquo;t know, Google Reader is an RSS reader for the web, a hub for all your subscriptions online. This pending shutdown has caused quite a stir, leading to many users scrambling to <a href="http://www.newsblur.com/">new</a> <a href="http://www.feedly.com/">RSS</a> readers, or <a href="http://blog.digg.com/post/45355701332/were-building-a-reader">building new ones</a>. (There was even a <a href="http://mashable.com/2013/03/14/white-house-google-reader/">petition on whitehouse.org</a> for the government to intervene…)</p>
 
-<p>Google Reader was one of my favorite Google applications, so it&#8217;s quite sad to see it go. Hopefully one of these replacements will provide a good enough experience so the switch is a bit less painful.</p>
+<p>Google Reader was one of my favorite Google applications, so it&rsquo;s quite sad to see it go. Hopefully one of these replacements will provide a good enough experience so the switch is a bit less painful.</p>
 
 <hr />
 
@@ -318,7 +317,7 @@
     <link href="http://michaelevans.org/blog/2013/02/25/guide-to-google-authorship/"/>
     <updated>2013-02-25T21:22:00-05:00</updated>
     <id>http://michaelevans.org/blog/2013/02/25/guide-to-google-authorship</id>
-    <content type="html"><![CDATA[<p>Today I noticed something interesting about my blog: I&#8217;m now a verified author! What does that mean, you might ask? When one of the pages of my blog shows up in a Google search, it will look a little something like this:</p>
+    <content type="html"><![CDATA[<p>Today I noticed something interesting about my blog: I&rsquo;m now a verified author! What does that mean, you might ask? When one of the pages of my blog shows up in a Google search, it will look a little something like this:</p>
 
 <p><img class="center" src="http://michaelevans.org/images/2013/02/25/authorship.png" width="600" height="400" title="Google Authorship" ></p>
 
@@ -333,17 +332,17 @@
 </ul>
 
 
-<p>Would you like to get Authorship on Google? It&#8217;s actually extremely easy. Just follow the following steps:</p>
+<p>Would you like to get Authorship on Google? It&rsquo;s actually extremely easy. Just follow the following steps:</p>
 
 <ol>
 <li>You need a Google+ profile with a profile picture of yourself.</li>
-<li>On the profile editor of Google+, there is a &#8220;Contributor to&#8221; section; add your website here.</li>
+<li>On the profile editor of Google+, there is a &ldquo;Contributor to&rdquo; section; add your website here.</li>
 <li>Add a link like this: <code>&lt;a href="[your profile URL]?rel=author"&gt;Google&lt;/a&gt;</code> somewhere on your website.</li>
-<li>You&#8217;re done! You can validate what your site would look like as a search result with a tool found <a href="http://www.google.com/webmasters/tools/richsnippets">here</a>.</li>
+<li>You&rsquo;re done! You can validate what your site would look like as a search result with a tool found <a href="http://www.google.com/webmasters/tools/richsnippets">here</a>.</li>
 </ol>
 
 
-<p>Keep in mind that Google doesn&#8217;t <em>guarantee</em> to show author information in Google Web Search or Google News results.</p>
+<p>Keep in mind that Google doesn&rsquo;t <em>guarantee</em> to show author information in Google Web Search or Google News results.</p>
 ]]></content>
   </entry>
   
@@ -352,7 +351,7 @@
     <link href="http://michaelevans.org/blog/2013/02/20/sony-unveils-the-playstation-4/"/>
     <updated>2013-02-20T22:21:00-05:00</updated>
     <id>http://michaelevans.org/blog/2013/02/20/sony-unveils-the-playstation-4</id>
-    <content type="html"><![CDATA[<p>Last week Sony confirmed the launch of the PlayStation 4 for 2013. They held a two hour announcement where they showed off some of the hardware, had developers speak about games that are in the pipeline, and touched on release info. There&#8217;s definitely things that I liked, as well as a handful that I didn&#8217;t. Here are some of the takeaways:</p>
+    <content type="html"><![CDATA[<p>Last week Sony confirmed the launch of the PlayStation 4 for 2013. They held a two hour announcement where they showed off some of the hardware, had developers speak about games that are in the pipeline, and touched on release info. There&rsquo;s definitely things that I liked, as well as a handful that I didn&rsquo;t. Here are some of the takeaways:</p>
 
 <!-- more -->
 
@@ -362,7 +361,7 @@
 <ul>
 <li><p>Immediate local play of digital titles while they download</p>
 
-<p>  I think it&#8217;s very cool to be able to play the digital downloads while they download. I&#8217;ve often hoped for something like this, especially since the size of these games has gotten so large over the last few years.</p></li>
+<p>  I think it&rsquo;s very cool to be able to play the digital downloads while they download. I&rsquo;ve often hoped for something like this, especially since the size of these games has gotten so large over the last few years.</p></li>
 <li><p>Video replay/stream of your screen</p>
 
 <p>  This is a very popular feature already for games like Call of Duty. There will be an explosion of PS4 videos on YouTube as soon as this is released.</p></li>
@@ -371,13 +370,13 @@
 <p>  I like the idea of being able to put my console to sleep in a game and pick up where I left off.</p></li>
 <li><p>Allowing remote friends to assume control over your currently playing game</p>
 
-<p>  &#8220;Pass the controller&#8221; sort of feeling over the internet. Not a bad idea.</p></li>
+<p>  &ldquo;Pass the controller&rdquo; sort of feeling over the internet. Not a bad idea.</p></li>
 <li><p>The new system uses a DualShock 4 controller with a touchpad, share button, lightbar and headphone jack</p>
 
-<p>  It&#8217;s time for an update here. It will be interesting to see what developers do with the touchpad portion of the controller though.</p></li>
+<p>  It&rsquo;s time for an update here. It will be interesting to see what developers do with the touchpad portion of the controller though.</p></li>
 <li><p>Silent preloading of games you may be interested in</p>
 
-<p>  Like I said before, file sizes are getting really large. It&#8217;s actually a very smart idea to preload some games I might be interested in, so I can quickly try them out.</p></li>
+<p>  Like I said before, file sizes are getting really large. It&rsquo;s actually a very smart idea to preload some games I might be interested in, so I can quickly try them out.</p></li>
 </ul>
 
 
@@ -392,16 +391,16 @@
 <p>  Are you kidding me? This seems like a no brainer.</p></li>
 <li><p>Game demos were renders</p>
 
-<p>  I&#8217;d have liked to see actual gameplay. We have no idea what games will look like yet. (Similarly disappointing is that the PS4 will output 4K video, but not 4K resolution for games.)</p></li>
-<li><p>No price, no release date AND didn&#8217;t actually see the console</p></li>
+<p>  I&rsquo;d have liked to see actual gameplay. We have no idea what games will look like yet. (Similarly disappointing is that the PS4 will output 4K video, but not 4K resolution for games.)</p></li>
+<li><p>No price, no release date AND didn&rsquo;t actually see the console</p></li>
 </ul>
 
 
-<p>After that, now I&#8217;m curious to see what Microsoft has to offer. I guess we&#8217;ll see how the Xbox (720?) compares at E3 this summer!</p>
+<p>After that, now I&rsquo;m curious to see what Microsoft has to offer. I guess we&rsquo;ll see how the Xbox (720?) compares at E3 this summer!</p>
 
 <hr />
 
-<p>Anything I missed? Something you&#8217;re excited about? Leave a comment!</p>
+<p>Anything I missed? Something you&rsquo;re excited about? Leave a comment!</p>
 ]]></content>
   </entry>
   
@@ -410,7 +409,7 @@
     <link href="http://michaelevans.org/blog/2013/02/20/googles-project-glass/"/>
     <updated>2013-02-20T20:55:00-05:00</updated>
     <id>http://michaelevans.org/blog/2013/02/20/googles-project-glass</id>
-    <content type="html"><![CDATA[<p>This morning Google put up some new details regarding Project Glass, including <a href="http://www.google.com/glass/start/how-it-feels/">a video</a> showing what it&#8217;s like to wear Glass, and a <a href="http://www.google.com/glass/start/what-it-does/">list of things</a> that Glass can do. They are also sponsoring a new contest where anyone can <a href="http://www.google.com/glass/start/how-to-get-one/">join the Glass Explorers</a> (people who will be getting the Developer Edition). I was fortunate enough to be able to attend the Glass Foundry event in New York earlier this month, and got to experience Project Glass first hand. While I cannot say too much more than what you can gather from the Google page, I do have some exciting news!</p>
+    <content type="html"><![CDATA[<p>This morning Google put up some new details regarding Project Glass, including <a href="http://www.google.com/glass/start/how-it-feels/">a video</a> showing what it&rsquo;s like to wear Glass, and a <a href="http://www.google.com/glass/start/what-it-does/">list of things</a> that Glass can do. They are also sponsoring a new contest where anyone can <a href="http://www.google.com/glass/start/how-to-get-one/">join the Glass Explorers</a> (people who will be getting the Developer Edition). I was fortunate enough to be able to attend the Glass Foundry event in New York earlier this month, and got to experience Project Glass first hand. While I cannot say too much more than what you can gather from the Google page, I do have some exciting news!</p>
 
 <!-- more -->
 
@@ -421,7 +420,7 @@
 
 <p><img class="center" src="http://michaelevans.org/images/2013/02/20/glass.jpg" width="400" height="400" title="Project Glass" ></p>
 
-<p>And the best part is the prize for the winners - a free Glass Explorer device (when they are available, of course).</p>
+<p>And the best part is the prize for the winners &ndash; a free Glass Explorer device (when they are available, of course).</p>
 ]]></content>
   </entry>
   
@@ -430,48 +429,48 @@
     <link href="http://michaelevans.org/blog/2013/01/15/boot-ubuntu-from-an-sd-card-on-your-macbook-air/"/>
     <updated>2013-01-15T22:26:00-05:00</updated>
     <id>http://michaelevans.org/blog/2013/01/15/boot-ubuntu-from-an-sd-card-on-your-macbook-air</id>
-    <content type="html"><![CDATA[<p>Recently I was trying to find a way to run Ubuntu off an SD card, so that I could use Linux on my Macbook Air (I&#8217;d have dual booted, but my Air has the 128GB SSD, which doesn&#8217;t leave much space after partitioning). Scouring the web, there&#8217;s not that many resources indicating how, or if this is even possible. Fortunately for you, dear reader, it is!</p>
+    <content type="html"><![CDATA[<p>Recently I was trying to find a way to run Ubuntu off an SD card, so that I could use Linux on my Macbook Air (I&rsquo;d have dual booted, but my Air has the 128GB SSD, which doesn&rsquo;t leave much space after partitioning). Scouring the web, there&rsquo;s not that many resources indicating how, or if this is even possible. Fortunately for you, dear reader, it is!</p>
 
-<p>Like I said, I&#8217;m using a Macbook Air, so there&#8217;s two steps to this process: creating a bootable flash drive with the Ubuntu image, and the actual installation.</p>
+<p>Like I said, I&rsquo;m using a Macbook Air, so there&rsquo;s two steps to this process: creating a bootable flash drive with the Ubuntu image, and the actual installation.</p>
 
 <!-- more -->
 
 
 <h3>Creating a bootable install image</h3>
 
-<p>This is pretty standard stuff, if you&#8217;re reading this, it&#8217;s likely you already know it. Heck, if you have an external DVD drive, you can skip this all together.</p>
+<p>This is pretty standard stuff, if you&rsquo;re reading this, it&rsquo;s likely you already know it. Heck, if you have an external DVD drive, you can skip this all together.</p>
 
 <ol>
 <li>Download the image from <a href="http://www.ubuntu.com/">Ubuntu</a></li>
 <li>Hit up your terminal and use the following command to convert that image <code>hdiutil convert -format UDRW -o ~/path/to/target.img ~/path/to/ubuntu.iso</code></li>
 <li>More terminal goodness: <code>diskutil list</code> to find which disk is your flash drive</li>
 <li><code>diskutil unmountDisk /dev/diskN</code> where N is the disk number you found in step 3.</li>
-<li><code>sudo dd if=/path/to/converted.iso of=/dev/diskN bs=1m</code> to copy that image over to the flash drive.</li>
+<li><code>sudo dd if=/path/to/converted.img of=/dev/diskN bs=1m</code> to copy that image over to the flash drive.</li>
 <li><code>diskutil eject /dev/diskN</code> to EJECT!</li>
 </ol>
 
 
 <h3>Setup the SD Card</h3>
 
-<p>Now we&#8217;re ready to install Ubuntu on the SD card (SD card must be at least 8 Gigs). I used a Class 10 card, and performance was…not terrible. I can&#8217;t speak for any of the slower cards.</p>
+<p>Now we&rsquo;re ready to install Ubuntu on the SD card (SD card must be at least 8 Gigs). I used a Class 10 card, and performance was…not terrible. I can&rsquo;t speak for any of the slower cards.</p>
 
 <ol>
 <li>Download rEFIt from the <a href="http://refit.sourceforge.net/">rEFIt website</a>. You should grab the .dmg version)</li>
-<li>Open up Disk Utility (in /Applications/Utilities) and create a partition of 50 MB formatted &#8220;Mac OS Extended Journaled&#8221;</li>
+<li>Open up Disk Utility (in /Applications/Utilities) and create a partition of 50 MB formatted &ldquo;Mac OS Extended Journaled&rdquo;</li>
 <li>Fill up the rest of the card with a partition of MSDOS-FAT.</li>
-<li>Before writing the Partition Table, hit the options button and select &#8220;GUID Partition Table&#8221;</li>
-<li>Copy the &#8216;efi&#8217; directory onto the root of the 50MB partition created in step 2.</li>
-<li>Get back to that trusty terminal <code>cd /Volumes/partition1/efi/refit</code> (where &#8216;partition1&#8217; is the name of that same parition) followed by <code>./enable.sh</code></li>
-<li>Reboot your machine, and press and hold the option key to select a boot device. You should see ones for your main HD, the SD card, and the Live CD image. Select the Live CD image, and let&#8217;s get installing.</li>
-<li>During installation, you&#8217;ll want to select the advanced partitionint setup. Select the /dev/sdb3 device (Should match the size of the SD card) for formatting and give them the mount point &#8220;/&#8221;. Device for boot loader installation must be also /dev/sdb3 (not /dev/sdb!). Ubuntu is going to give you a warning about no swap partition. That&#8217;s alright, you don&#8217;t need it.</li>
-<li>This is going to take a while. Seriously, it&#8217;s not gonna be fast. Go get a coffee.</li>
+<li>Before writing the Partition Table, hit the options button and select &ldquo;GUID Partition Table&rdquo;</li>
+<li>Copy the &lsquo;efi&rsquo; directory onto the root of the 50MB partition created in step 2.</li>
+<li>Get back to that trusty terminal <code>cd /Volumes/partition1/efi/refit</code> (where &lsquo;partition1&rsquo; is the name of that same parition) followed by <code>./enable.sh</code></li>
+<li>Reboot your machine, and press and hold the option key to select a boot device. You should see ones for your main HD, the SD card, and the Live CD image. Select the Live CD image, and let&rsquo;s get installing.</li>
+<li>During installation, you&rsquo;ll want to select the advanced partitioning setup. Select the /dev/sdb3 device (Should match the size of the SD card) for formatting and give them the mount point &ldquo;/&rdquo;. Device for boot loader installation must be also /dev/sdb3 (not /dev/sdb!). Ubuntu is going to give you a warning about no swap partition. That&rsquo;s alright, you don&rsquo;t need it.</li>
+<li>This is going to take a while. Seriously, it&rsquo;s not gonna be fast. Go get a coffee.</li>
 <li>Reboot when the install is complete, and hold option again to select that SD card. <em>Ta-da</em>!</li>
 </ol>
 
 
 <h5>Bonus Step:</h5>
 
-<p>After you remove the SD card and try to boot normally, you&#8217;ll likely hit this error &#8220;grub error: no such device&#8221;</p>
+<p>After you remove the SD card and try to boot normally, you&rsquo;ll likely hit this error &ldquo;grub error: no such device&rdquo;</p>
 
 <p>You can fix this by booting into OS X and selecting your hard drive as the Startup Disk, which can be found in the System Preferences.</p>
 
@@ -484,7 +483,7 @@
     <link href="http://michaelevans.org/blog/2013/01/09/a-guide-to-unlocking-and-rooting-your-android-phone/"/>
     <updated>2013-01-09T10:45:00-05:00</updated>
     <id>http://michaelevans.org/blog/2013/01/09/a-guide-to-unlocking-and-rooting-your-android-phone</id>
-    <content type="html"><![CDATA[<p>Something that is very popular in the Android world these days is rooting and installing custom ROMs on your phone. A problem that I&#8217;ve found however, is that information regarding the process, and the terminology involved can be quite confusing for someone getting started, and as a result might discourage them. I decided to write up a series of blog posts discussing various parts of this process, so that it might help someone who wants to get involved, but doesn&#8217;t know how. The phone that I&#8217;ll be using for these tutorials is an <a href="http://amzn.to/VAQwcM">HTC One V</a>, which can be used on Virgin Mobile. It&#8217;s a fairly modern phone, comes with a 1GHz single-core CPU, 512MB RAM, and a nice 3.7 inch LCD. This process will almost identical for other HTC phones, and very similar for many other Android devices.</p>
+    <content type="html"><![CDATA[<p>Something that is very popular in the Android world these days is rooting and installing custom ROMs on your phone. A problem that I&rsquo;ve found however, is that information regarding the process, and the terminology involved can be quite confusing for someone getting started, and as a result might discourage them. I decided to write up a series of blog posts discussing various parts of this process, so that it might help someone who wants to get involved, but doesn&rsquo;t know how. The phone that I&rsquo;ll be using for these tutorials is an <a href="http://amzn.to/VAQwcM">HTC One V</a>, which can be used on Virgin Mobile. It&rsquo;s a fairly modern phone, comes with a 1GHz single-core CPU, 512MB RAM, and a nice 3.7 inch LCD. This process will almost identical for other HTC phones, and very similar for many other Android devices.</p>
 
 <p>Disclaimer: This may void your warranty, I take no responsibility, etc.</p>
 
@@ -493,25 +492,25 @@
 
 <h2>Part One: Unlocking your One V</h2>
 
-<p>The first part of the process is called &#8220;Rooting&#8221; your device. Rooting basically means obtaining admin access on your device, which allows you to do all sorts of fun things down the line. In order to root your device however, there are a few steps you&#8217;ll have to take. The first thing you&#8217;ll need to do is unlock the bootloader. The bootloader is the software that loads the operating system of your phone. Normally this is locked to only start the software that ships on the device, but we are going to unlock it so that we may install custom software.</p>
+<p>The first part of the process is called &ldquo;Rooting&rdquo; your device. Rooting basically means obtaining admin access on your device, which allows you to do all sorts of fun things down the line. In order to root your device however, there are a few steps you&rsquo;ll have to take. The first thing you&rsquo;ll need to do is unlock the bootloader. The bootloader is the software that loads the operating system of your phone. Normally this is locked to only start the software that ships on the device, but we are going to unlock it so that we may install custom software.</p>
 
 <ol>
 <li>Go to <a href="http://www.htcdev.com/">HTC Dev</a> and create yourself an account.</li>
 <li>Download <a href="https://www.box.com/s/kuouqnnsjke4byd2u38n">these</a> Fastboot Files</li>
 <li>Make a new folder on your C: or home directory called fastboot.</li>
 <li>Extract the zip downloaded in step 2 to the new folder</li>
-<li>Go <a href="http://www.htcdev.com/bootloader/">here</a> and select &#8220;All Other Supported Models&#8221; and then &#8220;Begin Unlock bootloader&#8221;</li>
+<li>Go <a href="http://www.htcdev.com/bootloader/">here</a> and select &ldquo;All Other Supported Models&rdquo; and then &ldquo;Begin Unlock bootloader&rdquo;</li>
 <li>Check both checkboxes, and then proceed.</li>
 <li>Power off your phone by holding the power button down for 5-7 seconds (the three keys will flash a few times then it will power off)</li>
-<li>Hold the volume down button and power the device on, the device will boot to a white screen called &#8220;HBOOT&#8221;</li>
-<li>Select &#8220;Fastboot&#8221; with volume up or down then press the power button once (you&#8217;ll be in fastboot mode)</li>
+<li>Hold the volume down button and power the device on, the device will boot to a white screen called &ldquo;HBOOT&rdquo;</li>
+<li>Select &ldquo;Fastboot&rdquo; with volume up or down then press the power button once (you&rsquo;ll be in fastboot mode)</li>
 <li>Plug your phone into your computer and open a Command Prompt.</li>
 <li>cd to your folder where we put fastboot files (i.e c:\fastboot)</li>
 <li>type this into your command prompt: <code>fastboot oem get_identifier_token</code></li>
 <li>Select &amp; copy the text as per step 9 on the HTC Dev website</li>
 <li>Paste your identifier token into the box at the bottom and submit
-You will then receive an email from HTCDev with a link to the second    part of the instructions and your &#8220;Unlock_code.bin&#8221; file attached.</li>
-<li>Download the &#8220;Unlock_code.bin&#8221; attachment from the email and save it to     the same folder that we extracted fastboot files.</li>
+You will then receive an email from HTCDev with a link to the second    part of the instructions and your &ldquo;Unlock_code.bin&rdquo; file attached.</li>
+<li>Download the &ldquo;Unlock_code.bin&rdquo; attachment from the email and save it to     the same folder that we extracted fastboot files.</li>
 <li>Type this into your command prompt window: <code>fastboot flash unlocktoken Unlock_code.bin</code></li>
 <li>The display will change on your phone, and ask you to confirm the unlock. press volume up to accept and power to confirm.</li>
 </ol>
@@ -533,11 +532,11 @@ You will then receive an email from HTCDev with a link to the second    part of 
 </ol>
 
 
-<p><strong>Excellent!</strong> You now have root access on your phone. When you start up Android, you&#8217;ll see a new application in your launcher. It&#8217;s called SuperSU, and will ask you to allow/deny applications root access if they request it. This is useful for installing things like tethering applications, or modifying system files.</p>
+<p><strong>Excellent!</strong> You now have root access on your phone. When you start up Android, you&rsquo;ll see a new application in your launcher. It&rsquo;s called SuperSU, and will ask you to allow/deny applications root access if they request it. This is useful for installing things like tethering applications, or modifying system files.</p>
 
 <h2>Part Three: Installing Custom Recovery</h2>
 
-<p>The last thing we are going to do as part of this guide is install a custom recovery. A recovery is a mode of the phone that allows you to backup/restore your device, or modify device files, like installing new software. This will be important if you&#8217;d like to backup your device before wiping it to install custom software. In order to install ClockworkMod Recovery (which is probably the most popular recovery you&#8217;ll find):</p>
+<p>The last thing we are going to do as part of this guide is install a custom recovery. A recovery is a mode of the phone that allows you to backup/restore your device, or modify device files, like installing new software. This will be important if you&rsquo;d like to backup your device before wiping it to install custom software. In order to install ClockworkMod Recovery (which is probably the most popular recovery you&rsquo;ll find):</p>
 
 <ol>
 <li>Download ClockworkMod Recovery <a href="https://www.box.com/s/vj181v9mmi5tghm1za4b">here</a>.</li>
@@ -546,28 +545,28 @@ You will then receive an email from HTCDev with a link to the second    part of 
 <li>Select Fastboot with volume up or down then press power once</li>
 <li>Connect your phone to PC</li>
 <li>Type the following in to your command prompt: <code>adb flash recovery cwmrecovery.img</code></li>
-<li>Restart your phone, and hold the volume down button. This time, select &#8220;recovery&#8221; and hit the power button.</li>
+<li>Restart your phone, and hold the volume down button. This time, select &ldquo;recovery&rdquo; and hit the power button.</li>
 </ol>
 
 
-<p>You&#8217;re now in recovery mode! While we&#8217;re here, let&#8217;s make a backup.</p>
+<p>You&rsquo;re now in recovery mode! While we&rsquo;re here, let&rsquo;s make a backup.</p>
 
 <ol>
-<li>Scroll through the list of options 2 times using volume up or volume down. (Without doing this, you won&#8217;t be able to select an option)</li>
-<li>Use the power button to select &#8220;Backup and restore&#8221;</li>
-<li>Select &#8220;Backup&#8221;</li>
+<li>Scroll through the list of options 2 times using volume up or volume down. (Without doing this, you won&rsquo;t be able to select an option)</li>
+<li>Use the power button to select &ldquo;Backup and restore&rdquo;</li>
+<li>Select &ldquo;Backup&rdquo;</li>
 <li>The backup process is now running. It will be a few minutes to complete.</li>
-<li>Once complete, let&#8217;s make sure the backup is successful.</li>
-<li>Once again, select &#8220;Backup and restore&#8221;</li>
-<li>Choose &#8220;Restore&#8221;. You will see your backup files, e.g: 2013-01-12.10.13.04</li>
-<li>Pick &#8220;Go Back&#8221;</li>
-<li>Select &#8220;Reboot system&#8221;</li>
+<li>Once complete, let&rsquo;s make sure the backup is successful.</li>
+<li>Once again, select &ldquo;Backup and restore&rdquo;</li>
+<li>Choose &ldquo;Restore&rdquo;. You will see your backup files, e.g: 2013-01-12.10.13.04</li>
+<li>Pick &ldquo;Go Back&rdquo;</li>
+<li>Select &ldquo;Reboot system&rdquo;</li>
 </ol>
 
 
-<p>It&#8217;s probably best to copy that backup folder off your SD card and onto your computer in the event something happens to your SD card.</p>
+<p>It&rsquo;s probably best to copy that backup folder off your SD card and onto your computer in the event something happens to your SD card.</p>
 
-<p><strong>Awesome</strong>! You&#8217;re now all set to do all sorts of things, like installing custom roms. Be sure to check back for the next part of this series, where we will go over that.</p>
+<p><strong>Awesome</strong>! You&rsquo;re now all set to do all sorts of things, like installing custom roms. Be sure to check back for the next part of this series, where we will go over that.</p>
 ]]></content>
   </entry>
   
@@ -576,9 +575,9 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <link href="http://michaelevans.org/blog/2012/12/20/vmware-easy-install-stuck-on-ubuntu-12-dot-04/"/>
     <updated>2012-12-20T19:34:00-05:00</updated>
     <id>http://michaelevans.org/blog/2012/12/20/vmware-easy-install-stuck-on-ubuntu-12-dot-04</id>
-    <content type="html"><![CDATA[<p>I was trying to install Ubuntu 12.04 in VMware Player on my PC and ran into some trouble during the &#8220;Easy Install&#8221; process. The installation basically hung at the console after the installation was successful, with a message telling me that the VMware Tools were being installed, and that I could login and use the system while they were installing. Maybe 10 minutes later, there was no progress, so I restarted the VM.</p>
+    <content type="html"><![CDATA[<p>I was trying to install Ubuntu 12.04 in VMware Player on my PC and ran into some trouble during the &ldquo;Easy Install&rdquo; process. The installation basically hung at the console after the installation was successful, with a message telling me that the VMware Tools were being installed, and that I could login and use the system while they were installing. Maybe 10 minutes later, there was no progress, so I restarted the VM.</p>
 
-<p>I decided to log in and start X manually, so I could at least mess around with it in the meanwhile. Without being able to resize the window/use the shared clipboard, I decided to try to install the tools manually. No dice here, since VMware won&#8217;t let you install the tools while the Easy Install process is still running. Here&#8217;s what you can do to fix it:</p>
+<p>I decided to log in and start X manually, so I could at least mess around with it in the meanwhile. Without being able to resize the window/use the shared clipboard, I decided to try to install the tools manually. No dice here, since VMware won&rsquo;t let you install the tools while the Easy Install process is still running. Here&rsquo;s what you can do to fix it:</p>
 
 <!--more-->
 
@@ -629,7 +628,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <p><img src="http://michaelevans.org/images/2012/09/07/qapp.jpeg" width="400" height="400" title="Nexus Q App" ></p>
 
-<p>You don&#8217;t really use the app for anything after setting up the Q initially, all the media is controlled through the Play Music, Play Movies and Youtube apps. All you need to do is hit the little triangle that will appear when you&#8217;re on the same network as a Q.</p>
+<p>You don&rsquo;t really use the app for anything after setting up the Q initially, all the media is controlled through the Play Music, Play Movies and Youtube apps. All you need to do is hit the little triangle that will appear when you&rsquo;re on the same network as a Q.</p>
 
 <p><img src="http://michaelevans.org/images/2012/09/07/music.png" width="400" height="400" title="Play Music with Q" ></p>
 
@@ -644,7 +643,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <link href="http://michaelevans.org/blog/2012/07/03/nexus-7-review/"/>
     <updated>2012-07-03T13:39:00-04:00</updated>
     <id>http://michaelevans.org/blog/2012/07/03/nexus-7-review</id>
-    <content type="html"><![CDATA[<p>So by now you&#8217;ve probably heard about the Nexus 7. We heard it was coming <a href="http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012/">last week</a>, and now after using it for a few days, here&#8217;s my review.</p>
+    <content type="html"><![CDATA[<p>So by now you&rsquo;ve probably heard about the Nexus 7. We heard it was coming <a href="http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012/">last week</a>, and now after using it for a few days, here&rsquo;s my review.</p>
 
 <p><img src="http://michaelevans.org/images/2012/07/03/nexus.jpg" width="400" height="200" title="Nexus 7" ></p>
 
@@ -653,15 +652,15 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <p></p>
 
-<p>As a backstory, you should know that prior to recieving the Nexus 7 at Google IO, I already owned a Motorola Xoom, a Samsung Galaxy 10.1 (from IO 2011), and an HP Touchpad. Surprising as it might seem for someone with all these gadgets, I actually don&#8217;t really <em>get</em> tablets. I have a laptop, and a smartphone, and there just really isn&#8217;t a whole lot of use for a tablet that I&#8217;ve found. I&#8217;ve tried them all, including the iPad, and I just haven&#8217;t found a way to fit it into the collection of things I use on a daily basis.</p>
+<p>As a backstory, you should know that prior to recieving the Nexus 7 at Google IO, I already owned a Motorola Xoom, a Samsung Galaxy 10.1 (from IO 2011), and an HP Touchpad. Surprising as it might seem for someone with all these gadgets, I actually don&rsquo;t really <em>get</em> tablets. I have a laptop, and a smartphone, and there just really isn&rsquo;t a whole lot of use for a tablet that I&rsquo;ve found. I&rsquo;ve tried them all, including the iPad, and I just haven&rsquo;t found a way to fit it into the collection of things I use on a daily basis.</p>
 
-<p>But, I don&#8217;t give up trying so easily. Nor has Google it seems, because slowly but surely, Google has finally put together a combination of software and hardware that is an absolute pleasure to use. Not only that, but at $200, it&#8217;s a steal compared to <a href="http://www.apple.com/ipad/">other popular options</a>.</p>
+<p>But, I don&rsquo;t give up trying so easily. Nor has Google it seems, because slowly but surely, Google has finally put together a combination of software and hardware that is an absolute pleasure to use. Not only that, but at $200, it&rsquo;s a steal compared to <a href="http://www.apple.com/ipad/">other popular options</a>.</p>
 
-<p>The best way to review the Nexus however, is by breaking it down into the two main components that it&#8217;s comprised of: software and hardware.</p>
+<p>The best way to review the Nexus however, is by breaking it down into the two main components that it&rsquo;s comprised of: software and hardware.</p>
 
 <h2>Software</h2>
 
-<p>The core of the Nexus 7 is Android 4.1, codenamed &#8220;Jelly Bean&#8221;. Jelly Bean was not a revolutionary update like its predessesor, Ice Cream Sandwich, but an evolutionary one. It includes three main changes, as well as some small ones. The main changes were &#8220;Project Butter&#8221;, Google Search, and Google Now.</p>
+<p>The core of the Nexus 7 is Android 4.1, codenamed &ldquo;Jelly Bean&rdquo;. Jelly Bean was not a revolutionary update like its predessesor, Ice Cream Sandwich, but an evolutionary one. It includes three main changes, as well as some small ones. The main changes were &ldquo;Project Butter&rdquo;, Google Search, and Google Now.</p>
 
 <h4>Project Butter</h4>
 
@@ -669,25 +668,25 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <h4>Google Search</h4>
 
-<p>Google&#8217;s new voice search is their strike back against Siri. Powered by Google&#8217;s Knowledge Graph, it can do a lot more than Apple&#8217;s offering.</p>
+<p>Google&rsquo;s new voice search is their strike back against Siri. Powered by Google&rsquo;s Knowledge Graph, it can do a lot more than Apple&rsquo;s offering.</p>
 
 <p><img class="left" src="http://michaelevans.org/images/2012/07/03/voice.jpg" width="375" height="200" title="Voice Search Demo" ></p>
 
-<p>The speech-to-text seems to be significantly more accurate than Apple&#8217;s, as well as much quicker. I imagine this is because Google has moved the speech-to-text engine onto the device, as this is another feature of the new keyboard (more on that below).</p>
+<p>The speech-to-text seems to be significantly more accurate than Apple&rsquo;s, as well as much quicker. I imagine this is because Google has moved the speech-to-text engine onto the device, as this is another feature of the new keyboard (more on that below).</p>
 
-<p>Instead of just listing off a whole bunch of things that I&#8217;ve tried, here&#8217;s a video from <a href="http://www.youtube.com/watch?v=fHkhp6BwnGo">JLishere</a>, who has compiled 41 queries against knoweledge graph. He demonstrates the wide variety of what Knowledge Graph allows the device to respond to, like local queries, transit directions, and what seems to just be tidbits from Wikipedia.</p>
+<p>Instead of just listing off a whole bunch of things that I&rsquo;ve tried, here&rsquo;s a video from <a href="http://www.youtube.com/watch?v=fHkhp6BwnGo">JLishere</a>, who has compiled 41 queries against knoweledge graph. He demonstrates the wide variety of what Knowledge Graph allows the device to respond to, like local queries, transit directions, and what seems to just be tidbits from Wikipedia.</p>
 
-<p>What&#8217;s most interesting to me, however, is the preview of the possibile ability to access core hardware functions, like turning on and off Wifi or Bluetooth. Another interesting feature is how this new voice search seems to fit in well with another new platform feature: Google Now.</p>
+<p>What&rsquo;s most interesting to me, however, is the preview of the possibile ability to access core hardware functions, like turning on and off Wifi or Bluetooth. Another interesting feature is how this new voice search seems to fit in well with another new platform feature: Google Now.</p>
 
 <h4>Google Now</h4>
 
-<p>Google Now is a new card based system introduced in the new version of Android. It tells you about the weather, traffic information, sports scores, and other tidbits of information you&#8217;re likely to look up during your day. It&#8217;s quite convenient to have information about an upcoming flight available without having to keep checking it, or traffic information regarding my daily commute delivered right to my handset or tablet. Right now the number of available &#8216;cards&#8217; is limited, but as the number of uses expands, the functionality will continue to grow.</p>
+<p>Google Now is a new card based system introduced in the new version of Android. It tells you about the weather, traffic information, sports scores, and other tidbits of information you&rsquo;re likely to look up during your day. It&rsquo;s quite convenient to have information about an upcoming flight available without having to keep checking it, or traffic information regarding my daily commute delivered right to my handset or tablet. Right now the number of available &lsquo;cards&rsquo; is limited, but as the number of uses expands, the functionality will continue to grow.</p>
 
 <h4>Other features</h4>
 
-<p>In addition to the fancy speech-to-text features, as well as the speed improvements, Google has added rich notifications that allow you to perform actions without opening the app. You can control the music player, or reply to a SMS message, all from the notification tray. Another addition is a new keyboard, which does text prediction. If you&#8217;ve ever used Swiftkey, you&#8217;ll feel right at home with the new stock keyboard. Also included is the offline speech-to-text engine, which allows for speedy transcription, if you&#8217;re into that.</p>
+<p>In addition to the fancy speech-to-text features, as well as the speed improvements, Google has added rich notifications that allow you to perform actions without opening the app. You can control the music player, or reply to a SMS message, all from the notification tray. Another addition is a new keyboard, which does text prediction. If you&rsquo;ve ever used Swiftkey, you&rsquo;ll feel right at home with the new stock keyboard. Also included is the offline speech-to-text engine, which allows for speedy transcription, if you&rsquo;re into that.</p>
 
-<p>Other changes include some fancy new camera and gallery improvements, and now Chrome is the standard browser. Combined with tab sync from other machines, this is the best mobile browsing experience I&#8217;ve had so far.</p>
+<p>Other changes include some fancy new camera and gallery improvements, and now Chrome is the standard browser. Combined with tab sync from other machines, this is the best mobile browsing experience I&rsquo;ve had so far.</p>
 
 <h2>Hardware</h2>
 
@@ -695,13 +694,13 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <p><img class="right" src="http://michaelevans.org/images/2012/07/03/chrome.jpg" width="375" height="200" title="Chrome" ></p>
 
-<p>In addition to that serious computing power, the Nexus 7 has plenty of sensors and radios. Under the hood, there&#8217;s Bluetooth and NFC, not to mention GPS, an accelerometer, a digital compass and a gyroscope. All this is paired with a battery that managed to last me around eight hours. Based on other reviews I&#8217;ve seen, the battery seems to last between seven and nine hours, depending on usage.</p>
+<p>In addition to that serious computing power, the Nexus 7 has plenty of sensors and radios. Under the hood, there&rsquo;s Bluetooth and NFC, not to mention GPS, an accelerometer, a digital compass and a gyroscope. All this is paired with a battery that managed to last me around eight hours. Based on other reviews I&rsquo;ve seen, the battery seems to last between seven and nine hours, depending on usage.</p>
 
-<p>This all sounds fantastic, but there&#8217;s a few things that could have been added/improved as well. First, since there&#8217;s a lack of a rear camera, no camera app has been included. This is most certainly not a deal breaker, but it&#8217;s worth noting, if you&#8217;re into self portraits. There&#8217;s also no HDMI/MHL output, nor a MicroSD slot. The only other gripe that I have is that the speakers are fairly inadiquite, so you&#8217;ll be reaching for your headphones.</p>
+<p>This all sounds fantastic, but there&rsquo;s a few things that could have been added/improved as well. First, since there&rsquo;s a lack of a rear camera, no camera app has been included. This is most certainly not a deal breaker, but it&rsquo;s worth noting, if you&rsquo;re into self portraits. There&rsquo;s also no HDMI/MHL output, nor a MicroSD slot. The only other gripe that I have is that the speakers are fairly inadiquite, so you&rsquo;ll be reaching for your headphones.</p>
 
 <p>The Nexus 7 is a great deal for a tablet that costs just under $200. It has a great display, smooth performance and all the bells and whistles of Jelly Bean. In my opinion, this is the best Android tablet available.</p>
 
-<p>And for the first time, I&#8217;m actually excited about using a tablet.</p>
+<p>And for the first time, I&rsquo;m actually excited about using a tablet.</p>
 
 <p>Oh yeah, if you were wondering: I did preorder Project Glass.</p>
 ]]></content>
@@ -712,7 +711,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <link href="http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012/"/>
     <updated>2012-06-26T09:42:00-04:00</updated>
     <id>http://michaelevans.org/blog/2012/06/26/shots-from-outside-io-2012</id>
-    <content type="html"><![CDATA[<p>I&#8217;m in San Francisco for <a href="https://developers.google.com/events/io/">Google IO 2012</a>, and while Nate and I were wandering the city, we passed by the Moscone Center and I snapped a couple of photos.</p>
+    <content type="html"><![CDATA[<p>I&rsquo;m in San Francisco for <a href="https://developers.google.com/events/io/">Google IO 2012</a>, and while Nate and I were wandering the city, we passed by the Moscone Center and I snapped a couple of photos.</p>
 
 <p><img src="http://michaelevans.org/images/2012/06/26/window.JPG" width="700" height="200" title="Giant Google Banner" ></p>
 
@@ -722,7 +721,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <p><img src="http://michaelevans.org/images/2012/06/26/wallet.JPG" width="700" height="200" title="Google Store" ></p>
 
-<p>We&#8217;ll certainly find out tomorrow though!</p>
+<p>We&rsquo;ll certainly find out tomorrow though!</p>
 ]]></content>
   </entry>
   
@@ -731,22 +730,22 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <link href="http://michaelevans.org/blog/2012/06/19/microsoft-surface-has-microsoft-nailed-it/"/>
     <updated>2012-06-19T19:44:00-04:00</updated>
     <id>http://michaelevans.org/blog/2012/06/19/microsoft-surface-has-microsoft-nailed-it</id>
-    <content type="html"><![CDATA[<p>Last night Microsoft unveiled Surface, its entry into the already crowded tablet arena. The name, you might be thinking, sounds awfully familiar. That&#8217;s cause <a href="http://en.wikipedia.org/wiki/Microsoft_PixelSense">it is</a>. Anyway, the hardware of this reincarnation is <em>not</em> a table, it&#8217;s actually quite sleek.</p>
+    <content type="html"><![CDATA[<p>Last night Microsoft unveiled Surface, its entry into the already crowded tablet arena. The name, you might be thinking, sounds awfully familiar. That&rsquo;s cause <a href="http://en.wikipedia.org/wiki/Microsoft_PixelSense">it is</a>. Anyway, the hardware of this reincarnation is <em>not</em> a table, it&rsquo;s actually quite sleek.</p>
 
 <!-- more -->
 
 
 <p></p>
 
-<p>It&#8217;s thinner and lighter than an iPad, and has a built in kickstand. But here&#8217;s the kicker, the &#8220;smart cover&#8221;, doubles as a keyboard. Combine this with Microsoft Office, and I think you might have a competitor in the works. It has a stylus that can work even when your hand is on the screen, a USB port, and all the bells and whistles you&#8217;d want to see from a mobile machine.</p>
+<p>It&rsquo;s thinner and lighter than an iPad, and has a built in kickstand. But here&rsquo;s the kicker, the &ldquo;smart cover&rdquo;, doubles as a keyboard. Combine this with Microsoft Office, and I think you might have a competitor in the works. It has a stylus that can work even when your hand is on the screen, a USB port, and all the bells and whistles you&rsquo;d want to see from a mobile machine.</p>
 
 <p><img src="http://michaelevans.org/images/2012/06/19/surface.jpeg" width="700" height="400" title="Microsoft Surface" ></p>
 
-<p>Unfortunately, I can&#8217;t end the article there. Despite the fact that Microsoft blew me away by revealing a hot tablet, they still might let us down anyway. They were unable to provide a concrete release date, pricing, or battery life. Those three factors could easily change this purchase from a must-have, to a don&#8217;t-bother.</p>
+<p>Unfortunately, I can&rsquo;t end the article there. Despite the fact that Microsoft blew me away by revealing a hot tablet, they still might let us down anyway. They were unable to provide a concrete release date, pricing, or battery life. Those three factors could easily change this purchase from a must-have, to a don&rsquo;t-bother.</p>
 
-<p>And then there&#8217;s the name. You&#8217;d <strong>think</strong> they&#8217;d call it Microsoft Surface/Surface Pro, or something along those lines. It&#8217;s a popular <a href="http://en.wikipedia.org/wiki/Apple_Macbook">naming scheme</a> used by a few <a href="http://www.apple.com/macbook-pro/">other companies</a>, and even in their own <a href="http://windows.microsoft.com/en-US/windows7/products/compare">product lines</a>. But alas, they went with the succinct &#8220;Surface for Windows 8 Pro.&#8221; Rolls right off the tongue, right?</p>
+<p>And then there&rsquo;s the name. You&rsquo;d <strong>think</strong> they&rsquo;d call it Microsoft Surface/Surface Pro, or something along those lines. It&rsquo;s a popular <a href="http://en.wikipedia.org/wiki/Apple_Macbook">naming scheme</a> used by a few <a href="http://www.apple.com/macbook-pro/">other companies</a>, and even in their own <a href="http://windows.microsoft.com/en-US/windows7/products/compare">product lines</a>. But alas, they went with the succinct &ldquo;Surface for Windows 8 Pro.&rdquo; Rolls right off the tongue, right?</p>
 
-<p>All in all, I&#8217;m still impressed with what I saw yesterday. The form factor is good, and the potential is there. And when Microsoft takes the hardware and software into their own hands, the usually do a <a href="http://www.xbox.com/en-US/">good</a> <a href="http://www.xbox.com/en-US/Kinect">job</a>. Hopefully when it comes out in the fall, Microsoft won&#8217;t let us down.</p>
+<p>All in all, I&rsquo;m still impressed with what I saw yesterday. The form factor is good, and the potential is there. And when Microsoft takes the hardware and software into their own hands, the usually do a <a href="http://www.xbox.com/en-US/">good</a> <a href="http://www.xbox.com/en-US/Kinect">job</a>. Hopefully when it comes out in the fall, Microsoft won&rsquo;t let us down.</p>
 
 <iframe width="640" height="510" src="http://www.youtube.com/embed/dpzu3HM2CIo " frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -760,11 +759,11 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <link href="http://michaelevans.org/blog/2012/06/11/wwdc-recap/"/>
     <updated>2012-06-11T21:55:00-04:00</updated>
     <id>http://michaelevans.org/blog/2012/06/11/wwdc-recap</id>
-    <content type="html"><![CDATA[<p>If you remember from <a href="http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/">last week</a>, I made some predictions about what Apple would reveal today at WWDC. Let&#8217;s recap what actually happened, and we can see the hits and misses.</p>
+    <content type="html"><![CDATA[<p>If you remember from <a href="http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/">last week</a>, I made some predictions about what Apple would reveal today at WWDC. Let&rsquo;s recap what actually happened, and we can see the hits and misses.</p>
 
 <h3>New Macs</h3>
 
-<p>Yep. Refresh for the Air and Pro lines, and the introduction of the &#8220;Super Pro&#8221;. Yeah, I was wrong about the &#8220;Retina&#8221; all around, and nothing for the Mac Mini, but I&#8217;d say I was pretty darn close. There was technically an update for the Mac Pro, but as Marco from Instapaper <a href="http://www.marco.org/2012/06/11/half-assed-mac-pro">points out</a>, they basically didn&#8217;t do Pro owners any favors.</p>
+<p>Yep. Refresh for the Air and Pro lines, and the introduction of the &ldquo;Super Pro&rdquo;. Yeah, I was wrong about the &ldquo;Retina&rdquo; all around, and nothing for the Mac Mini, but I&rsquo;d say I was pretty darn close. There was technically an update for the Mac Pro, but as Marco from Instapaper <a href="http://www.marco.org/2012/06/11/half-assed-mac-pro">points out</a>, they basically didn&rsquo;t do Pro owners any favors.</p>
 
 <h3>Mountain Lion</h3>
 
@@ -772,7 +771,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <h3>iOS 6</h3>
 
-<p>I was a bit disappointed. Nothing I saw made me feel like I needed to have the newest update, since most of the new features are already present in the competitor&#8217;s latest offering, Ice Cream Sandwich. Can&#8217;t wait to see how Google strikes back in two weeks.</p>
+<p>I was a bit disappointed. Nothing I saw made me feel like I needed to have the newest update, since most of the new features are already present in the competitor&rsquo;s latest offering, Ice Cream Sandwich. Can&rsquo;t wait to see how Google strikes back in two weeks.</p>
 
 <!-- more -->
 
@@ -781,7 +780,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <h3>Retina Displays</h3>
 
-<p>I can&#8217;t wait to see it, but at the same time, I don&#8217;t want to. I know that I&#8217;ll love it, and it will make me want one and get rid of my current Macbook Air. So if you own one, please don&#8217;t show me.</p>
+<p>I can&rsquo;t wait to see it, but at the same time, I don&rsquo;t want to. I know that I&rsquo;ll love it, and it will make me want one and get rid of my current Macbook Air. So if you own one, please don&rsquo;t show me.</p>
 
 <h3>New Maps</h3>
 
@@ -789,7 +788,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <h3>Siri Update</h3>
 
-<p>Almost there. They added some more third party support, but it&#8217;s not yet at that API level where I think it will really shine. Maybe in iOS 7?</p>
+<p>Almost there. They added some more third party support, but it&rsquo;s not yet at that API level where I think it will really shine. Maybe in iOS 7?</p>
 
 <h3>Apple TV Update</h3>
 
@@ -797,11 +796,11 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <h3>Facebook Integration</h3>
 
-<p>Still don&#8217;t care.</p>
+<p>Still don&rsquo;t care.</p>
 
-<p>Yeah, I got the &#8220;Won&#8217;t happen stuff&#8221; right too (Did anyone <em>really</em> think there would be a iPad Mini?).</p>
+<p>Yeah, I got the &ldquo;Won&rsquo;t happen stuff&rdquo; right too (Did anyone <em>really</em> think there would be a iPad Mini?).</p>
 
-<p>All in all, I was actually kind of let down. Nothing in Mountain Lion or iOS 6 really makes me get that &#8220;gotta have it&#8221; feeling that iOS 5, or even Lion had. I really was hoping for a Retina Macbook Air (which I&#8217;m guessing will come with the next refresh as Apple drives prices of displays down), but I didn&#8217;t even see hardware (minus the Superbook Pro, which costs way more than I want to pay), that made me feel jealous because I still had the current stuff. Maybe my expectations were too high. I&#8217;m still way more excited for Google IO, since I really don&#8217;t have any concrete idea what we&#8217;ll be seeing. Project Glass anyone?</p>
+<p>All in all, I was actually kind of let down. Nothing in Mountain Lion or iOS 6 really makes me get that &ldquo;gotta have it&rdquo; feeling that iOS 5, or even Lion had. I really was hoping for a Retina Macbook Air (which I&rsquo;m guessing will come with the next refresh as Apple drives prices of displays down), but I didn&rsquo;t even see hardware (minus the Superbook Pro, which costs way more than I want to pay), that made me feel jealous because I still had the current stuff. Maybe my expectations were too high. I&rsquo;m still way more excited for Google IO, since I really don&rsquo;t have any concrete idea what we&rsquo;ll be seeing. Project Glass anyone?</p>
 ]]></content>
   </entry>
   
@@ -810,13 +809,13 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <link href="http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/"/>
     <updated>2012-06-07T18:02:00-04:00</updated>
     <id>http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions</id>
-    <content type="html"><![CDATA[<p>Since essentially all other tech blogs are writing about their predictions for Apple&#8217;s Worldwide Developer Conference which is being held next week, I&#8217;ve decided to throw my guesses into the ring, so we can go over them next week, and see how I did. I&#8217;ll try to touch on all the big rumors that are going around, but if I miss one, feel free to mention it in the comments.</p>
+    <content type="html"><![CDATA[<p>Since essentially all other tech blogs are writing about their predictions for Apple&rsquo;s Worldwide Developer Conference which is being held next week, I&rsquo;ve decided to throw my guesses into the ring, so we can go over them next week, and see how I did. I&rsquo;ll try to touch on all the big rumors that are going around, but if I miss one, feel free to mention it in the comments.</p>
 
 <h2>Things that I think are likely/definite:</h2>
 
 <h3>New Macs</h3>
 
-<p>As any techy will tell you, Intel has shipped some new generation CPU&#8217;s recently (referred to as Ivy Bridge), which would be natural fits for the aging Macbook Pros, as well as the Macbook Airs, iMacs, and even the Mini/Pro. This would also confirm another rumor that&#8217;s going around regarding USB 3.0, since the Ivy Bridge CPUs ship with USB 3.0 support. It&#8217;s also believeable that there will be a new Mac Pro too.</p>
+<p>As any techy will tell you, Intel has shipped some new generation CPU&rsquo;s recently (referred to as Ivy Bridge), which would be natural fits for the aging Macbook Pros, as well as the Macbook Airs, iMacs, and even the Mini/Pro. This would also confirm another rumor that&rsquo;s going around regarding USB 3.0, since the Ivy Bridge CPUs ship with USB 3.0 support. It&rsquo;s also believeable that there will be a new Mac Pro too.</p>
 
 <!-- more -->
 
@@ -825,44 +824,44 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <h3>Mountain Lion</h3>
 
-<p>Since WWDC really is a developer conference, I think it&#8217;s pretty likely that Apple will be setting a release date for it&#8217;s newest operating system release. There&#8217;s not too much else to say about this one, since Apple has already had a small annoucement for it, and there&#8217;s also a good bit of information on their <a href="http://www.apple.com/macosx/mountain-lion/">website</a>. There&#8217;s rumors about &#8220;iCloud Tabs&#8221;, essentially browser tab sync between iOS and OS X, which also seems feasable, since Google has already done this with Chrome.</p>
+<p>Since WWDC really is a developer conference, I think it&rsquo;s pretty likely that Apple will be setting a release date for it&rsquo;s newest operating system release. There&rsquo;s not too much else to say about this one, since Apple has already had a small annoucement for it, and there&rsquo;s also a good bit of information on their <a href="http://www.apple.com/macosx/mountain-lion/">website</a>. There&rsquo;s rumors about &ldquo;iCloud Tabs&rdquo;, essentially browser tab sync between iOS and OS X, which also seems feasable, since Google has already done this with Chrome.</p>
 
 <h3>iOS 6 Unveiling</h3>
 
-<p>Again, this is a developer conference, and Apple has no better time to demo all their fancy new APIs and features than now. Apple has used WWDC as a time to show off previous versions of iOS, it only seems logical we&#8217;ll get a taste of the new bits next week.</p>
+<p>Again, this is a developer conference, and Apple has no better time to demo all their fancy new APIs and features than now. Apple has used WWDC as a time to show off previous versions of iOS, it only seems logical we&rsquo;ll get a taste of the new bits next week.</p>
 
 <h3>Retina Displays</h3>
 
-<p>Probably could have grouped this with the new Macs, but I figured the displays deserved their own section. Just as with the iPad, the interface will look the same, but the screen will be far crisper. I think this is huge, not just for Mac users, but to pressure other manufacturers to finally up the resolution on their own notebooks. Using a 15&#8221; notebook with a 1366x768 or 1280x800 resolution is a joke. If you don&#8217;t know or aren&#8217;t sure of the difference the retina displays make, go look at an iPhone 3GS, and then a 4 or 4S. You&#8217;ll wonder how we lived like that.</p>
+<p>Probably could have grouped this with the new Macs, but I figured the displays deserved their own section. Just as with the iPad, the interface will look the same, but the screen will be far crisper. I think this is huge, not just for Mac users, but to pressure other manufacturers to finally up the resolution on their own notebooks. Using a 15&#8221; notebook with a 1366x768 or 1280x800 resolution is a joke. If you don&rsquo;t know or aren&rsquo;t sure of the difference the retina displays make, go look at an iPhone 3GS, and then a 4 or 4S. You&rsquo;ll wonder how we lived like that.</p>
 
 <h3>New Maps for iOS</h3>
 
-<p>I&#8217;m really surprised it took them this long. As far as I know, no other iPhone app that shipped with 1.0 has had as little work since 2007 as Maps. The signs for an upgrade have been all over. First Apple dropped Google Maps in iPhoto for iOS, and then leaked screenshots made their way onto the internet. Anyway, I hope they knock it out of the park. I&#8217;ve been a long time Google Maps user, and having turn by turn directions and a first class maps app was one of my favorite Android features. After Google&#8217;s update for Google Maps on Wednesday, Apple certainly has their work cut out for them.</p>
+<p>I&rsquo;m really surprised it took them this long. As far as I know, no other iPhone app that shipped with 1.0 has had as little work since 2007 as Maps. The signs for an upgrade have been all over. First Apple dropped Google Maps in iPhoto for iOS, and then leaked screenshots made their way onto the internet. Anyway, I hope they knock it out of the park. I&rsquo;ve been a long time Google Maps user, and having turn by turn directions and a first class maps app was one of my favorite Android features. After Google&rsquo;s update for Google Maps on Wednesday, Apple certainly has their work cut out for them.</p>
 
 <h2>Things that I think are possible</h2>
 
 <h3>Siri Update</h3>
 
-<p>Something that would make me want to use Siri! I have owned an iPhone 4S since shortly after launch, and I have never felt the need to talk to her. Opening up Siri to at least <em>some</em> third parties could go a long way. Yeah, they might even let iPad users in on the &#8220;fun&#8221;.</p>
+<p>Something that would make me want to use Siri! I have owned an iPhone 4S since shortly after launch, and I have never felt the need to talk to her. Opening up Siri to at least <em>some</em> third parties could go a long way. Yeah, they might even let iPad users in on the &ldquo;fun&rdquo;.</p>
 
 <h3>Apple TV Update</h3>
 
-<p>Well, the Apple TV rumor is that there will be some sort of App Store for the ATV. I&#8217;m not sold on it. Yeah, it would probably sell Apple TVs like hotcakes, but even as the owner of a Google TV, I really don&#8217;t see the draw to having too many apps on my TV. I guess I could be convinced otherwise with some well-polished software, but I just don&#8217;t see it happening right now.</p>
+<p>Well, the Apple TV rumor is that there will be some sort of App Store for the ATV. I&rsquo;m not sold on it. Yeah, it would probably sell Apple TVs like hotcakes, but even as the owner of a Google TV, I really don&rsquo;t see the draw to having too many apps on my TV. I guess I could be convinced otherwise with some well-polished software, but I just don&rsquo;t see it happening right now.</p>
 
 <h3>Facebook Integration</h3>
 
-<p>Meh. Might happen, might not. Don&#8217;t really feel too strongly either way.</p>
+<p>Meh. Might happen, might not. Don&rsquo;t really feel too strongly either way.</p>
 
 <!--##Things I think are unlikely-->
 
 
-<h2>Things that won&#8217;t be happening</h2>
+<h2>Things that won&rsquo;t be happening</h2>
 
 <h3>iPhone 5</h3>
 
-<p>Let&#8217;s get this one out of the way right now. It ain&#8217;t happening. My bet is that it will ship in the fall, along with the release of iOS 6.</p>
+<p>Let&rsquo;s get this one out of the way right now. It ain&rsquo;t happening. My bet is that it will ship in the fall, along with the release of iOS 6.</p>
 
-<h3>Apple&#8217;s own TV</h3>
+<h3>Apple&rsquo;s own TV</h3>
 
 <p>Yeah, right.</p>
 
@@ -870,9 +869,9 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 <p>Hahahahaha.</p>
 
-<p>Oh you weren&#8217;t kidding? Nope.</p>
+<p>Oh you weren&rsquo;t kidding? Nope.</p>
 
-<p>Well, that&#8217;s all I have for now. If I&#8217;m missing something, or you have different opinions, feel free to leave a comment! Unfortunately I won&#8217;t be attending WWDC this year, but I <em>will</em> be attending Google IO later this month. So if people find this article interesting, I&#8217;ll do another one before that, and I&#8217;ll also do some live blogging from the conference.</p>
+<p>Well, that&rsquo;s all I have for now. If I&rsquo;m missing something, or you have different opinions, feel free to leave a comment! Unfortunately I won&rsquo;t be attending WWDC this year, but I <em>will</em> be attending Google IO later this month. So if people find this article interesting, I&rsquo;ll do another one before that, and I&rsquo;ll also do some live blogging from the conference.</p>
 ]]></content>
   </entry>
   
@@ -881,27 +880,27 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <link href="http://michaelevans.org/blog/2012/06/05/the-raspberry-pi-has-arrived/"/>
     <updated>2012-06-05T20:08:00-04:00</updated>
     <id>http://michaelevans.org/blog/2012/06/05/the-raspberry-pi-has-arrived</id>
-    <content type="html"><![CDATA[<p>As the title suggests, I just received my <a href="http://www.raspberrypi.org">Raspberry Pi</a> (Model B) in the mail. For those who don&#8217;t know about the Raspberry Pi, it&#8217;s a small little computer with 256MB of RAM, a 700MHz CPU and a GPU capable of 1080p output over HDMI. Connectivity is provided via 2 USB 2.0 ports, and a RJ45 10/100 Ethernet port. There&#8217;s HDMI and RCA video, and a 3.5mm jack for audio. Lastly, there&#8217;s an SD slot on the bottom for storage, and the device is powered by a microUSB port, the same one as most smartphones.</p>
+    <content type="html"><![CDATA[<p>As the title suggests, I just received my <a href="http://www.raspberrypi.org">Raspberry Pi</a> (Model B) in the mail. For those who don&rsquo;t know about the Raspberry Pi, it&rsquo;s a small little computer with 256MB of RAM, a 700MHz CPU and a GPU capable of 1080p output over HDMI. Connectivity is provided via 2 USB 2.0 ports, and a RJ45 10/100 Ethernet port. There&rsquo;s HDMI and RCA video, and a 3.5mm jack for audio. Lastly, there&rsquo;s an SD slot on the bottom for storage, and the device is powered by a microUSB port, the same one as most smartphones.</p>
 
 <p><img src="http://michaelevans.org/images/2012/06/05/raspberrypi.jpg" width="700" height="200" title="Pi Box" ></p>
 
-<p>I have to say, despite looking at pictures, and seeing information about the Pi on the web, I&#8217;m still surprised how small this thing is. It&#8217;s so small that the box that it comes in looks like a deck of playing cards:</p>
+<p>I have to say, despite looking at pictures, and seeing information about the Pi on the web, I&rsquo;m still surprised how small this thing is. It&rsquo;s so small that the box that it comes in looks like a deck of playing cards:</p>
 
 <p><img class="left" src="http://michaelevans.org/images/2012/06/05/box.jpg" width="200" height="100" title="Pi Box" ></p>
 
-<p>I decided to go with the <a href="http://www.debian.org/">Debian</a> image, not only because I&#8217;m familiar with it, but also because that is the suggested distro in the documentation. I&#8217;m considering switching to Arch after I fiddle around with it a little bit more.  After quickly running to pick up an SD card, I hastily plugged in the Pi to my home network, and plugged in the power. A few seconds later, and I was up and running. I logged in and tried the default setup of LXDE (pictured below), and I have to say, it&#8217;s a little sluggish. I tried out some of the included apps, like <a href="http://en.wikipedia.org/wiki/Midori_(web_browser)">Midori</a> (the default browser), and a few of the included development tools.</p>
+<p>I decided to go with the <a href="http://www.debian.org/">Debian</a> image, not only because I&rsquo;m familiar with it, but also because that is the suggested distro in the documentation. I&rsquo;m considering switching to Arch after I fiddle around with it a little bit more.  After quickly running to pick up an SD card, I hastily plugged in the Pi to my home network, and plugged in the power. A few seconds later, and I was up and running. I logged in and tried the default setup of LXDE (pictured below), and I have to say, it&rsquo;s a little sluggish. I tried out some of the included apps, like <a href="http://en.wikipedia.org/wiki/Midori_(web_browser)">Midori</a> (the default browser), and a few of the included development tools.</p>
 
 <p><img class="right" src="http://michaelevans.org/images/2012/06/05/it_lives.jpg" width="400" height="200" title="Pi Box" ></p>
 
-<p>While the CPU is a little on the slow side, the GPU performance looks impressive. It plays 1080p content with no trouble, and I&#8217;m going to try streaming some video from my NAS later. Others on the internet have reported no issues with that so far.</p>
+<p>While the CPU is a little on the slow side, the GPU performance looks impressive. It plays 1080p content with no trouble, and I&rsquo;m going to try streaming some video from my NAS later. Others on the internet have reported no issues with that so far.</p>
 
-<p>Anyway, I still haven&#8217;t figured out what I&#8217;m going to do with it yet, but it is a pretty fun little machine. I am investigating options for cases, since I also don&#8217;t really have a good place for it yet. I was looking at <a href="http://www.shapeways.com/model/486999/">this one</a> on Shapeways, but then the case would cost more than the computer itself! The Raspberry Pi foundation appears to be working on something though.</p>
+<p>Anyway, I still haven&rsquo;t figured out what I&rsquo;m going to do with it yet, but it is a pretty fun little machine. I am investigating options for cases, since I also don&rsquo;t really have a good place for it yet. I was looking at <a href="http://www.shapeways.com/model/486999/">this one</a> on Shapeways, but then the case would cost more than the computer itself! The Raspberry Pi foundation appears to be working on something though.</p>
 
 <h6>Small Computer, Huge Screen</h6>
 
 <p><img src="http://michaelevans.org/images/2012/06/05/lxde.jpg" width="700" height="200" title="Pi Box" ></p>
 
-<p>Is it worth the $35? Yeah, I think so. Maybe not to the average person, since it&#8217;s pretty underpowered for things like web browsing. The community around this thing seems huge (and probably will grow as more are shipped) which makes me feel there will be more in store for it. At this price, it&#8217;s slightly more expensive than an <a href="http://www.arduino.cc/">Arduino</a>, and a lot more versatile (at least from a software perspective).</p>
+<p>Is it worth the $35? Yeah, I think so. Maybe not to the average person, since it&rsquo;s pretty underpowered for things like web browsing. The community around this thing seems huge (and probably will grow as more are shipped) which makes me feel there will be more in store for it. At this price, it&rsquo;s slightly more expensive than an <a href="http://www.arduino.cc/">Arduino</a>, and a lot more versatile (at least from a software perspective).</p>
 ]]></content>
   </entry>
   
@@ -910,7 +909,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
     <link href="http://michaelevans.org/blog/2012/06/03/everyone-should-learn-to-program/"/>
     <updated>2012-06-03T13:09:00-04:00</updated>
     <id>http://michaelevans.org/blog/2012/06/03/everyone-should-learn-to-program</id>
-    <content type="html"><![CDATA[<p>I was reading a post the other day which was written as a response to Jeff Atwood&#8217;s seemly controversial <a href="http://www.codinghorror.com/blog/2012/05/please-dont-learn-to-code.html">blog entry</a>, entitled &#8220;Please don&#8217;t learn to code&#8221;. The part that struck me the most is quoted here:</p>
+    <content type="html"><![CDATA[<p>I was reading a post the other day which was written as a response to Jeff Atwood&rsquo;s seemly controversial <a href="http://www.codinghorror.com/blog/2012/05/please-dont-learn-to-code.html">blog entry</a>, entitled &ldquo;Please don&rsquo;t learn to code&rdquo;. The part that struck me the most is quoted here:</p>
 
 <blockquote><p>We learn new things because our perception of the world is shaped by our mental catalogues of what is possible and what it useful. We constantly filtering out perceptual noise on the criterion that it doesn&#8217;t help us achieve some goal or end. Just think of when you learn a new word. You suddenly hear it everywhere. Not because everyone else just learned it too, but because you had been filtering it out. It didn&#8217;t help you get around because you didn&#8217;t know how to use it.</p><p>If you don&#8217;t know how to program, you filter out all parts of the world that involve programming. You miss the loops and divide-and-conquers of everyday life. You cannot recognize programming problems without the understanding that outlines these problems against the noise of useless or random information.</p></blockquote>
 
