@@ -3,9 +3,9 @@ layout: post
 title: "Tutorial: Building an Android To-Do List app using Parse"
 date: 2013-08-14 22:08
 comments: true
-categories: [Android, Tutorial, Parse]
+categories: [Android, Tutorial, Parse, Development]
 description: "Building an Android To-Do List app using Parse"
-keywords: "Android, Parse, Tutorial"
+keywords: "Android, Parse, Tutorial, Development"
 ---
 
 For a while now I've been using [Parse](http://www.parse.com) for small apps, it allows you to iterate quickly and create a backend for an app without too much work. It also seems like a perfect jumping off point for a series of Android tutorials, where we'll be building a "Todo List" application. (This tutorial assumes that you have [Eclipse and the ADT](http://developer.android.com/tools/sdk/eclipse-adt.html) installed already.)

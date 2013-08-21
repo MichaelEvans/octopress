@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Gadget Habit]]></title>
   <link href="http://michaelevans.org/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-08-14T23:55:06-04:00</updated>
+  <updated>2013-08-20T22:57:17-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -12,6 +12,268 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Parse Android To-do App Tutorial - Part Two - Users]]></title>
+    <link href="http://michaelevans.org/blog/2013/08/20/parse-android-todo-app-tutorial-part-two-users/"/>
+    <updated>2013-08-20T21:13:00-04:00</updated>
+    <id>http://michaelevans.org/blog/2013/08/20/parse-android-todo-app-tutorial-part-two-users</id>
+    <content type="html"><![CDATA[<p>Last week <a href="http://michaelevans.org/blog/2013/08/14/tutorial-building-an-android-to-do-list-app-using-parse/">I posted a tutorial</a> on how to create a really basic Android To-do list application using <a href="http://www.parse.com">Parse</a>. It allowed a user to create tasks, and then toggle their completion status. Then, this information was synced to a server, so that the tasks will be kept up to date on multiple devices. The biggest issue with this app so far, was that there was no concept of users, so all tasks were shared among everyone. This week, we&rsquo;re going to introduce two new screens (which are very similar to one another), the registration and login screens.</p>
+
+<!-- more -->
+
+
+<h3>The Setup</h3>
+
+<p>The first thing we&rsquo;re have to do is two create two new activities, as I mentioned before. I called these <code>LoginActivity</code> and <code>RegisterActivity</code>. For simplicity sake, I&rsquo;ll assume that you used the New Activity Wizard, like we did last week to create the TodoActivity. You can also try the &ldquo;LoginActivity&rdquo; template from the wizard, but we&rsquo;ll skip that for this tutorial.</p>
+
+<h3>Let&rsquo;s Code</h3>
+
+<p>Once you have both those activities set up, let&rsquo;s fill up their layouts. We need to add the following items to these layouts: two <code>EditText</code> fields for a username and password, two <code>TextViews</code> to be the labels for these inputs, and two <code>Buttons</code>, one to sign in/sign up, and one to switch from the sign up to sign in screen and vice versa.</p>
+
+<p>Here&rsquo;s what my registration layout looks like:</p>
+
+<p>``` xml
+&lt;LinearLayout xmlns:android=&ldquo;<a href="http://schemas.android.com/apk/res/android">http://schemas.android.com/apk/res/android</a>&rdquo;</p>
+
+<pre><code>xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context=".RegisterActivity" &gt;
+
+&lt;LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:gravity="center_vertical"
+    android:orientation="vertical" &gt;
+
+    &lt;TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/username" /&gt;
+
+    &lt;EditText
+        android:id="@+id/register_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" &gt;
+
+        &lt;requestFocus /&gt;
+    &lt;/EditText&gt;
+
+    &lt;TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password:" /&gt;
+
+    &lt;EditText
+        android:id="@+id/register_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" /&gt;
+
+    &lt;Button
+        android:id="@+id/sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:onClick="register"
+        android:text="Sign Up" /&gt;
+&lt;/LinearLayout&gt;
+
+&lt;Button
+    android:id="@+id/signInButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="17sp"
+    android:onClick="showLogin"
+    android:text="Already Have An Account? Log In!" /&gt;
+</code></pre>
+
+<p></LinearLayout>
+```</p>
+
+<p>The login screen is very similar to that of the registration screen, with the same widgets in the same places, just different ids and labels, so we&rsquo;re just going to go over the registration screen in this tutorial and leave the login screen up as an exercise to the reader. (The code will be available on <a href="https://github.com/MichaelEvans/Parse-Android-Todo">Github</a> if you get stuck). We&rsquo;re going to want to implement that <code>register</code> function in our RegisterActivity, so let&rsquo;s do that next.</p>
+
+<p><img class="center" src="/images/2013/08/20/login.png" width="300" height="500" title="Logging In" ></p>
+
+<p>After declaring and binding variables to the two <code>EditText</code> fields (we&rsquo;ll call those <code>mUsernameField</code> and <code>mPasswordField</code>), we create our register function:</p>
+
+<p>``` java
+public void register(final View v){</p>
+
+<pre><code>if(mUsernameField.getText().length() == 0 || mPasswordField.getText().length() == 0)
+    return;
+
+v.setEnabled(false);
+ParseUser user = new ParseUser();
+user.setUsername(mUsernameField.getText().toString());
+user.setPassword(mPasswordField.getText().toString());
+
+user.signUpInBackground(new SignUpCallback() {
+    @Override
+    public void done(ParseException e) {
+        if (e == null) {
+            Intent intent = new Intent(RegisterActivity.this, TodoActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            // Sign up didn't succeed. Look at the ParseException
+            // to figure out what went wrong
+            v.setEnabled(true);
+        }
+    }
+});
+</code></pre>
+
+<p>```</p>
+
+<p><img class="center" src="/images/2013/08/20/registering.png" width="300" height="500" title="Registering" ></p>
+
+<p>What' were doing here is a) bailing out early if the user fails to fill in one of the fields, b) disabling the button while the network request is running, so the user can&rsquo;t try to register multiple times by accident, c) creating a ParseUser object with the username and password from the <code>EditText</code> fields, and then calling <code>signUpInBackground</code>, with a callback which is run when the request is complete. If there is an error for any reason, we re-enable the registration button, so that the user can fix any issues and resubmit. (We&rsquo;ll get to error handling a little later.) If there isn&rsquo;t an error, we start the TodoActivity that we <a href="http://michaelevans.org/blog/2013/08/14/tutorial-building-an-android-to-do-list-app-using-parse/">created last week</a>.</p>
+
+<p>Huzzah! If you sign up, you now see a users table in your Parse console!</p>
+
+<p><img class="center" src="/images/2013/08/20/users.png" width="800" height="800" title="Users Console" ></p>
+
+<h3>Making Things Belong</h3>
+
+<p>Now we need to make some changes to the TodoActivity. The first thing we need to do is make the query that fetches the data only return Tasks where the user is the same as the logged in user. We can do that by adding the following line that will modify our ParseQuery:
+<code>java
+query.whereEqualTo("user", ParseUser.getCurrentUser());
+</code></p>
+
+<p>We also need to make the Tasks belong to a user where they are created, which we can do by adding the following two statements when we are creating our new Tasks (we&rsquo;re also going to add the setters and getter for the user object on the Task model):</p>
+
+<p><code>java
+t.setACL(new ParseACL(ParseUser.getCurrentUser()));
+t.setUser(ParseUser.getCurrentUser());
+</code></p>
+
+<p>These lines will make the Task only read/writeable by the owner, and set the user associated with them to the current user. Take a peek in your Parse console, and you&rsquo;ll see the Tasks now have an owner!</p>
+
+<p><img class="center" src="/images/2013/08/20/tasks.png" width="800" height="800" title="Tasks now belong!" ></p>
+
+<p>We also want to make it possible for a user to log out. We&rsquo;ll do this by providing an option in the action bar settings menu. We can do this by adding an entry in the <code>res/menu/todo.xml</code> file like the following:</p>
+
+<p>``` xml
+&lt;item</p>
+
+<pre><code>android:id="@+id/action_logout"
+android:orderInCategory="100"
+android:showAsAction="never"
+android:title="@string/action_logout"/&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>Then all we need to do is wire up this action bar item. When options items are selected, there&rsquo;s a method that will be called in your activity named <code>onOptionsItemSelected</code>. We&rsquo;ll just fill this function out like this:</p>
+
+<p>``` java
+public boolean onOptionsItemSelected(MenuItem item) {</p>
+
+<pre><code>switch (item.getItemId()) {
+case R.id.action_logout: 
+    ParseUser.logOut();
+    Intent intent = new Intent(this, LoginActivity.class);
+    startActivity(intent);
+    finish();
+    return true; 
+} 
+return false; 
+</code></pre>
+
+<p>}
+<code>``
+If the user selects the logout option, call the</code>logout()` method, and then send them back to the login screen.</p>
+
+<p>The last thing we need to do in the TodoActivity is prevent a user from accessing this class while no one is logged in. We can do that back up in the <code>onCreate</code> method:</p>
+
+<p>``` java
+ParseUser currentUser = ParseUser.getCurrentUser();
+if(currentUser == null){</p>
+
+<pre><code>Intent intent = new Intent(this, LoginActivity.class);
+startActivity(intent);
+finish();
+</code></pre>
+
+<p>}
+```</p>
+
+<p>If there is no user currenty logged in, stop the TodoActivity, and forward us to the LoginActivity.</p>
+
+<h3>Error Handling</h3>
+
+<p>As I alluded to before, we&rsquo;re also going to want to add error handling. This way, if the user puts in bad credentials, or they try to register a username that&rsquo;s already taken, they&rsquo;ll get an informative error message. Let&rsquo;s do this by adding a <code>TextView</code> in our layout to display the message: (You&rsquo;ll also want to add a <code>colors.xml</code> file that will declare what <code>@color/red</code> is.)</p>
+
+<p>``` xml
+&lt;TextView</p>
+
+<pre><code>android:id="@+id/error_messages"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_gravity="center_horizontal"
+android:textColor="@color/red"
+android:textAppearance="?android:attr/textAppearanceMedium" /&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>Then we&rsquo;ll bind a variable to that view, and add the following error handling to the else statement from our <code>signUpInBackground</code> call:</p>
+
+<p>``` java
+switch(e.getCode()){
+case ParseException.USERNAME_TAKEN:</p>
+
+<pre><code>mErrorField.setText("Sorry, this username has already been taken.");
+break;
+</code></pre>
+
+<p>case ParseException.USERNAME_MISSING:</p>
+
+<pre><code>mErrorField.setText("Sorry, you must supply a username to register.");
+break;
+</code></pre>
+
+<p>case ParseException.PASSWORD_MISSING:</p>
+
+<pre><code>mErrorField.setText("Sorry, you must supply a password to register.");
+break;
+</code></pre>
+
+<p>default:</p>
+
+<pre><code>mErrorField.setText(e.getLocalizedMessage());
+</code></pre>
+
+<p>}
+v.setEnabled(true);
+```</p>
+
+<p>This will set some nice messages that will explain what the error is, or fall back to the message that Parse sends us, if it&rsquo;s some other type of problem.</p>
+
+<p><img class="center" src="/images/2013/08/20/error_handling.png" width="300" height="500" title="Pretty Error Handling" ></p>
+
+<h3>Possibilities for Next Time</h3>
+
+<p>Next time we can take a look at adding some delete functionality, or maybe tabs for looking over completed/incomplete tasks. Another possiblity is adding social sign in, using Twitter and Facebook. Other suggestions are welcome!</p>
+
+<p><strong>You can find the source on Github <a href="https://github.com/MichaelEvans/Parse-Android-Todo">here</a>.</strong></p>
+
+<hr />
+
+<p>Like this post? Questions, concerns or mistakes? Any other Android tutorials you&rsquo;d like to hear about? Let me know on <a href="https://twitter.com/m_evans10">Twitter</a> or <a href="https://plus.google.com/114052868601022948953/posts">Google Plus</a>, or leave a comment below.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Tutorial: Building an Android To-Do List app using Parse]]></title>
@@ -558,74 +820,6 @@ You will then receive an email from HTCDev with a link to the second    part of 
 <p>My biggest complaint about the Q is the way you set it up to involve your friends. First you need to enable guest mode from the Q app, and then manually invite all the people you want to have access, which actually sends them an <strong>email</strong> to download the app. This seems like such a convoluted process, and I doubt people will actually care to do this. Not only that, but I see no way of revoking someone’s ability to use the Q after you’ve invited them. We all know that one person who takes their music privileges a little too far, but it seems that the only recourse in that event is to turn guest mode off all together.</p>
 
 <p>Is it work $300 right now? Probably not, no. Unless you’re a huge consumer of Play media, you’ll probably be better off with a Roku, or something like that. Even if you <strong>are</strong> a consumer of Play content, you’re probably better off with a Google TV, since after all, that does other things.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Nexus 7 Review]]></title>
-    <link href="http://michaelevans.org/blog/2012/07/03/nexus-7-review/"/>
-    <updated>2012-07-03T13:39:00-04:00</updated>
-    <id>http://michaelevans.org/blog/2012/07/03/nexus-7-review</id>
-    <content type="html"><![CDATA[<p>So by now you&rsquo;ve probably heard about the Nexus 7. We heard it was coming <a href="/blog/2012/06/26/shots-from-outside-io-2012/">last week</a>, and now after using it for a few days, here&rsquo;s my review.</p>
-
-<p><img src="/images/2012/07/03/nexus.jpg" width="400" height="200" title="Nexus 7" ></p>
-
-<!-- more -->
-
-
-<p></p>
-
-<p>As a backstory, you should know that prior to recieving the Nexus 7 at Google IO, I already owned a Motorola Xoom, a Samsung Galaxy 10.1 (from IO 2011), and an HP Touchpad. Surprising as it might seem for someone with all these gadgets, I actually don&rsquo;t really <em>get</em> tablets. I have a laptop, and a smartphone, and there just really isn&rsquo;t a whole lot of use for a tablet that I&rsquo;ve found. I&rsquo;ve tried them all, including the iPad, and I just haven&rsquo;t found a way to fit it into the collection of things I use on a daily basis.</p>
-
-<p>But, I don&rsquo;t give up trying so easily. Nor has Google it seems, because slowly but surely, Google has finally put together a combination of software and hardware that is an absolute pleasure to use. Not only that, but at $200, it&rsquo;s a steal compared to <a href="http://www.apple.com/ipad/">other popular options</a>.</p>
-
-<p>The best way to review the Nexus however, is by breaking it down into the two main components that it&rsquo;s comprised of: software and hardware.</p>
-
-<h2>Software</h2>
-
-<p>The core of the Nexus 7 is Android 4.1, codenamed &ldquo;Jelly Bean&rdquo;. Jelly Bean was not a revolutionary update like its predessesor, Ice Cream Sandwich, but an evolutionary one. It includes three main changes, as well as some small ones. The main changes were &ldquo;Project Butter&rdquo;, Google Search, and Google Now.</p>
-
-<h4>Project Butter</h4>
-
-<p><a href="http://www.youtube.com/watch?v=VuC0i4xTyrI#t=6m15s">Project Butter</a> has probably made the most significant impact for me on the overall feel of Android. Prior to IO, my main complaint with Android was how occasionally laggy it was. However, in Jelly Bean, Google has smoothed out the experience with faster response to touch, animations, and even has the CPU ramp up faster as a response to touch events. Speaking of touch events, Google has apparently devised a way to predict where your fingers will be, and allows the system to respond more quickly as a result. The sum of these changes results in a much smoother feel to the entire operating system.</p>
-
-<h4>Google Search</h4>
-
-<p>Google&rsquo;s new voice search is their strike back against Siri. Powered by Google&rsquo;s Knowledge Graph, it can do a lot more than Apple&rsquo;s offering.</p>
-
-<p><img class="left" src="/images/2012/07/03/voice.jpg" width="375" height="200" title="Voice Search Demo" ></p>
-
-<p>The speech-to-text seems to be significantly more accurate than Apple&rsquo;s, as well as much quicker. I imagine this is because Google has moved the speech-to-text engine onto the device, as this is another feature of the new keyboard (more on that below).</p>
-
-<p>Instead of just listing off a whole bunch of things that I&rsquo;ve tried, here&rsquo;s a video from <a href="http://www.youtube.com/watch?v=fHkhp6BwnGo">JLishere</a>, who has compiled 41 queries against knoweledge graph. He demonstrates the wide variety of what Knowledge Graph allows the device to respond to, like local queries, transit directions, and what seems to just be tidbits from Wikipedia.</p>
-
-<p>What&rsquo;s most interesting to me, however, is the preview of the possibile ability to access core hardware functions, like turning on and off Wifi or Bluetooth. Another interesting feature is how this new voice search seems to fit in well with another new platform feature: Google Now.</p>
-
-<h4>Google Now</h4>
-
-<p>Google Now is a new card based system introduced in the new version of Android. It tells you about the weather, traffic information, sports scores, and other tidbits of information you&rsquo;re likely to look up during your day. It&rsquo;s quite convenient to have information about an upcoming flight available without having to keep checking it, or traffic information regarding my daily commute delivered right to my handset or tablet. Right now the number of available &lsquo;cards&rsquo; is limited, but as the number of uses expands, the functionality will continue to grow.</p>
-
-<h4>Other features</h4>
-
-<p>In addition to the fancy speech-to-text features, as well as the speed improvements, Google has added rich notifications that allow you to perform actions without opening the app. You can control the music player, or reply to a SMS message, all from the notification tray. Another addition is a new keyboard, which does text prediction. If you&rsquo;ve ever used Swiftkey, you&rsquo;ll feel right at home with the new stock keyboard. Also included is the offline speech-to-text engine, which allows for speedy transcription, if you&rsquo;re into that.</p>
-
-<p>Other changes include some fancy new camera and gallery improvements, and now Chrome is the standard browser. Combined with tab sync from other machines, this is the best mobile browsing experience I&rsquo;ve had so far.</p>
-
-<h2>Hardware</h2>
-
-<p>At 340 grams (compared to the Kindle Fire’s 413 grams), the Nexus 7 feels extremely light. It measures 10.45mm thick, which is just shy of the thickness of the Kindle Fire. The front of the tablet is an IPS 7-inch 1280 x 800 display, which is powered by an NVIDIA Tegra 3 quad-core processor, with 12 GPU cores, and 1GB of RAM. As for storage, it comes in 8GB ($199) and 16GB ($249) capacities.</p>
-
-<p><img class="right" src="/images/2012/07/03/chrome.jpg" width="375" height="200" title="Chrome" ></p>
-
-<p>In addition to that serious computing power, the Nexus 7 has plenty of sensors and radios. Under the hood, there&rsquo;s Bluetooth and NFC, not to mention GPS, an accelerometer, a digital compass and a gyroscope. All this is paired with a battery that managed to last me around eight hours. Based on other reviews I&rsquo;ve seen, the battery seems to last between seven and nine hours, depending on usage.</p>
-
-<p>This all sounds fantastic, but there&rsquo;s a few things that could have been added/improved as well. First, since there&rsquo;s a lack of a rear camera, no camera app has been included. This is most certainly not a deal breaker, but it&rsquo;s worth noting, if you&rsquo;re into self portraits. There&rsquo;s also no HDMI/MHL output, nor a MicroSD slot. The only other gripe that I have is that the speakers are fairly inadiquite, so you&rsquo;ll be reaching for your headphones.</p>
-
-<p>The Nexus 7 is a great deal for a tablet that costs just under $200. It has a great display, smooth performance and all the bells and whistles of Jelly Bean. In my opinion, this is the best Android tablet available.</p>
-
-<p>And for the first time, I&rsquo;m actually excited about using a tablet.</p>
-
-<p>Oh yeah, if you were wondering: I did preorder Project Glass.</p>
 ]]></content>
   </entry>
   
