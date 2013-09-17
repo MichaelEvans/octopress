@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Gadget Habit]]></title>
   <link href="http://michaelevans.org/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-08-20T22:57:17-04:00</updated>
+  <updated>2013-09-16T22:18:44-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My Newest App: Bike Finder]]></title>
+    <link href="http://michaelevans.org/blog/2013/09/16/my-newest-app-bike-finder/"/>
+    <updated>2013-09-16T23:11:00-04:00</updated>
+    <id>http://michaelevans.org/blog/2013/09/16/my-newest-app-bike-finder</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/2013/09/16/map.png" width="240" height="400" title="Map" ></p>
+
+<p>Last week I released my newest Android app, <a href="https://play.google.com/store/apps/details?id=org.michaelevans.bikefinder&amp;referrer=utm_source%3Dblog">Bike Finder</a>. It&rsquo;s a fairly straight forward application that allows you to find bikes and stations for use with Washington DC&rsquo;s Capital Bikeshare system. For those of you not local to DC, Capital Bikeshare is a system that lets you use bikes that are available at docking stations all over the city, as well as parts of northern Virginia. The app is free, and I&rsquo;m looking into adding additional cities that have companies that make their bike sharing data available (currently investigating New York City, Montreal and the Bay Area). If you&rsquo;d like to get your city added, <a href="http://twitter.com/m_evans10">let me know</a>, and I&rsquo;ll see if the data is available, and add it to the to-do list.</p>
+
+<!-- more -->
+
+
+<p><img class="left" src="/images/2013/09/16/details.png" width="240" height="400" title="Details" ></p>
+
+<p>I&rsquo;m also planning to add some other cool features, like a notification when a &ldquo;favorite&rdquo; station is low on bikes, or when a &ldquo;favorite&rdquo; station is full (so you know you&rsquo;ll have to bring the bike elsewhere). I&rsquo;m also looking into adding some directions/searching feature, so you can navigate your way around the city without having to leave the application.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Parse Android To-do App Tutorial - Part Two - Users]]></title>
@@ -793,33 +811,6 @@ You will then receive an email from HTCDev with a link to the second    part of 
 <p>It&rsquo;s probably best to copy that backup folder off your SD card and onto your computer in the event something happens to your SD card.</p>
 
 <p><strong>Awesome</strong>! You&rsquo;re now all set to do all sorts of things, like installing custom roms. Be sure to check back for the next part of this series, where we will go over that.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Nexus Q Review]]></title>
-    <link href="http://michaelevans.org/blog/2012/09/07/nexus-q-review/"/>
-    <updated>2012-09-07T20:11:00-04:00</updated>
-    <id>http://michaelevans.org/blog/2012/09/07/nexus-q-review</id>
-    <content type="html"><![CDATA[<p>It’s a <em>what</em>? Ever since I returned from Google I/O, this is what people have been saying when they see the newest addition to my TV setup, the Nexus Q. It’s hard to blame them though, since it just looks so different, for a home theatre device. unlike those bland, black boxes that most living rooms are filled with, the Nexus Q is a heavy (about two pounds) sphere, which is lit by a ring of 32 LEDs. The top side of the Q spins freely to function as a volume knob, and can be tapped to mute.</p>
-
-<p><img src="/images/2012/09/07/q.jpeg" width="400" height="400" title="Nexus Q" ></p>
-
-<p>On the back of the Q, things are less clean. There’s both micro HDMI and optical audio out, ethernet and a micro USB port for “encouraged hacking”. There’s also a set of banana connectors to allow you to hook up speakers to the built in 25-watt amplifier.</p>
-
-<p>So how’s the UI of the Nexus Q, you might ask. Does it look as smooth as Jelly Bean does on the other devices that I <a href="/blog/2012/07/03/nexus-7-review/">showed you a few weeks ago</a>? Funny thing is, the Nexus Q doesn’t have a UI of it’s own; it requires an Android device to set up. All you need to do is tap an NFC enabled device to the sphere, and it will take you to download the Nexus Q app from Google Play. Start up the app, log in with your Google account, and you’re all set to use the Q.</p>
-
-<p>Since the Q doesn’t have it’s own UI, let’s take a look at the <a href="https://play.google.com/store/apps/details?id=com.google.android.setupwarlock">Nexus Q app for Android</a>.</p>
-
-<p><img src="/images/2012/09/07/qapp.jpeg" width="400" height="400" title="Nexus Q App" ></p>
-
-<p>You don&rsquo;t really use the app for anything after setting up the Q initially, all the media is controlled through the Play Music, Play Movies and Youtube apps. All you need to do is hit the little triangle that will appear when you&rsquo;re on the same network as a Q.</p>
-
-<p><img src="/images/2012/09/07/music.png" width="400" height="400" title="Play Music with Q" ></p>
-
-<p>My biggest complaint about the Q is the way you set it up to involve your friends. First you need to enable guest mode from the Q app, and then manually invite all the people you want to have access, which actually sends them an <strong>email</strong> to download the app. This seems like such a convoluted process, and I doubt people will actually care to do this. Not only that, but I see no way of revoking someone’s ability to use the Q after you’ve invited them. We all know that one person who takes their music privileges a little too far, but it seems that the only recourse in that event is to turn guest mode off all together.</p>
-
-<p>Is it work $300 right now? Probably not, no. Unless you’re a huge consumer of Play media, you’ll probably be better off with a Roku, or something like that. Even if you <strong>are</strong> a consumer of Play content, you’re probably better off with a Google TV, since after all, that does other things.</p>
 ]]></content>
   </entry>
   
