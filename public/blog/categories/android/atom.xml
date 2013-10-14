@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Gadget Habit]]></title>
   <link href="http://michaelevans.org/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-09-16T22:18:44-04:00</updated>
+  <updated>2013-10-13T21:02:12-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -14,18 +14,73 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Using a ViewPager in a ScrollView]]></title>
+    <link href="http://michaelevans.org/blog/2013/10/13/using-a-viewpager-in-a-scrollview/"/>
+    <updated>2013-10-13T20:48:00-04:00</updated>
+    <id>http://michaelevans.org/blog/2013/10/13/using-a-viewpager-in-a-scrollview</id>
+    <content type="html"><![CDATA[<p>For a new app that I&rsquo;m working on, I wanted to use a ViewPager inside a ScrollView in order to make a simple image carousel. The only problem is, ScrollViews don&rsquo;t seem to play nicely with horizontally swiping Views. As soon as the user moves their finger even slightly up or down, the ViewPager page change is cancelled, and the page snaps back to the current item. This can lead to an extremely frustrating user experience, because it is difficult for the user to understand why the views won&rsquo;t swipe.</p>
+
+<!-- more -->
+
+
+<p>A popular solution that I&rsquo;ve seen online is to use the ViewPager&rsquo;s <code>getParent().requestDisallowInterceptTouchEvent(true);</code> method to prevent the ScrollView from scrolling while the ViewPager is being touched or scrolled. The solution that I&rsquo;ve been using is a bit like this, but it provides a little bit of a &ldquo;drag threshold&rdquo;, which is a bit forgiving in the event that the user is trying to drag the ScrollView, but happens to have their finger in the ViewPager. The code I used is as follows:</p>
+
+<p>``` java PagerTouchListener.java
+mPager.setOnTouchListener(new View.OnTouchListener() {</p>
+
+<pre><code>int dragthreshold = 30;
+int downX;
+int downY;
+
+@Override 
+public boolean onTouch(View v, MotionEvent event) {
+
+    switch (event.getAction()) {
+    case MotionEvent.ACTION_DOWN:
+        downX = (int) event.getRawX();
+        downY = (int) event.getRawY();
+        break; 
+    case MotionEvent.ACTION_MOVE:
+        int distanceX = Math.abs((int) event.getRawX() - downX);
+        int distanceY = Math.abs((int) event.getRawY() - downY);
+
+        if (distanceY &gt; distanceX &amp;&amp; distanceY &gt; dragthreshold) {
+            mPager.getParent().requestDisallowInterceptTouchEvent(false); 
+            mScrollView.getParent().requestDisallowInterceptTouchEvent(true); 
+        } else if (distanceX &gt; distanceY &amp;&amp; distanceX &gt; dragthreshold) {
+            mPager.getParent().requestDisallowInterceptTouchEvent(true); 
+            mScrollView.getParent().requestDisallowInterceptTouchEvent(false); 
+        } 
+        break; 
+    case MotionEvent.ACTION_UP:
+        mScrollView.getParent().requestDisallowInterceptTouchEvent(false); 
+        mPager.getParent().requestDisallowInterceptTouchEvent(false); 
+        break; 
+    } 
+    return false; 
+} 
+</code></pre>
+
+<p>});
+```</p>
+
+<p>I found this very useful solution on <a href="http://stackoverflow.com/questions/8381697/viewpager-inside-a-scrollview-does-not-scroll-correclty/16224484#16224484">StackOverflow</a>, among many other solutions that did work (although not as nicely as this one).</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[My Newest App: Bike Finder]]></title>
     <link href="http://michaelevans.org/blog/2013/09/16/my-newest-app-bike-finder/"/>
     <updated>2013-09-16T23:11:00-04:00</updated>
     <id>http://michaelevans.org/blog/2013/09/16/my-newest-app-bike-finder</id>
-    <content type="html"><![CDATA[<p><img class="right" src="/images/2013/09/16/map.png" width="240" height="400" title="Map" ></p>
+    <content type="html"><![CDATA[<p>{% img right /images/2013/09/16/map.png 240 400 Map %}</p>
 
 <p>Last week I released my newest Android app, <a href="https://play.google.com/store/apps/details?id=org.michaelevans.bikefinder&amp;referrer=utm_source%3Dblog">Bike Finder</a>. It&rsquo;s a fairly straight forward application that allows you to find bikes and stations for use with Washington DC&rsquo;s Capital Bikeshare system. For those of you not local to DC, Capital Bikeshare is a system that lets you use bikes that are available at docking stations all over the city, as well as parts of northern Virginia. The app is free, and I&rsquo;m looking into adding additional cities that have companies that make their bike sharing data available (currently investigating New York City, Montreal and the Bay Area). If you&rsquo;d like to get your city added, <a href="http://twitter.com/m_evans10">let me know</a>, and I&rsquo;ll see if the data is available, and add it to the to-do list.</p>
 
 <!-- more -->
 
 
-<p><img class="left" src="/images/2013/09/16/details.png" width="240" height="400" title="Details" ></p>
+<p>{% img left /images/2013/09/16/details.png 240 400 Details %}</p>
 
 <p>I&rsquo;m also planning to add some other cool features, like a notification when a &ldquo;favorite&rdquo; station is low on bikes, or when a &ldquo;favorite&rdquo; station is full (so you know you&rsquo;ll have to bring the bike elsewhere). I&rsquo;m also looking into adding some directions/searching feature, so you can navigate your way around the city without having to leave the application.</p>
 ]]></content>
@@ -121,7 +176,7 @@ tools:context=".RegisterActivity" &gt;
 
 <p>The login screen is very similar to that of the registration screen, with the same widgets in the same places, just different ids and labels, so we&rsquo;re just going to go over the registration screen in this tutorial and leave the login screen up as an exercise to the reader. (The code will be available on <a href="https://github.com/MichaelEvans/Parse-Android-Todo">Github</a> if you get stuck). We&rsquo;re going to want to implement that <code>register</code> function in our RegisterActivity, so let&rsquo;s do that next.</p>
 
-<p><img class="center" src="/images/2013/08/20/login.png" width="300" height="500" title="Logging In" ></p>
+<p>{% img center /images/2013/08/20/login.png 300 500 Logging In %}</p>
 
 <p>After declaring and binding variables to the two <code>EditText</code> fields (we&rsquo;ll call those <code>mUsernameField</code> and <code>mPasswordField</code>), we create our register function:</p>
 
@@ -154,13 +209,13 @@ user.signUpInBackground(new SignUpCallback() {
 
 <p>```</p>
 
-<p><img class="center" src="/images/2013/08/20/registering.png" width="300" height="500" title="Registering" ></p>
+<p>{% img center /images/2013/08/20/registering.png 300 500 Registering %}</p>
 
 <p>What' were doing here is a) bailing out early if the user fails to fill in one of the fields, b) disabling the button while the network request is running, so the user can&rsquo;t try to register multiple times by accident, c) creating a ParseUser object with the username and password from the <code>EditText</code> fields, and then calling <code>signUpInBackground</code>, with a callback which is run when the request is complete. If there is an error for any reason, we re-enable the registration button, so that the user can fix any issues and resubmit. (We&rsquo;ll get to error handling a little later.) If there isn&rsquo;t an error, we start the TodoActivity that we <a href="http://michaelevans.org/blog/2013/08/14/tutorial-building-an-android-to-do-list-app-using-parse/">created last week</a>.</p>
 
 <p>Huzzah! If you sign up, you now see a users table in your Parse console!</p>
 
-<p><img class="center" src="/images/2013/08/20/users.png" width="800" height="800" title="Users Console" ></p>
+<p>{% img center /images/2013/08/20/users.png 800 800 Users Console %}</p>
 
 <h3>Making Things Belong</h3>
 
@@ -178,7 +233,7 @@ t.setUser(ParseUser.getCurrentUser());
 
 <p>These lines will make the Task only read/writeable by the owner, and set the user associated with them to the current user. Take a peek in your Parse console, and you&rsquo;ll see the Tasks now have an owner!</p>
 
-<p><img class="center" src="/images/2013/08/20/tasks.png" width="800" height="800" title="Tasks now belong!" ></p>
+<p>{% img center /images/2013/08/20/tasks.png 800 800 Tasks now belong! %}</p>
 
 <p>We also want to make it possible for a user to log out. We&rsquo;ll do this by providing an option in the action bar settings menu. We can do this by adding an entry in the <code>res/menu/todo.xml</code> file like the following:</p>
 
@@ -279,7 +334,7 @@ v.setEnabled(true);
 
 <p>This will set some nice messages that will explain what the error is, or fall back to the message that Parse sends us, if it&rsquo;s some other type of problem.</p>
 
-<p><img class="center" src="/images/2013/08/20/error_handling.png" width="300" height="500" title="Pretty Error Handling" ></p>
+<p>{% img center /images/2013/08/20/error_handling.png 300 500 Pretty Error Handling %}</p>
 
 <h3>Possibilities for Next Time</h3>
 
@@ -307,17 +362,17 @@ v.setEnabled(true);
 
 <p>First thing you&rsquo;ll want to do is sign up for Parse, and create a new Application. I called mine &ldquo;Todo&rdquo; here, but you can call it anything you&rsquo;d like. After you pick a name, you&rsquo;ll be presented a screen like the following, which contains your API keys. Do not lose these, this is how your app will connect to the Parse services. (I have removed my keys in the screenshot below.)</p>
 
-<p><img class="center" src="/images/2013/08/14/parse_keys.png" width="300" height="500" title="Parse Keys" ></p>
+<p>{% img center /images/2013/08/14/parse_keys.png 300 500 Parse Keys %}</p>
 
 <p>Next, you&rsquo;ll want to download the Parse libraries from <a href="https://parse.com/downloads/android/Parse/latest">here</a>.</p>
 
 <p>Back in Eclipse, open the New Project Wizard and create a new Android application. I set the minimum SDK version to Honeycomb in the screenshot below, but feel free to pick something newer if you&rsquo;d like.</p>
 
-<p><img class="center" src="/images/2013/08/14/android_wizard.png" width="500" height="500" title="Android New Project Wizard" ></p>
+<p>{% img center /images/2013/08/14/android_wizard.png 500 500 Android New Project Wizard %}</p>
 
 <p>You&rsquo;ll then be taken to a screen to create your starting activity. Choose Blank Activity, and feel free to name it whatever you like.</p>
 
-<p><img class="center" src="/images/2013/08/14/android_wizard_3.png" width="500" height="500" title="Android New Project Wizard" ></p>
+<p>{% img center /images/2013/08/14/android_wizard_3.png 500 500 Android New Project Wizard %}</p>
 
 <p>After you complete the wizard, you&rsquo;ll have a new project in your workspace. Copy the Parse jar file that you downloaded before to the <code>libs/</code> directory, and you&rsquo;ll be all set to begin coding.</p>
 
@@ -429,7 +484,7 @@ tools:context=".TodoActivity" &gt;
 
 <p>Here we are declaring a layout that contains an input field and a button (for creating new tasks), as well as a ListView for showing the existing tasks. If you run what we&rsquo;ve done so far, you should end up with an application on your device that looks like this:</p>
 
-<p><img class="center" src="/images/2013/08/14/step1.png" width="300" height="500" title="First Run" ></p>
+<p>{% img center /images/2013/08/14/step1.png 300 500 First Run %}</p>
 
 <p>You can type in the input box, but if you hit the submit button, you&rsquo;ll notice the app will crash. Why&rsquo;s that? Because we said in our XML that the button will perform the <code>createTask</code> method when you click on it, but we never declared that method in our activity. Let&rsquo;s do that now.</p>
 
@@ -459,7 +514,7 @@ public void createTask(View v) {</p>
 
 <p>Now if you type in a task and hit save, the input field will be blank, but if you go to your Parse Console, you&rsquo;ll see the data in the data browser:</p>
 
-<p><img class="center" src="/images/2013/08/14/parse_console.png" width="800" height="800" title="Parse Console" ></p>
+<p>{% img center /images/2013/08/14/parse_console.png 800 800 Parse Console %}</p>
 
 <p>Now let&rsquo;s set up the app to fetch the Tasks from Parse.</p>
 
@@ -567,7 +622,7 @@ query.findInBackground(new FindCallback&lt;Task&gt;() {
 
 <p>This will query Parse for all the Task objects, and return a list of them. Then we will clear the existing set of Tasks from our adapter, and replace the existing list with those. Now if you run the app, you&rsquo;ll be greeted with something like the following:</p>
 
-<p><img class="center" src="/images/2013/08/14/step2.png" width="300" height="500" title="Step 2" ></p>
+<p>{% img center /images/2013/08/14/step2.png 300 500 Step 2 %}</p>
 
 <p>Let&rsquo;s also add this to our <code>createTask()</code> method, to insert the Task we just created at the top of the list:
 <code>java
@@ -611,7 +666,7 @@ task.saveEventually();
 
 <p>That&rsquo;s it! Now you should be able to launch the application, and create, complete and un-complete tasks as you wish!</p>
 
-<p><img class="center" src="/images/2013/08/14/step3.png" width="300" height="500" title="Step 2" ></p>
+<p>{% img center /images/2013/08/14/step3.png 300 500 Step 2 %}</p>
 
 <h2>Optimizations/Improvements</h2>
 
@@ -719,98 +774,6 @@ public boolean onTouchEvent(MotionEvent event) {
 <hr />
 
 <p>Like this post? Any other Android tips you&rsquo;d like to hear about? Let me know on <a href="https://twitter.com/m_evans10">Twitter</a> or <a href="https://plus.google.com/114052868601022948953/posts">Google Plus</a>, or leave a comment.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Guide to Unlocking and Rooting your Android Phone]]></title>
-    <link href="http://michaelevans.org/blog/2013/01/09/a-guide-to-unlocking-and-rooting-your-android-phone/"/>
-    <updated>2013-01-09T10:45:00-05:00</updated>
-    <id>http://michaelevans.org/blog/2013/01/09/a-guide-to-unlocking-and-rooting-your-android-phone</id>
-    <content type="html"><![CDATA[<p>Something that is very popular in the Android world these days is rooting and installing custom ROMs on your phone. A problem that I&rsquo;ve found however, is that information regarding the process, and the terminology involved can be quite confusing for someone getting started, and as a result might discourage them. I decided to write up a series of blog posts discussing various parts of this process, so that it might help someone who wants to get involved, but doesn&rsquo;t know how. The phone that I&rsquo;ll be using for these tutorials is an <a href="http://amzn.to/VAQwcM">HTC One V</a>, which can be used on Virgin Mobile. It&rsquo;s a fairly modern phone, comes with a 1GHz single-core CPU, 512MB RAM, and a nice 3.7 inch LCD. This process will almost identical for other HTC phones, and very similar for many other Android devices.</p>
-
-<p>Disclaimer: This may void your warranty, I take no responsibility, etc.</p>
-
-<!--more-->
-
-
-<h2>Part One: Unlocking your One V</h2>
-
-<p>The first part of the process is called &ldquo;Rooting&rdquo; your device. Rooting basically means obtaining admin access on your device, which allows you to do all sorts of fun things down the line. In order to root your device however, there are a few steps you&rsquo;ll have to take. The first thing you&rsquo;ll need to do is unlock the bootloader. The bootloader is the software that loads the operating system of your phone. Normally this is locked to only start the software that ships on the device, but we are going to unlock it so that we may install custom software.</p>
-
-<ol>
-<li>Go to <a href="http://www.htcdev.com/">HTC Dev</a> and create yourself an account.</li>
-<li>Download <a href="https://www.box.com/s/kuouqnnsjke4byd2u38n">these</a> Fastboot Files</li>
-<li>Make a new folder on your C: or home directory called fastboot.</li>
-<li>Extract the zip downloaded in step 2 to the new folder</li>
-<li>Go <a href="http://www.htcdev.com/bootloader/">here</a> and select &ldquo;All Other Supported Models&rdquo; and then &ldquo;Begin Unlock bootloader&rdquo;</li>
-<li>Check both checkboxes, and then proceed.</li>
-<li>Power off your phone by holding the power button down for 5-7 seconds (the three keys will flash a few times then it will power off)</li>
-<li>Hold the volume down button and power the device on, the device will boot to a white screen called &ldquo;HBOOT&rdquo;</li>
-<li>Select &ldquo;Fastboot&rdquo; with volume up or down then press the power button once (you&rsquo;ll be in fastboot mode)</li>
-<li>Plug your phone into your computer and open a Command Prompt.</li>
-<li>cd to your folder where we put fastboot files (i.e c:\fastboot)</li>
-<li>type this into your command prompt: <code>fastboot oem get_identifier_token</code></li>
-<li>Select &amp; copy the text as per step 9 on the HTC Dev website</li>
-<li>Paste your identifier token into the box at the bottom and submit
-You will then receive an email from HTCDev with a link to the second    part of the instructions and your &ldquo;Unlock_code.bin&rdquo; file attached.</li>
-<li>Download the &ldquo;Unlock_code.bin&rdquo; attachment from the email and save it to     the same folder that we extracted fastboot files.</li>
-<li>Type this into your command prompt window: <code>fastboot flash unlocktoken Unlock_code.bin</code></li>
-<li>The display will change on your phone, and ask you to confirm the unlock. press volume up to accept and power to confirm.</li>
-</ol>
-
-
-<p><strong>Congratulations</strong>! You have successfully unlocked the bootloader.</p>
-
-<h2>Part Two: Rooting the One V</h2>
-
-<p>The next step in this process, is actually obtaining root access. In order to do that, we will be installing an application called SuperSU, which allows you to run applications on your phone with administrative priveledges (also known as superuser or root).</p>
-
-<ol>
-<li>Download <a href="https://www.box.com/s/zli0tchzdbs6dtwgv7px">r1-primo-cdma-superboot.zip</a> to your computer and extract in any directory.</li>
-<li>Power off your phone by holding the power button down for 5-7 seconds (the three keys will flash a few times then it will power off)</li>
-<li>Hold volume down button while powering on, the device will boot to HBOOT (like we did before)</li>
-<li>Select Fastboot with volume up or down then press power once</li>
-<li>Connect your phone to PC</li>
-<li>Double click ‘install-superboot-windows.bat’ (or mac or linux, depending on your platform)</li>
-</ol>
-
-
-<p><strong>Excellent!</strong> You now have root access on your phone. When you start up Android, you&rsquo;ll see a new application in your launcher. It&rsquo;s called SuperSU, and will ask you to allow/deny applications root access if they request it. This is useful for installing things like tethering applications, or modifying system files.</p>
-
-<h2>Part Three: Installing Custom Recovery</h2>
-
-<p>The last thing we are going to do as part of this guide is install a custom recovery. A recovery is a mode of the phone that allows you to backup/restore your device, or modify device files, like installing new software. This will be important if you&rsquo;d like to backup your device before wiping it to install custom software. In order to install ClockworkMod Recovery (which is probably the most popular recovery you&rsquo;ll find):</p>
-
-<ol>
-<li>Download ClockworkMod Recovery <a href="https://www.box.com/s/vj181v9mmi5tghm1za4b">here</a>.</li>
-<li>Power off your phone by holding the power button down for 5-7 seconds (the three keys will flash a few times then it will power off)</li>
-<li>Hold the volume down button while powering on, the device will boot to HBOOT (You should be getting the hang of this by now)</li>
-<li>Select Fastboot with volume up or down then press power once</li>
-<li>Connect your phone to PC</li>
-<li>Type the following in to your command prompt: <code>adb flash recovery cwmrecovery.img</code></li>
-<li>Restart your phone, and hold the volume down button. This time, select &ldquo;recovery&rdquo; and hit the power button.</li>
-</ol>
-
-
-<p>You&rsquo;re now in recovery mode! While we&rsquo;re here, let&rsquo;s make a backup.</p>
-
-<ol>
-<li>Scroll through the list of options 2 times using volume up or volume down. (Without doing this, you won&rsquo;t be able to select an option)</li>
-<li>Use the power button to select &ldquo;Backup and restore&rdquo;</li>
-<li>Select &ldquo;Backup&rdquo;</li>
-<li>The backup process is now running. It will be a few minutes to complete.</li>
-<li>Once complete, let&rsquo;s make sure the backup is successful.</li>
-<li>Once again, select &ldquo;Backup and restore&rdquo;</li>
-<li>Choose &ldquo;Restore&rdquo;. You will see your backup files, e.g: 2013-01-12.10.13.04</li>
-<li>Pick &ldquo;Go Back&rdquo;</li>
-<li>Select &ldquo;Reboot system&rdquo;</li>
-</ol>
-
-
-<p>It&rsquo;s probably best to copy that backup folder off your SD card and onto your computer in the event something happens to your SD card.</p>
-
-<p><strong>Awesome</strong>! You&rsquo;re now all set to do all sorts of things, like installing custom roms. Be sure to check back for the next part of this series, where we will go over that.</p>
 ]]></content>
   </entry>
   

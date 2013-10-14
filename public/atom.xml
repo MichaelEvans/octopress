@@ -4,7 +4,7 @@
   <title><![CDATA[Gadget Habit]]></title>
   <link href="http://michaelevans.org/atom.xml" rel="self"/>
   <link href="http://michaelevans.org/"/>
-  <updated>2013-09-16T22:18:44-04:00</updated>
+  <updated>2013-10-13T21:02:06-04:00</updated>
   <id>http://michaelevans.org/</id>
   <author>
     <name><![CDATA[Michael Evans]]></name>
@@ -12,6 +12,93 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using a ViewPager in a ScrollView]]></title>
+    <link href="http://michaelevans.org/blog/2013/10/13/using-a-viewpager-in-a-scrollview/"/>
+    <updated>2013-10-13T20:48:00-04:00</updated>
+    <id>http://michaelevans.org/blog/2013/10/13/using-a-viewpager-in-a-scrollview</id>
+    <content type="html"><![CDATA[<p>For a new app that I&rsquo;m working on, I wanted to use a ViewPager inside a ScrollView in order to make a simple image carousel. The only problem is, ScrollViews don&rsquo;t seem to play nicely with horizontally swiping Views. As soon as the user moves their finger even slightly up or down, the ViewPager page change is cancelled, and the page snaps back to the current item. This can lead to an extremely frustrating user experience, because it is difficult for the user to understand why the views won&rsquo;t swipe.</p>
+
+<!-- more -->
+
+
+<p>A popular solution that I&rsquo;ve seen online is to use the ViewPager&rsquo;s <code>getParent().requestDisallowInterceptTouchEvent(true);</code> method to prevent the ScrollView from scrolling while the ViewPager is being touched or scrolled. The solution that I&rsquo;ve been using is a bit like this, but it provides a little bit of a &ldquo;drag threshold&rdquo;, which is a bit forgiving in the event that the user is trying to drag the ScrollView, but happens to have their finger in the ViewPager. The code I used is as follows:</p>
+
+<figure class='code'><figcaption><span>PagerTouchListener.java</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">mPager</span><span class="o">.</span><span class="na">setOnTouchListener</span><span class="o">(</span><span class="k">new</span> <span class="n">View</span><span class="o">.</span><span class="na">OnTouchListener</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">dragthreshold</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">downX</span><span class="o">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">downY</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@Override</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onTouch</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">,</span> <span class="n">MotionEvent</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">switch</span> <span class="o">(</span><span class="n">event</span><span class="o">.</span><span class="na">getAction</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">case</span> <span class="n">MotionEvent</span><span class="o">.</span><span class="na">ACTION_DOWN</span><span class="o">:</span>
+</span><span class='line'>            <span class="n">downX</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">event</span><span class="o">.</span><span class="na">getRawX</span><span class="o">();</span>
+</span><span class='line'>            <span class="n">downY</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">event</span><span class="o">.</span><span class="na">getRawY</span><span class="o">();</span>
+</span><span class='line'>            <span class="k">break</span><span class="o">;</span>
+</span><span class='line'>        <span class="k">case</span> <span class="n">MotionEvent</span><span class="o">.</span><span class="na">ACTION_MOVE</span><span class="o">:</span>
+</span><span class='line'>            <span class="kt">int</span> <span class="n">distanceX</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span> <span class="n">event</span><span class="o">.</span><span class="na">getRawX</span><span class="o">()</span> <span class="o">-</span> <span class="n">downX</span><span class="o">);</span>
+</span><span class='line'>            <span class="kt">int</span> <span class="n">distanceY</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span> <span class="n">event</span><span class="o">.</span><span class="na">getRawY</span><span class="o">()</span> <span class="o">-</span> <span class="n">downY</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">distanceY</span> <span class="o">&gt;</span> <span class="n">distanceX</span> <span class="o">&amp;&amp;</span> <span class="n">distanceY</span> <span class="o">&gt;</span> <span class="n">dragthreshold</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">mPager</span><span class="o">.</span><span class="na">getParent</span><span class="o">().</span><span class="na">requestDisallowInterceptTouchEvent</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+</span><span class='line'>                <span class="n">mScrollView</span><span class="o">.</span><span class="na">getParent</span><span class="o">().</span><span class="na">requestDisallowInterceptTouchEvent</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</span><span class='line'>            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">distanceX</span> <span class="o">&gt;</span> <span class="n">distanceY</span> <span class="o">&amp;&amp;</span> <span class="n">distanceX</span> <span class="o">&gt;</span> <span class="n">dragthreshold</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">mPager</span><span class="o">.</span><span class="na">getParent</span><span class="o">().</span><span class="na">requestDisallowInterceptTouchEvent</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</span><span class='line'>                <span class="n">mScrollView</span><span class="o">.</span><span class="na">getParent</span><span class="o">().</span><span class="na">requestDisallowInterceptTouchEvent</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>            <span class="k">break</span><span class="o">;</span>
+</span><span class='line'>        <span class="k">case</span> <span class="n">MotionEvent</span><span class="o">.</span><span class="na">ACTION_UP</span><span class="o">:</span>
+</span><span class='line'>            <span class="n">mScrollView</span><span class="o">.</span><span class="na">getParent</span><span class="o">().</span><span class="na">requestDisallowInterceptTouchEvent</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">mPager</span><span class="o">.</span><span class="na">getParent</span><span class="o">().</span><span class="na">requestDisallowInterceptTouchEvent</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+</span><span class='line'>            <span class="k">break</span><span class="o">;</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I found this very useful solution on <a href="http://stackoverflow.com/questions/8381697/viewpager-inside-a-scrollview-does-not-scroll-correclty/16224484#16224484">StackOverflow</a>, among many other solutions that did work (although not as nicely as this one).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My Newest App: Bike Finder]]></title>
@@ -1478,7 +1565,7 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mv /etc/issue.backup /etc/issue
@@ -1645,56 +1732,6 @@ You will then receive an email from HTCDev with a link to the second    part of 
 
 
 <p></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WWDC Recap]]></title>
-    <link href="http://michaelevans.org/blog/2012/06/11/wwdc-recap/"/>
-    <updated>2012-06-11T21:55:00-04:00</updated>
-    <id>http://michaelevans.org/blog/2012/06/11/wwdc-recap</id>
-    <content type="html"><![CDATA[<p>If you remember from <a href="http://michaelevans.org/blog/2012/06/07/my-wwdc-2012-predictions/">last week</a>, I made some predictions about what Apple would reveal today at WWDC. Let&rsquo;s recap what actually happened, and we can see the hits and misses.</p>
-
-<h3>New Macs</h3>
-
-<p>Yep. Refresh for the Air and Pro lines, and the introduction of the &ldquo;Super Pro&rdquo;. Yeah, I was wrong about the &ldquo;Retina&rdquo; all around, and nothing for the Mac Mini, but I&rsquo;d say I was pretty darn close. There was technically an update for the Mac Pro, but as Marco from Instapaper <a href="http://www.marco.org/2012/06/11/half-assed-mac-pro">points out</a>, they basically didn&rsquo;t do Pro owners any favors.</p>
-
-<h3>Mountain Lion</h3>
-
-<p>Got a release <em>month</em> (July). There was iCloud Tabs, and a few other iOS features (Notification Center, iMessage, etc.) coming to the desktop.</p>
-
-<h3>iOS 6</h3>
-
-<p>I was a bit disappointed. Nothing I saw made me feel like I needed to have the newest update, since most of the new features are already present in the competitor&rsquo;s latest offering, Ice Cream Sandwich. Can&rsquo;t wait to see how Google strikes back in two weeks.</p>
-
-<!-- more -->
-
-
-<p></p>
-
-<h3>Retina Displays</h3>
-
-<p>I can&rsquo;t wait to see it, but at the same time, I don&rsquo;t want to. I know that I&rsquo;ll love it, and it will make me want one and get rid of my current Macbook Air. So if you own one, please don&rsquo;t show me.</p>
-
-<h3>New Maps</h3>
-
-<p>Yawn. Android users have had the same basic experience for maybe two years now.</p>
-
-<h3>Siri Update</h3>
-
-<p>Almost there. They added some more third party support, but it&rsquo;s not yet at that API level where I think it will really shine. Maybe in iOS 7?</p>
-
-<h3>Apple TV Update</h3>
-
-<p>Nothing, called that one.</p>
-
-<h3>Facebook Integration</h3>
-
-<p>Still don&rsquo;t care.</p>
-
-<p>Yeah, I got the &ldquo;Won&rsquo;t happen stuff&rdquo; right too (Did anyone <em>really</em> think there would be a iPad Mini?).</p>
-
-<p>All in all, I was actually kind of let down. Nothing in Mountain Lion or iOS 6 really makes me get that &ldquo;gotta have it&rdquo; feeling that iOS 5, or even Lion had. I really was hoping for a Retina Macbook Air (which I&rsquo;m guessing will come with the next refresh as Apple drives prices of displays down), but I didn&rsquo;t even see hardware (minus the Superbook Pro, which costs way more than I want to pay), that made me feel jealous because I still had the current stuff. Maybe my expectations were too high. I&rsquo;m still way more excited for Google IO, since I really don&rsquo;t have any concrete idea what we&rsquo;ll be seeing. Project Glass anyone?</p>
 ]]></content>
   </entry>
   
