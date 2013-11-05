@@ -1,10 +1,16 @@
 require 'bundler/setup'
 require 'sinatra/base'
+require 'newrelic_rpm'
+
+NewRelic::Agent.after_fork(:force_reconnect => true) if defined? Unicorn
 
 # The project root directory
 $root = ::File.dirname(__FILE__)
 
 class SinatraStaticServer < Sinatra::Base
+  configure :production do
+    require 'newrelic_rpm'
+  end
 
   get(/.+/) do
     send_sinatra_file(request.path) {404}
